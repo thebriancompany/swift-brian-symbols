@@ -1,8 +1,8 @@
 # 커스텀 심볼 제작 가이드
 
-하나의 커스텀 심볼에 기본 색상과 레이어 역할을 정의해 여러 색상 스타일을 제공한다. 꽃 심볼을 예시로 벡터 제작, 주석 설정, 앱 적용과 검증 절차를 설명한다. 예시 에셋은 아직 제작하지 않았다.
+먼저 [종류와 형태 규칙](symbol-naming.md)에 따라 다색 또는 단색을 선택한다. 다색은 채움형에 여러 색상 역할을 정의하고, 단색은 단순화한 line·fill에 하나의 색상을 적용한다. 꽃 심볼을 예시로 벡터 제작, 주석 설정, 앱 적용과 검증 절차를 설명한다. 예시 에셋은 아직 제작하지 않았다.
 
-## 제공할 렌더링 모드
+## 다색 심볼의 렌더링 모드
 
 | 제공 스타일 | 모드 | 제작 시 정의 | 사용 시 지정 |
 |---|---|---|---|
@@ -14,11 +14,15 @@
 
 Hierarchical은 하나의 색상을 계층별 불투명도로 표현한다. Palette와 같은 계층 데이터를 사용한다. 흑백은 별도 렌더링 모드가 아니라 색상 프리셋으로 제공한다. 모든 경로에 개별 색상을 전달하는 기능은 세 그룹을 사용하는 Palette와 구분한다. [Apple 렌더링 모드 안내](https://developer.apple.com/design/human-interface-guidelines/sf-symbols)
 
-기본 표시 방식은 Multicolor로 설계한다. 사용처의 기본 동작에 의존하지 않고 모드를 명시한다. 실제 API는 구현 단계에서 정한다.
+다색의 기본 표시 방식은 Multicolor로 설계한다. 사용처의 기본 동작에 의존하지 않고 모드를 명시한다. 실제 API는 구현 단계에서 정한다.
+
+## 단색 심볼의 렌더링 모드
+
+단색 line·fill은 Monochrome으로 표시하고 전체에 하나의 사용자 색상을 적용한다. 검정과 흰색은 각각 단색 선택지다. 한 에셋 안에서 검정과 흰색을 서로 다른 영역에 적용하는 표현은 다색 종류의 팔레트에 해당한다. 단색에는 Multicolor·Palette·Hierarchical용 장식 레이어를 요구하지 않는다.
 
 ## 벡터 제작
 
-먼저 [형태와 이름 규칙](symbol-naming.md)에 따라 기본형과 채움형의 제작 범위 및 에셋 이름을 정한다. 형태 변형은 각각 제작하며, 각 에셋 안에 필요한 색상 모드를 설정한다.
+먼저 종류와 에셋 이름을 정하고, 식별에 필요한 도형만 남긴다. 다색은 채움형 하나, 단색은 line·fill을 제작한다. 단색의 형태 예외는 [종류별 제작 범위와 단순화 원칙](symbol-naming.md)을 따른다.
 
 1. SF Symbols 앱에서 수정이 허용된 심볼의 템플릿을 내보낸다.
 2. 벡터 편집 도구에서 템플릿 구조와 가이드를 유지하며 도형을 만든다.
@@ -33,9 +37,9 @@ Hierarchical은 하나의 색상을 계층별 불투명도로 표현한다. Pale
 
 Apple 제품과 기능을 나타내는 일부 심볼은 수정이 제한된다. 템플릿을 선택할 때 SF Symbols 앱의 제한 안내를 확인한다. [커스텀 심볼 디자인 안내](https://developer.apple.com/design/human-interface-guidelines/sf-symbols)
 
-## 예시: 꽃 심볼의 레이어 설정
+## 예시: 다색 꽃 심볼의 레이어 설정
 
-에셋 이름을 `brian.flower`로 정하고 꽃잎, 꽃 중심, 줄기와 잎을 구분해 제작한다.
+에셋 이름을 `brian.color.flower`로 정하고 꽃잎, 꽃 중심, 줄기와 잎을 채워진 면으로 제작한다. line 변형은 만들지 않는다.
 
 | 도형 | 기본 컬러 | 계층 그룹 | 팔레트 역할 |
 |---|---|---|---|
@@ -54,11 +58,19 @@ SF Symbols 앱에서 갤러리 보기와 Rendering Inspector를 열고 다음을
 
 기본 컬러에는 고정 색상, 시스템 색상 또는 에셋 카탈로그 색상을 사용할 수 있다. 어두운 모드와 높은 대비에 적응하려면 해당 외형이 정의된 색상을 사용한다. 꽃잎만 사용자 색상을 따르게 하려면 꽃잎을 `tintColor`로 지정한다. [주석 설정 방법](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols)
 
+## 다색 컨테이너의 단색 표현
+
+채워진 컨테이너 안에 대상이 있는 다색 심볼은 Monochrome에서도 내부 대상이 식별되어야 한다. 색상 대비만으로 구분하면 같은 색으로 합쳐질 수 있으므로, 모드별 레이어 구성이나 실제 투명 영역으로 내부 형태를 유지한다.
+
+예를 들어 `brian.color.heart.circle`은 Multicolor에서 원과 하트를 서로 다른 색으로 표시하고, Monochrome에서는 채워진 원 안에 하트 모양의 투명 영역을 남길 수 있다. 흰색 도형으로 덮어 투명 영역을 대신하지 않는다. 이는 같은 다색 채움형 에셋의 렌더링 설정이며, 별도 line 변형을 추가하는 것이 아니다.
+
+작은 크기에서 검정 단색과 흰색 단색을 각각 대비되는 배경에 표시하고, 내부 대상이 사라지거나 경계가 뭉치지 않는지 확인한다.
+
 ## 내보내기와 앱 적용 예시
 
 SF Symbols 앱에서 배포용으로 내보낸 SVG를 Xcode 에셋 카탈로그의 심볼 에셋으로 추가한다. 일반 이미지로 추가하는 것만으로 심볼 주석이 갖춰지는 것은 아니다.
 
-아래는 iOS 15 이상 SwiftUI에서 색상 모드를 사용하는 예시다. `brian.flower`가 앱 에셋에 있고 필요한 주석이 설정되었다고 가정한다. 현재 저장소에는 실행 대상이 없어 컴파일과 화면 검증은 수행하지 않았다.
+아래는 iOS 15 이상 SwiftUI에서 색상 모드를 사용하는 예시다. `brian.color.flower`가 앱 에셋에 있고 필요한 주석이 설정되었다고 가정한다. 예시 에셋은 없으며 이 코드는 아직 실행 검증하지 않았다.
 
 ```swift
 import SwiftUI
@@ -66,22 +78,22 @@ import SwiftUI
 struct FlowerStyles: View {
     var body: some View {
         HStack(spacing: 20) {
-            Image("brian.flower")
+            Image("brian.color.flower")
                 .symbolRenderingMode(.multicolor)
 
-            Image("brian.flower")
+            Image("brian.color.flower")
                 .symbolRenderingMode(.monochrome)
                 .foregroundStyle(.purple)
 
-            Image("brian.flower")
+            Image("brian.color.flower")
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(.orange, .yellow, .green)
 
-            Image("brian.flower")
+            Image("brian.color.flower")
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(.black, .white, .black)
 
-            Image("brian.flower")
+            Image("brian.color.flower")
                 .symbolRenderingMode(.hierarchical)
                 .foregroundStyle(.blue)
         }
@@ -92,9 +104,11 @@ struct FlowerStyles: View {
 
 이 예시는 색상 적용만 설명한다. 정사각형 프레임은 [크기와 정렬 기준의 표시 예시](symbol-sizing.md#에셋과-표시-뷰의-책임)를 적용한다. 흑백 조합은 배경에 따라 반전하거나 적응형 색상으로 바꾼다. 전체 흰색은 Monochrome에 흰색 하나를 지정한다.
 
-Swift Package의 리소스라면 해당 번들을 지정한다. 리소스 처리가 구성된 패키지 타깃 내부에서는 `Image("brian.flower", bundle: .module)`을 사용할 수 있다.
+Swift Package의 리소스라면 해당 번들을 지정한다. 리소스 처리가 구성된 패키지 타깃 내부에서는 `Image("brian.color.flower", bundle: .module)`을 사용할 수 있다.
 
 지원하지 않는 모드를 요청하면 단색으로 표시될 수 있다. 색상 지정 코드와 에셋 주석을 함께 검증한다. [앱에서 심볼 설정하기](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui)
+
+단색의 경우 `Image("brian.house")` 또는 `Image("brian.house.fill")`에 `.symbolRenderingMode(.monochrome).foregroundStyle(.purple)`을 적용한다. 이 이름들도 제작 규칙을 설명하는 예시다.
 
 ## 색상 외 기능
 
@@ -116,10 +130,13 @@ Variable Color는 값에 따라 레이어의 불투명도와 강조를 바꾸는
 ## 완료 기준
 
 - SF Symbols 앱에서 템플릿과 주석이 유효하다.
-- 기본 컬러, 단색, 팔레트, 흑백, 계층 색상이 실제 앱에서 의도대로 표시된다.
+- 다색은 채움형만 제공하며 기본 컬러·단색·팔레트·흑백·계층 표현을 실제 앱에서 검증한다.
+- 다색 컨테이너는 [단색 표현 기준](#다색-컨테이너의-단색-표현)에 따라 작은 크기의 Monochrome에서도 내부 대상이 식별된다.
+- 단색은 line·fill 또는 명시된 형태 예외를 제공하며, 사용자 단색·검정·흰색을 검증한다.
+- 단색은 다색 버전의 장식이나 색상 경계를 그대로 복제하지 않고, 작은 크기에서 필요한 요소만 남긴다.
 - 밝은 배경과 어두운 배경에서 형태와 내부 경계가 식별된다.
 - [크기 검증](symbol-sizing.md#크기-검증)을 통과한다.
 - 추가한 가변 렌더링과 애니메이션을 대상 OS에서 확인한다.
 - 제작 원본, 배포용 SVG, 에셋 이름과 지원 기능을 함께 관리한다.
 
-첫 제작에서는 꽃 심볼과 형태가 다른 대표 심볼로 전체 과정을 검증한다. 검증 후 수치와 API를 확정하고 다른 심볼에 같은 기준을 적용한다.
+첫 제작에서는 단색 line·fill과 다색 채움형을 각각 제작하고 종류에 맞는 검증을 수행한다. 검증 후 수치와 API를 확정하고 다른 심볼에 같은 기준을 적용한다.
