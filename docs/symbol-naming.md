@@ -40,7 +40,7 @@ fill은 형태를 뜻하며 선택 상태 자체를 뜻하지 않는다. 화면�
 
 소문자 영문을 사용한다. 방향은 대상 바로 뒤에 둔다. `brian.arrow.right`는 대상 `arrow`와 방향 `right`로 구성된다. `magnifyingglass` 같은 합성 명사는 하나의 대상 이름으로 쓰며 단어마다 점으로 나누지 않는다.
 
-같은 종류 안에서 `home`과 `house`처럼 같은 대상을 다른 이름으로 중복 등록하지 않는다. 두 종류에 같은 대상을 제공할 때는 `brian.house`와 `brian.color.house`처럼 대상 이름을 공유한다. 화면 위치, 특정 색상, 크기, 굵기, 버전 번호는 이름에 넣지 않는다. Swift 공개 API는 `BrianSymbol`의 lowerCamelCase case로 제공한다. 예를 들어 `brian.house.fill`은 `.houseFill`이며, 실제 등록 절차는 [에셋 추가](../README.md#에셋-추가)를 따른다.
+같은 종류 안에서 `home`과 `house`처럼 같은 대상을 다른 이름으로 중복 등록하지 않는다. 두 종류에 같은 대상을 제공할 때는 `brian.house`와 `brian.color.house`처럼 대상 이름을 공유한다. 화면 위치, 특정 색상, 크기, 굵기, 버전 번호는 이름에 넣지 않는다. Swift 공개 API는 `BrianSymbol`의 lowerCamelCase case로 제공한다. 예를 들어 `brian.house.fill`은 `.houseFill`이며, 실제 등록 절차는 [패키지에 에셋 추가](symbol-authoring.md#패키지에-에셋-추가)를 따른다.
 
 ## 형태 수식어
 

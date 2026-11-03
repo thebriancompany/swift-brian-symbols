@@ -68,7 +68,18 @@ SF Symbols 앱에서 갤러리 보기와 Rendering Inspector를 열고 다음을
 
 ## 내보내기와 앱 적용 예시
 
-SF Symbols 앱에서 배포용으로 내보낸 SVG를 패키지의 에셋 카탈로그에 심볼 에셋으로 추가하고, 이름과 일치하는 `BrianSymbol` case를 등록한다. 경로와 등록·빌드 순서는 [README의 에셋 추가 절차](../README.md#에셋-추가)를 따른다. 등록 후 데모에서 표시 결과를 확인한다. 일반 이미지로 추가하는 것만으로 심볼 주석이 갖춰지는 것은 아니다.
+SF Symbols 앱에서 배포용 SVG를 내보낸 뒤 아래 순서로 등록한다. 일반 이미지로 추가하는 것만으로 심볼 주석이 갖춰지는 것은 아니다.
+
+### 패키지에 에셋 추가
+
+1. [에셋 카탈로그](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets)에 새 `.symbolset`을 추가한다. SVG와 이를 가리키는 `Contents.json`을 함께 넣는다. 이 폴더의 SVG가 편집·배포 기준 원본이다.
+2. [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift)에 에셋 이름과 일치하는 case를 추가한다. 예: `case star = "brian.star"`.
+3. 패키지를 다시 빌드하고 [macOS 데모](../README.md#macos-데모-앱)에서 표시를 확인한다. 크기·굵기·색상과 line·fill의 정렬을 점검한다.
+4. [에셋 목록과 개별 사양](symbol-assets.md)에 공개 이름, 제작 특성, 실제 검증 범위를 기록한다.
+
+에셋 파일과 공개 case는 함께 추가한다. 새 case는 데모 목록에 자동으로 표시되므로 별도 목록 등록이나 생성 스크립트 실행은 필요 없다. 원격 패키지 소비자는 변경이 포함된 버전으로 의존성을 업데이트하고 다시 빌드해야 한다.
+
+### 다색 꽃 적용 예시
 
 아래 꽃 예시는 일반적인 SwiftUI 렌더링 모드 설명이다. 패키지 등록 절차와는 별개로, `brian.color.flower`를 앱의 에셋 카탈로그에 직접 넣고 필요한 주석을 설정했다고 가정한다. 예시 에셋은 없으며 이 코드는 아직 실행 검증하지 않았다. 현재 패키지의 사용법과 최소 지원 버전은 [README의 다른 앱에서 사용](../README.md#다른-앱에서-사용)을 따른다.
 
