@@ -1,6 +1,9 @@
 import SwiftUI
 
 public enum BrianSymbol: String, CaseIterable, Identifiable, Sendable {
+  case checkmark = "brian.checkmark"
+  case checkmarkCircle = "brian.checkmark.circle"
+  case checkmarkCircleFill = "brian.checkmark.circle.fill"
   case chevronDown = "brian.chevron.down"
   case chevronDownCircle = "brian.chevron.down.circle"
   case chevronDownCircleFill = "brian.chevron.down.circle.fill"
@@ -19,6 +22,9 @@ public enum BrianSymbol: String, CaseIterable, Identifiable, Sendable {
   case houseFill = "brian.house.fill"
   case minus = "brian.minus"
   case plus = "brian.plus"
+  case xmark = "brian.xmark"
+  case xmarkCircle = "brian.xmark.circle"
+  case xmarkCircleFill = "brian.xmark.circle.fill"
 }
 
 extension BrianSymbol {
