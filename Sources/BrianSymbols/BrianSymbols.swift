@@ -1,6 +1,8 @@
 import SwiftUI
 
 public enum BrianSymbol: String, CaseIterable, Identifiable, Sendable {
+  case gearshape = "brian.gearshape"
+  case gearshapeFill = "brian.gearshape.fill"
   case house = "brian.house"
   case houseFill = "brian.house.fill"
 }
