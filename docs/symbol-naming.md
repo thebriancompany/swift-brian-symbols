@@ -42,6 +42,8 @@ fill은 형태를 뜻하며 선택 상태 자체를 뜻하지 않는다. 화면�
 
 같은 종류 안에서 `home`과 `house`처럼 같은 대상을 다른 이름으로 중복 등록하지 않는다. 두 종류에 같은 대상을 제공할 때는 `brian.house`와 `brian.color.house`처럼 대상 이름을 공유한다. 화면 위치, 특정 색상, 크기, 굵기, 버전 번호는 이름에 넣지 않는다. Swift 공개 API는 `BrianSymbol`의 lowerCamelCase case로 제공한다. 예를 들어 `brian.house.fill`은 `.houseFill`이며, 실제 등록 절차는 [패키지에 에셋 추가](symbol-authoring.md#패키지에-에셋-추가)를 따른다.
 
+`BrianSymbol`의 case 선언과 에셋 목록·개별 사양은 에셋 이름 기준 알파벳순으로 유지한다. 방향은 `down` → `left` → `right` → `up` 순서이며, 기본 이름 뒤에 해당 변형을 배치한다.
+
 ## 형태 수식어
 
 필요한 형태에만 `slash`, `circle`, `square`를 추가한다. 컨테이너는 `circle` 또는 `square` 중 하나를 사용한다. 복합 수식어는 대상 → 방향 → 사선 → 컨테이너 순서이며, 단색 fill은 마지막에 `.fill`을 붙인다.
