@@ -68,9 +68,9 @@ SF Symbols 앱에서 갤러리 보기와 Rendering Inspector를 열고 다음을
 
 ## 내보내기와 앱 적용 예시
 
-SF Symbols 앱에서 배포용으로 내보낸 SVG를 Xcode 에셋 카탈로그의 심볼 에셋으로 추가한다. 일반 이미지로 추가하는 것만으로 심볼 주석이 갖춰지는 것은 아니다.
+SF Symbols 앱에서 배포용으로 내보낸 SVG를 패키지의 에셋 카탈로그에 심볼 에셋으로 추가하고, 이름과 일치하는 `BrianSymbol` case를 등록한다. 경로와 등록·빌드 순서는 [README의 에셋 추가 절차](../README.md#에셋-추가)를 따른다. 등록 후 데모에서 표시 결과를 확인한다. 일반 이미지로 추가하는 것만으로 심볼 주석이 갖춰지는 것은 아니다.
 
-아래는 iOS 15 이상 SwiftUI에서 색상 모드를 사용하는 예시다. `brian.color.flower`가 앱 에셋에 있고 필요한 주석이 설정되었다고 가정한다. 예시 에셋은 없으며 이 코드는 아직 실행 검증하지 않았다.
+아래 꽃 예시는 일반적인 SwiftUI 렌더링 모드 설명이다. 패키지 등록 절차와는 별개로, `brian.color.flower`를 앱의 에셋 카탈로그에 직접 넣고 필요한 주석을 설정했다고 가정한다. 예시 에셋은 없으며 이 코드는 아직 실행 검증하지 않았다. 현재 패키지의 사용법과 최소 지원 버전은 [README의 다른 앱에서 사용](../README.md#다른-앱에서-사용)을 따른다.
 
 ```swift
 import SwiftUI
@@ -108,7 +108,7 @@ Swift Package의 리소스라면 해당 번들을 지정한다. 리소스 처리
 
 지원하지 않는 모드를 요청하면 단색으로 표시될 수 있다. 색상 지정 코드와 에셋 주석을 함께 검증한다. [앱에서 심볼 설정하기](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui)
 
-단색의 경우 `Image("brian.house")` 또는 `Image("brian.house.fill")`에 `.symbolRenderingMode(.monochrome).foregroundStyle(.purple)`을 적용한다. 이 이름들도 제작 규칙을 설명하는 예시다.
+이 패키지의 단색은 `import BrianSymbols` 후 `Image(brianSymbol: .house)` 또는 `Image(brianSymbol: .houseFill)`에 `.symbolRenderingMode(.monochrome).foregroundStyle(.purple)`을 적용한다. 단색 집 에셋은 제공 중이며, macOS 데모 앱에서 확인할 수 있다.
 
 ## 색상 외 기능
 
@@ -125,7 +125,7 @@ Swift Package의 리소스라면 해당 번들을 지정한다. 리소스 처리
 
 Variable Color는 값에 따라 레이어의 불투명도와 강조를 바꾸는 기능이다. 임의의 색상 간 보간과 구분한다. 애니메이션은 모든 효과에 별도 주석이 필요한 것은 아니다. [기능 개요](https://developer.apple.com/sf-symbols/), [가변 렌더링 및 애니메이션 주석](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols)
 
-최소 지원 OS와 사용할 SF Symbols 도구 버전은 아직 확정하지 않았다. 에셋 제작을 시작할 때 기능별 지원 조건을 확인하고, 지원 기능과 대체 표현을 기록한다. 검증 전에는 모든 기능 지원을 보장하지 않는다.
+패키지에 선언된 최소 지원 OS와 실제 검증 범위는 [README의 지원 버전 설명](../README.md#다른-앱에서-사용)을 따른다. 사용할 SF Symbols 도구 버전은 아직 확정하지 않았다. 추가 기능을 제작할 때는 패키지의 최소 버전과 별도로 해당 기능의 OS·도구 지원 조건을 확인하고, 실제 검증한 환경과 대체 표현을 기록한다. 패키지의 최소 버전 선언만으로 모든 기능의 동작을 보장하지 않는다.
 
 ## 완료 기준
 
