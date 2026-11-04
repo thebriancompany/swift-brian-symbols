@@ -1,6 +1,6 @@
 # Custom symbol authoring guide
 
-First choose multicolor or monochrome according to the [type and shape rules](symbol-naming.md). Multicolor assets define multiple color roles in a filled shape; monochrome assets apply one color to simplified line and fill variants. This guide uses a flower to explain vector authoring, annotations, app integration, and validation. The example asset has not yet been created.
+First choose multicolor or monochrome according to the [type and shape rules](symbol-naming.md). Multicolor assets define multiple color roles in a filled shape; monochrome assets apply one color to simplified line and fill variants. The flower is a hypothetical example for vector authoring and annotation; it is not an available asset. The package usage example uses the color folder introduced in 0.2.0.
 
 ## Rendering modes for multicolor symbols
 
@@ -14,7 +14,7 @@ First choose multicolor or monochrome according to the [type and shape rules](sy
 
 Hierarchical renders one color at different opacities by hierarchy, using the same hierarchy data as Palette. Black and white is a color preset, not a separate rendering mode. Assigning an individual color to every path is distinct from Palette's three groups. See [Apple's rendering mode guidance](https://developer.apple.com/design/human-interface-guidelines/sf-symbols).
 
-Design multicolor assets to default to Multicolor. Set the mode explicitly rather than relying on consumer defaults. The actual API will be determined during implementation.
+Use `Image(brianSymbol:)` to load package assets and `.symbolRenderingMode(...)` to select a rendering mode explicitly. See [Using the color folder](#using-the-color-folder) for Multicolor, Monochrome, Palette, and Hierarchical examples.
 
 ## Rendering modes for monochrome symbols
 
@@ -80,43 +80,42 @@ Export a distribution SVG from the SF Symbols app, then register it as follows. 
 
 Add asset files and public cases together. New cases appear automatically in the demo, so no separate list registration or generation script is needed. Remote package consumers must update to a version containing the change and rebuild.
 
-### Multicolor flower example
+### Using the color folder
 
-This example illustrates SwiftUI rendering modes. Independently of package registration, it assumes `brian.color.flower` has been added directly to the app's asset catalog with the required annotations. The example asset does not exist, and this code has not been run for validation. See the README for current package [usage](../README.md#usage) and [minimum platform versions](../README.md#installation).
+`.colorFolder` requires **0.2.0** or later. `Image(brianSymbol:)` loads the package resource bundle automatically.
 
 ```swift
 import SwiftUI
+import BrianSymbols
 
-struct FlowerStyles: View {
+struct FolderStyles: View {
     var body: some View {
         HStack(spacing: 20) {
-            Image("brian.color.flower")
+            Image(brianSymbol: .colorFolder)
                 .symbolRenderingMode(.multicolor)
+                .foregroundStyle(.blue)
 
-            Image("brian.color.flower")
+            Image(brianSymbol: .colorFolder)
                 .symbolRenderingMode(.monochrome)
                 .foregroundStyle(.purple)
 
-            Image("brian.color.flower")
+            Image(brianSymbol: .colorFolder)
                 .symbolRenderingMode(.palette)
-                .foregroundStyle(.orange, .yellow, .green)
+                .foregroundStyle(.orange, .indigo, .yellow)
 
-            Image("brian.color.flower")
-                .symbolRenderingMode(.palette)
-                .foregroundStyle(.black, .white, .black)
-
-            Image("brian.color.flower")
+            Image(brianSymbol: .colorFolder)
                 .symbolRenderingMode(.hierarchical)
                 .foregroundStyle(.blue)
         }
-        .font(.system(size: 20))
+        .font(.system(size: 24, weight: .regular))
+        .imageScale(.small)
     }
 }
 ```
 
-This example covers color only. For square frames, follow the [display example in the sizing guidelines](symbol-sizing.md#asset-and-view-responsibilities). Invert black and white combinations or use adaptive colors according to the background. For an entirely white symbol, use Monochrome with one white color.
+In Multicolor, the tint affects the folder's front and back while the paper keeps its authored color. Palette assigns the three colors to the front, back, and paper, respectively. See the [color folder specification](symbol-assets.md#colorfolder) for mode-specific behavior and validation coverage.
 
-For Swift package resources, specify the resource bundle. Inside a package target configured to process resources, use `Image("brian.color.flower", bundle: .module)`.
+For an entirely black or white symbol, select Monochrome and use `.foregroundStyle(.black)` or `.foregroundStyle(.white)` on a contrasting background. For square layout slots, apply the [sizing guidelines](symbol-sizing.md#asset-and-view-responsibilities) to each image.
 
 Requesting an unsupported mode may result in monochrome rendering. Validate color-setting code together with asset annotations. See [configuring symbols in an app](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui).
 

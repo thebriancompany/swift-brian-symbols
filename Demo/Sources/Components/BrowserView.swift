@@ -14,7 +14,7 @@ struct BrowserView: View {
 
   private var filtered: [BrianSymbol] {
     BrianSymbol.allCases.filter {
-      (group == .all || group == nil || (group == .fill ? $0.isFill : !$0.isFill)) &&
+      (group ?? .all).contains($0) &&
       (query.isEmpty || $0.id.localizedCaseInsensitiveContains(query))
     }
   }

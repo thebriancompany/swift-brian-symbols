@@ -4,7 +4,9 @@ This document lists public symbol names, authoring details, and validation cover
 
 ## Available assets
 
-Public names are defined in [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift), and distribution sources are maintained in the [asset catalog](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets). All currently available assets are monochrome and use Monochrome rendering.
+Public names are defined in [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift), and distribution sources are maintained in the [asset catalog](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets). Monochrome assets use Monochrome rendering; color assets support the modes described in their individual specifications.
+
+This catalog describes **0.2.0**, which adds `color.folder`, `folder`, `folder.fill`, `text.document`, and `text.document.fill`. See the [demo instructions](../README.md#demo) for preview controls.
 
 The list and individual specifications are alphabetized by asset name.
 
@@ -20,8 +22,10 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle right chevron](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
 | [Circle ellipsis](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
+| [Folder](#folder) | `.folder` | `.folderFill` | `brian.folder`, `brian.folder.fill` |
 | [Gear](#gearshape) | `.gearshape` | `.gearshapeFill` | `brian.gearshape`, `brian.gearshape.fill` |
 | [House](#house) | `.house` | `.houseFill` | `brian.house`, `brian.house.fill` |
 | [Three horizontal lines](#line3horizontal) | `.line3Horizontal` | — | `brian.line.3.horizontal` |
@@ -38,6 +42,7 @@ The list and individual specifications are alphabetized by asset name.
 | [2×2 grid](#squaregrid2x2) | `.squareGrid2x2` | `.squareGrid2x2Fill` | `brian.square.grid.2x2`, `brian.square.grid.2x2.fill` |
 | [3×3 grid](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
 | [Upward square stack](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
+| [Text document](#textdocument) | `.textDocument` | `.textDocumentFill` | `brian.text.document`, `brian.text.document.fill` |
 | [X mark](#xmark) | `.xmark` | — | `brian.xmark` |
 | [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
@@ -78,6 +83,23 @@ Place each of the four directions inside a circle of diameter 20 units. Rotate t
 
 Line and fill for all four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
 
+## color.folder
+
+A flat folder consists of a light-blue back with a raised tab, an off-white sheet, and a blue front. It uses solid fills and rounded corners without gradients, perspective, or shadows. All weights retain the same 20 × 17.6-unit bounds, from (2, 3.4) to (22, 21). The back and paper stay fixed. Only the front’s upper edge moves down by up to 0.65 units at Ultralight and up by up to 0.65 units at Black, varying the front panel thickness while keeping its width and bottom edge fixed. The paper starts at (6.2, 6.7), shifted 0.8 units left and 0.6 units down to expose more of the back.
+
+Select a mode with `.symbolRenderingMode(...)`. Color behavior depends on that mode:
+
+| Mode | Color behavior |
+|---|---|
+| Multicolor | The front follows the tint; the back uses the same tint at 50% opacity. The paper retains its authored off-white color. |
+| Monochrome | One color covers the folder. The paper region behind the front becomes transparent to preserve separation. |
+| Hierarchical | One base color is rendered at different opacities: Primary for the front, Secondary for the back, and Tertiary for the paper. |
+| Palette | Three supplied colors apply to the front, back, and paper, respectively. The paper color is customizable. |
+
+See the [package rendering example](symbol-authoring.md#using-the-color-folder) for tint and palette configuration.
+
+Validated: macOS demo build and AppKit rendering at 16, 24, 32, and 56pt across Ultralight, Regular, and Black in Multicolor, black and white Monochrome, three-color Palette, and Hierarchical. SwiftUI rendering additionally verified blue and purple foreground styles at 64pt across all three source weights, with the paper color preserved. SF Symbols app import has not yet been validated.
+
 ## ellipsis
 
 Three circular dots lie horizontally at y=12. Base dot centers are x=5, 12, and 19; inside circles, x=7, 12, and 17. For Ultralight, Regular, and Black, base radii are 1.25, 1.65, and 2 units; inner-circle radii are 1, 1.3, and 1.6 units.
@@ -85,6 +107,12 @@ Three circular dots lie horizontally at y=12. Base dot centers are x=5, 12, and 
 The base shape has no line/fill distinction. The circle has a diameter of 20 units and line border thicknesses of 0.9, 1.65, and 2.35 units. Fill uses three genuinely transparent dots within the same outer circle.
 
 Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
+
+## folder
+
+A rounded folder with a raised upper-left tab occupies a 20 × 16-unit area, from (2, 4) to (22, 20). The tab transitions smoothly into the upper edge of the body. Line and fill share the same outer silhouette, with no decorative interior seam. Line uses a transparent inset with thicknesses of 0.9, 1.65, and 2.35 units across the three source weights. Fill keeps the same silhouette at every weight.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt across Ultralight, Regular, and Black on a light background. White and purple rendering were also checked on a dark background. SF Symbols app import has not yet been validated.
 
 ## gearshape
 
@@ -159,6 +187,12 @@ Validated: macOS demo build, SVG structure, and matching path-command structures
 The diamond-shaped top face and two lower layers use closed filled paths with rounded corners. The top outer boundary begins curving 2.4 units from each vertex, and the inner boundary at 1.5 units. The two lower layers also have smooth bends and ends. Line leaves the top interior transparent; fill fills the top face. Lower-layer thicknesses across the three source weights are 0.9, 1.65, and 2.35 units.
 
 Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
+
+## text.document
+
+A centered 16 × 20-unit rounded document contains three rounded text lines, with the final line shortened to 67%. The corner radius is 2.6 units. Line preserves a transparent interior; fill uses transparent text cutouts. Border and text thicknesses are 0.9, 1.65, and 2.35 units across Ultralight, Regular, and Black.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt. Monochrome variants were also checked with white and purple on a dark background. SF Symbols app import has not yet been validated.
 
 ## xmark
 

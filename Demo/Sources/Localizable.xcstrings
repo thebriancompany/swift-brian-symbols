@@ -134,7 +134,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "단색"
+            "value" : "색상"
           }
         }
       }
@@ -173,6 +173,23 @@
         }
       }
     },
+    "Hierarchical" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hierarchical"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계층 색상"
+          }
+        }
+      }
+    },
     "Library" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -207,6 +224,40 @@
         }
       }
     },
+    "Monochrome" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochrome"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "단색"
+          }
+        }
+      }
+    },
+    "Multicolor" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multicolor"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다중 색상"
+          }
+        }
+      }
+    },
     "No Symbol Selected" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -220,6 +271,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "선택된 심볼 없음"
+          }
+        }
+      }
+    },
+    "Palette" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Palette"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "팔레트"
           }
         }
       }
@@ -257,6 +325,23 @@
         }
       }
     },
+    "Primary Color" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primary Color"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "첫 번째 색상"
+          }
+        }
+      }
+    },
     "Regular" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -270,6 +355,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "보통"
+          }
+        }
+      }
+    },
+    "Rendering Mode" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendering Mode"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "렌더링 모드"
           }
         }
       }
@@ -308,6 +410,23 @@
         }
       }
     },
+    "Secondary Color" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secondary Color"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "두 번째 색상"
+          }
+        }
+      }
+    },
     "Show Image Bounds" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -341,6 +460,23 @@
         }
       }
     },
+    "Tertiary Color" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tertiary Color"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세 번째 색상"
+          }
+        }
+      }
+    },
     "The filled house uses the same silhouette at every weight." : {
       "localizations" : {
         "en" : {
@@ -353,6 +489,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fill은 모든 굵기에서 같은 실루엣을 사용합니다."
+          }
+        }
+      }
+    },
+    "Tint changes supported layers; fixed colors stay unchanged." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tint changes supported layers; fixed colors stay unchanged."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "색상 변경을 지원하는 영역에 적용됩니다. 고정 색상은 유지됩니다."
           }
         }
       }
