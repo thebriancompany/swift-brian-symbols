@@ -76,6 +76,7 @@ Export a distribution SVG from the SF Symbols app, then register it as follows. 
 2. Add a case matching the asset name to [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift), such as `case star = "brian.star"`.
 3. Rebuild the package and check the [macOS demo](../README.md#demo). Inspect size, weight, color, and alignment between line and fill.
 4. Record the public name, authoring details, and actual validation coverage in the [asset specifications](symbol-assets.md).
+5. Prepare the PR with [rendered previews and validation results](asset-pull-requests.md).
 
 Add asset files and public cases together. New cases appear automatically in the demo, so no separate list registration or generation script is needed. Remote package consumers must update to a version containing the change and rebuild.
 

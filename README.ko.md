@@ -49,4 +49,5 @@ README는 영어와 한국어로 제공하며, 나머지 문서는 영어로 제
 - [에셋 목록과 개별 사양](docs/symbol-assets.md)
 - [형태와 이름 규칙](docs/symbol-naming.md)
 - [심볼 제작·등록 가이드](docs/symbol-authoring.md)
+- [에셋 PR 작성과 프리뷰 첨부](docs/asset-pull-requests.md)
 - [크기와 정렬 기준](docs/symbol-sizing.md)
