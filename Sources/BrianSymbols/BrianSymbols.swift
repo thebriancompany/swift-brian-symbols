@@ -53,6 +53,7 @@ public enum BrianSymbol: String, CaseIterable, Identifiable, Sendable {
   case squareStack3dUpFill = "brian.square.stack.3d.up.fill"
   case textDocument = "brian.text.document"
   case textDocumentFill = "brian.text.document.fill"
+  case textformat = "brian.textformat"
   case xmark = "brian.xmark"
   case xmarkCircle = "brian.xmark.circle"
   case xmarkCircleFill = "brian.xmark.circle.fill"

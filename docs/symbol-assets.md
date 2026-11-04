@@ -46,10 +46,11 @@ The list and individual specifications are alphabetized by asset name.
 | [3×3 grid](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
 | [Upward square stack](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
 | [Text document](#textdocument) | `.textDocument` | `.textDocumentFill` | `brian.text.document`, `brian.text.document.fill` |
+| [Text format](#textformat) | `.textformat` | — | `brian.textformat` |
 | [X mark](#xmark) | `.xmark` | — | `brian.xmark` |
 | [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
-The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
+The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, `textformat`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
 
 The uncontained `pencil` intentionally uses a filled design as its only base shape, without a separate outline variant. The demo also classifies it as Line because its name has no `.fill` suffix. See the [pencil specification](#pencil) for its geometry and circle variants.
 
@@ -229,6 +230,12 @@ Validated: macOS demo build, SVG structure, and matching path-command structures
 A centered 16 × 20-unit rounded document contains three rounded text lines, with the final line shortened to 67%. The corner radius is 2.6 units. Line preserves a transparent interior; fill uses transparent text cutouts. Border and text thicknesses are 0.9, 1.65, and 2.35 units across Ultralight, Regular, and Black.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt. Monochrome variants were also checked with white and purple on a dark background. SF Symbols app import has not yet been validated.
+
+## textformat
+
+An uppercase A and a double-storey lowercase a share a baseline at y=19. Outlines use the rounded system sans-serif design. Ultralight and Regular use their corresponding font weights; the Black symbol source uses Semibold outlines to preserve legibility and avoid an excessively heavy typographic shape. All sources share Regular’s per-letter bounds, baseline, and spacing within a 20-unit width and 14-unit cap height, keeping the Aa proportions stable when changing symbol weight. Both letters use closed filled paths with transparent counters and matching path-command structures across weights. Only the base shape is provided because a separate fill variant would not convey a distinct shape.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and black-on-white AppKit rendering at 16, 24, and 32pt across those weights. SF Symbols app import and dark-background rendering have not yet been validated.
 
 ## xmark
 
