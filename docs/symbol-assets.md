@@ -30,6 +30,9 @@
 | [원형 길이가 줄어드는 가로선 3개](#line3horizontal) | `.line3HorizontalDecreaseCircle` | `.line3HorizontalDecreaseCircleFill` | `brian.line.3.horizontal.decrease.circle`, `brian.line.3.horizontal.decrease.circle.fill` |
 | [빼기](#minus) | `.minus` | — | `brian.minus` |
 | [더하기](#plus) | `.plus` | — | `brian.plus` |
+| [사각형](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
+| [파선 사각형](#square) | `.squareDashed` | — | `brian.square.dashed` |
+| [점선 사각형](#square) | `.squareDotted` | — | `brian.square.dotted` |
 | [2×2 격자](#squaregrid2x2) | `.squareGrid2x2` | `.squareGrid2x2Fill` | `brian.square.grid.2x2`, `brian.square.grid.2x2.fill` |
 | [3×3 격자](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
 | [위로 쌓인 사각형](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
@@ -118,6 +121,14 @@ macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기�
 가로·세로 길이가 같은 더하기다. 선 끝은 반원으로 마감하고 중심은 디자인 좌표 (12, 12)에 둔다. 중심선의 각 축 길이는 16단위다.
 
 macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기를 확인했다.
+
+## square
+
+20 × 20단위 영역에 모서리 반지름 5단위의 사각형을 배치한다. Line은 내부가 실제 투명 영역이며 Fill은 같은 외곽을 채운다. 세 소스 굵기의 테두리 두께는 0.9·1.65·2.35단위다.
+
+Dotted는 외곽을 따라 원형 점 24개, Dashed는 둥근 끝을 가진 파선 12개를 균등 배치한다. 굵기에 맞춰 중심선을 안쪽으로 이동해 바깥 크기를 유지한다. 두 형태는 별도 fill 없이 제공하며 데모에서는 Line으로 분류한다. 모든 도형은 닫힌 면 경로이며 세 굵기의 경로 명령 구조를 동일하게 유지한다.
+
+macOS 데모 빌드, SVG 구조와 AppKit의 40pt 설정에서 세 소스 굵기의 렌더링을 확인했다. SF Symbols 앱 가져오기와 16·24·32pt 작은 크기 비교는 아직 검증하지 않았다.
 
 ## square.grid.2x2
 
