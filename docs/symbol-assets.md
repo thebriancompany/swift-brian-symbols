@@ -12,6 +12,8 @@ The list and individual specifications are alphabetized by asset name.
 
 | Subject | Base / Line case | Fill case | Asset name |
 |---|---|---|---|
+| [Book](#book) | `.book` | `.bookFill` | `brian.book`, `brian.book.fill` |
+| [Circle book](#book-circle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
 | [Checkmark](#checkmark) | `.checkmark` | — | `brian.checkmark` |
 | [Circle checkmark](#checkmark) | `.checkmarkCircle` | `.checkmarkCircleFill` | `brian.checkmark.circle`, `brian.checkmark.circle.fill` |
 | [Down chevron](#chevron) | `.chevronDown` | — | `brian.chevron.down` |
@@ -22,6 +24,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle right chevron](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
@@ -66,6 +69,18 @@ The catalog SVGs are the editing source of truth. One-off generation and validat
 
 None of the current assets have been validated on physical iOS devices, the minimum supported OS versions, with Dynamic Type, or with animation. See the [README](../README.md#installation) for declared platform versions.
 
+## book
+
+The line book uses one continuous outer contour and one central binding stroke. Both are expanded into closed filled paths with round joins and caps at uniform widths of 0.9, 1.65, and 2.35 units across Ultralight, Regular, and Black. The central stroke meets the contour endpoints without overlapping page borders or a doubled seam. Fill uses rounded solid pages separated by a transparent binding 1.2, 1.5, and 1.78 units wide across the three weights.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
+## book circle
+
+A 20-unit-diameter circle contains the book at 61% scale. Line combines an outlined circle and outlined pages. Fill uses transparent page silhouettes cut out of the filled circle, preserving the binding between them. Circle border thicknesses follow the base book weights.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
 ## checkmark
 
 The base checkmark centerline is (4, 12) → (9.5, 17.5) → (20, 6.5). Inside circles, it is (7, 12) → (10.5, 15.5) → (17, 8.5). Ends and outer joins are rounded.
@@ -88,6 +103,12 @@ Place each of the four directions inside a circle of diameter 20 units. Rotate t
 - Fill: fill the circle with a genuinely transparent chevron cutout. Preserve the circle silhouette while varying chevron thickness by weight.
 
 Line and fill for all four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
+
+## color.book
+
+An open book uses a blue outline (`#3979D6`) and one continuous warm paper layer (`#FFF4DC`), giving both facing pages the same default color. The outline and central binding share the line book’s uniform stroke widths and rounded joins. Fixed SVG colors provide the multicolor appearance. Primary maps to the blue outline and Secondary to the paper for Palette and Hierarchical rendering. In Monochrome, the paper is hidden and the uniform outline remains. No separate color line variant is provided.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. Explicit Multicolor rendering preserves the blue cover and matching paper colors. SF Symbols app import, minimum-OS behavior, and SwiftUI rendering-mode overrides have not yet been validated.
 
 ## color.folder
 
