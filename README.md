@@ -9,7 +9,7 @@
 - iOS 16 이상 / macOS 13 이상
 
 ```swift
-.package(url: "https://github.com/thebriancompany/swift-brian-symbols.git", branch: "main")
+.package(url: "https://github.com/thebriancompany/swift-brian-symbols.git", exact: "0.1.0")
 ```
 
 
