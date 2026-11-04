@@ -28,6 +28,8 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle with three horizontal lines](#line3horizontal) | `.line3HorizontalCircle` | `.line3HorizontalCircleFill` | `brian.line.3.horizontal.circle`, `brian.line.3.horizontal.circle.fill` |
 | [Decreasing horizontal lines](#line3horizontal) | `.line3HorizontalDecrease` | — | `brian.line.3.horizontal.decrease` |
 | [Circle with decreasing horizontal lines](#line3horizontal) | `.line3HorizontalDecreaseCircle` | `.line3HorizontalDecreaseCircleFill` | `brian.line.3.horizontal.decrease.circle`, `brian.line.3.horizontal.decrease.circle.fill` |
+| [Magnifying glass](#magnifyingglass) | `.magnifyingglass` | — | `brian.magnifyingglass` |
+| [Circle magnifying glass](#magnifyingglass) | `.magnifyingglassCircle` | `.magnifyingglassCircleFill` | `brian.magnifyingglass.circle`, `brian.magnifyingglass.circle.fill` |
 | [Minus](#minus) | `.minus` | — | `brian.minus` |
 | [Plus](#plus) | `.plus` | — | `brian.plus` |
 | [Square](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
@@ -39,7 +41,7 @@ The list and individual specifications are alphabetized by asset name.
 | [X mark](#xmark) | `.xmark` | — | `brian.xmark` |
 | [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
-The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `minus`, `plus`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
+The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
 
 ## Shared authoring settings
 
@@ -109,6 +111,16 @@ Three horizontal lines with rounded ends are centered. Base centerline lengths a
 Base shapes have no line/fill distinction. The circle has a diameter of 20 units; line uses a border, and fill uses genuinely transparent line cutouts. Thicknesses across the three source weights are 0.9, 1.65, and 2.35 units.
 
 Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
+
+## magnifyingglass
+
+A circular lens joins a rounded handle pointing diagonally down and right. The base lens center is (9.7, 9.7), with a centerline radius of 6.4 units and a handle endpoint at (20, 20). Inside circles, the lens center is (10.6, 10.6), its radius is 3.7 units, and the handle ends at (16.3, 16.3). Thicknesses are 0.9, 1.65, and 2.35 units across the three source weights. The lens and handle share one outer contour with a transparent lens interior. The base shape has no separate fill variant.
+
+For both circle variants, scale the inner mark to 90% and align its filled-area centroid with (12, 12). The resulting down-right translations after scaling about the container center are 0.640, 0.615, and 0.593 units per axis for Ultralight, Regular, and Black. The smaller inner mark preserves clearance from the border at Black weight. Line and fill use identical inner geometry.
+
+The circular container has a fixed diameter of 20 units. Line uses a border; fill uses a genuinely transparent magnifying-glass cutout. All variants use closed filled paths with matching command structures across weights.
+
+Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt across the three source weights on a light background, and matching SVG path structures across weights. SF Symbols app import, dark backgrounds, and custom tint have not yet been validated.
 
 ## minus
 
