@@ -1,157 +1,157 @@
-# 에셋 목록과 개별 사양
+# Asset catalog and specifications
 
-패키지가 제공하는 심볼의 공개 이름, 제작 특성과 검증 범위를 정리한다. 사용법은 [README](../README.md#다른-앱에서-사용), 새 에셋의 등록 절차는 [제작 가이드](symbol-authoring.md#패키지에-에셋-추가)를 따른다.
+This document lists public symbol names, authoring details, and validation coverage. See the [README](../README.md#usage) for usage and the [authoring guide](symbol-authoring.md#adding-assets-to-the-package) for registration steps.
 
-## 제공 에셋
+## Available assets
 
-공개 이름은 [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift), 배포 원본은 [에셋 카탈로그](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets)에서 관리한다. 현재 제공 에셋은 모두 단색이며 Monochrome으로 표시한다.
+Public names are defined in [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift), and distribution sources are maintained in the [asset catalog](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets). All currently available assets are monochrome and use Monochrome rendering.
 
-목록과 개별 사양은 에셋 이름 기준 알파벳순으로 배치한다.
+The list and individual specifications are alphabetized by asset name.
 
-| 대상 | 기본·Line case | Fill case | 에셋 이름 |
+| Subject | Base / Line case | Fill case | Asset name |
 |---|---|---|---|
-| [체크마크](#checkmark) | `.checkmark` | — | `brian.checkmark` |
-| [원형 체크마크](#checkmark) | `.checkmarkCircle` | `.checkmarkCircleFill` | `brian.checkmark.circle`, `brian.checkmark.circle.fill` |
-| [아래쪽 꺾쇠](#chevron) | `.chevronDown` | — | `brian.chevron.down` |
-| [아래쪽 원형 꺾쇠](#chevron-circle) | `.chevronDownCircle` | `.chevronDownCircleFill` | `brian.chevron.down.circle`, `brian.chevron.down.circle.fill` |
-| [왼쪽 꺾쇠](#chevron) | `.chevronLeft` | — | `brian.chevron.left` |
-| [왼쪽 원형 꺾쇠](#chevron-circle) | `.chevronLeftCircle` | `.chevronLeftCircleFill` | `brian.chevron.left.circle`, `brian.chevron.left.circle.fill` |
-| [오른쪽 꺾쇠](#chevron) | `.chevronRight` | — | `brian.chevron.right` |
-| [오른쪽 원형 꺾쇠](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
-| [위쪽 꺾쇠](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
-| [위쪽 원형 꺾쇠](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
-| [말줄임표](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
-| [원형 말줄임표](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
-| [톱니바퀴](#gearshape) | `.gearshape` | `.gearshapeFill` | `brian.gearshape`, `brian.gearshape.fill` |
-| [집](#house) | `.house` | `.houseFill` | `brian.house`, `brian.house.fill` |
-| [가로선 3개](#line3horizontal) | `.line3Horizontal` | — | `brian.line.3.horizontal` |
-| [원형 가로선 3개](#line3horizontal) | `.line3HorizontalCircle` | `.line3HorizontalCircleFill` | `brian.line.3.horizontal.circle`, `brian.line.3.horizontal.circle.fill` |
-| [길이가 줄어드는 가로선 3개](#line3horizontal) | `.line3HorizontalDecrease` | — | `brian.line.3.horizontal.decrease` |
-| [원형 길이가 줄어드는 가로선 3개](#line3horizontal) | `.line3HorizontalDecreaseCircle` | `.line3HorizontalDecreaseCircleFill` | `brian.line.3.horizontal.decrease.circle`, `brian.line.3.horizontal.decrease.circle.fill` |
-| [빼기](#minus) | `.minus` | — | `brian.minus` |
-| [더하기](#plus) | `.plus` | — | `brian.plus` |
-| [사각형](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
-| [파선 사각형](#square) | `.squareDashed` | — | `brian.square.dashed` |
-| [점선 사각형](#square) | `.squareDotted` | — | `brian.square.dotted` |
-| [2×2 격자](#squaregrid2x2) | `.squareGrid2x2` | `.squareGrid2x2Fill` | `brian.square.grid.2x2`, `brian.square.grid.2x2.fill` |
-| [3×3 격자](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
-| [위로 쌓인 사각형](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
-| [X마크](#xmark) | `.xmark` | — | `brian.xmark` |
-| [원형 X마크](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
+| [Checkmark](#checkmark) | `.checkmark` | — | `brian.checkmark` |
+| [Circle checkmark](#checkmark) | `.checkmarkCircle` | `.checkmarkCircleFill` | `brian.checkmark.circle`, `brian.checkmark.circle.fill` |
+| [Down chevron](#chevron) | `.chevronDown` | — | `brian.chevron.down` |
+| [Circle down chevron](#chevron-circle) | `.chevronDownCircle` | `.chevronDownCircleFill` | `brian.chevron.down.circle`, `brian.chevron.down.circle.fill` |
+| [Left chevron](#chevron) | `.chevronLeft` | — | `brian.chevron.left` |
+| [Circle left chevron](#chevron-circle) | `.chevronLeftCircle` | `.chevronLeftCircleFill` | `brian.chevron.left.circle`, `brian.chevron.left.circle.fill` |
+| [Right chevron](#chevron) | `.chevronRight` | — | `brian.chevron.right` |
+| [Circle right chevron](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
+| [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
+| [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
+| [Circle ellipsis](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
+| [Gear](#gearshape) | `.gearshape` | `.gearshapeFill` | `brian.gearshape`, `brian.gearshape.fill` |
+| [House](#house) | `.house` | `.houseFill` | `brian.house`, `brian.house.fill` |
+| [Three horizontal lines](#line3horizontal) | `.line3Horizontal` | — | `brian.line.3.horizontal` |
+| [Circle with three horizontal lines](#line3horizontal) | `.line3HorizontalCircle` | `.line3HorizontalCircleFill` | `brian.line.3.horizontal.circle`, `brian.line.3.horizontal.circle.fill` |
+| [Decreasing horizontal lines](#line3horizontal) | `.line3HorizontalDecrease` | — | `brian.line.3.horizontal.decrease` |
+| [Circle with decreasing horizontal lines](#line3horizontal) | `.line3HorizontalDecreaseCircle` | `.line3HorizontalDecreaseCircleFill` | `brian.line.3.horizontal.decrease.circle`, `brian.line.3.horizontal.decrease.circle.fill` |
+| [Minus](#minus) | `.minus` | — | `brian.minus` |
+| [Plus](#plus) | `.plus` | — | `brian.plus` |
+| [Square](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
+| [Dashed square](#square) | `.squareDashed` | — | `brian.square.dashed` |
+| [Dotted square](#square) | `.squareDotted` | — | `brian.square.dotted` |
+| [2×2 grid](#squaregrid2x2) | `.squareGrid2x2` | `.squareGrid2x2Fill` | `brian.square.grid.2x2`, `brian.square.grid.2x2.fill` |
+| [3×3 grid](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
+| [Upward square stack](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
+| [X mark](#xmark) | `.xmark` | — | `brian.xmark` |
+| [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
-컨테이너 없는 `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `minus`, `plus`, `xmark`는 line·fill의 구분이 성립하지 않아 기본 형태만 제공한다. 데모에서는 Line으로 분류한다.
+The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `minus`, `plus`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
 
-## 공통 제작 설정
+## Shared authoring settings
 
-현재 에셋은 24 × 24단위 디자인을 SVG 템플릿에서 4배 확대했다. Regular-S 원점은 (1400, 608), 기준선은 y=696이다. `Ultralight-S`, `Regular-S`, `Black-S`를 보간 소스로 사용한다. 일반적인 제작 기준은 [크기와 정렬 기준](symbol-sizing.md)을 따른다.
+Current assets scale a 24 × 24-unit design by a factor of 4 within the SVG template. The Regular-S origin is (1400, 608), and the baseline is y=696. Interpolation sources are `Ultralight-S`, `Regular-S`, and `Black-S`. General authoring follows the [sizing and alignment guidelines](symbol-sizing.md).
 
-`checkmark`와 원형 변형, `xmark`와 원형 변형, `chevron`, `chevron circle`, `gearshape`의 line, `minus`, `plus`는 Ultralight·Regular·Black 소스에서 각각 디자인 좌표 기준 0.9·1.65·2.35단위의 두께를 사용한다. 원형 심볼의 fill 내부 투명 기호에도 같은 두께를 적용한다. 이 수치는 house의 내부 공간이나 gearshape의 fill에는 적용하지 않는다.
+`checkmark` and its circle variants, `xmark` and its circle variants, `chevron`, `chevron circle`, line `gearshape`, `minus`, and `plus` use thicknesses of 0.9, 1.65, and 2.35 design units for Ultralight, Regular, and Black respectively. The transparent inner marks in filled circle symbols use the same thicknesses. These values do not apply to the house's internal spaces or filled gearshape.
 
-chevron과 plus는 일정한 두께의 선을 닫힌 면 경로로 변환하고, 굵기 간 경로 명령 구조를 동일하게 유지한다.
+Chevron and plus strokes have uniform thickness and are converted to closed filled paths, preserving the same path-command structure across weights.
 
-편집 기준은 카탈로그의 SVG이며, 일회성 생성·검증 스크립트와 비교 이미지는 저장소에 포함하지 않는다. 수정 후에는 데모에서 크기·굵기·색상을 확인하고 해당 에셋의 검증 범위를 갱신한다.
+The catalog SVGs are the editing source of truth. One-off generation and validation scripts and comparison images are not included in the repository. After changes, check size, weight, and color in the demo and update the asset's validation coverage.
 
-현재 에셋 모두 iOS 실기기, 최소 지원 OS, Dynamic Type과 애니메이션은 아직 검증하지 않았다. 선언된 지원 버전은 [README](../README.md#다른-앱에서-사용)를 참조한다.
+None of the current assets have been validated on physical iOS devices, the minimum supported OS versions, with Dynamic Type, or with animation. See the [README](../README.md#installation) for declared platform versions.
 
 ## checkmark
 
-기본 체크마크의 중심선은 (4, 12) → (9.5, 17.5) → (20, 6.5)다. 원형 내부는 (7, 12) → (10.5, 15.5) → (17, 8.5)를 사용한다. 선 끝과 바깥쪽 꺾임은 둥글게 마감한다.
+The base checkmark centerline is (4, 12) → (9.5, 17.5) → (20, 6.5). Inside circles, it is (7, 12) → (10.5, 15.5) → (17, 8.5). Ends and outer joins are rounded.
 
-원형은 지름 20단위이며 line은 바깥 지름을 유지한 테두리, fill은 체크마크 모양의 실제 투명 영역을 사용한다.
+The circle has a diameter of 20 units. Line preserves the outer diameter with a border; fill uses a genuinely transparent checkmark cutout.
 
-macOS 데모 빌드, AppKit의 16·24·32pt 렌더링과 세 소스 굵기 간 SVG 경로 구조 일치를 확인했다. SF Symbols 앱 가져오기 검증은 아직 수행하지 않았다.
+Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt, and matching SVG path structures across the three source weights. Import into the SF Symbols app has not yet been validated.
 
 ## chevron
 
-좌·우·상·하 네 방향의 꺾쇠다. 왼쪽 형태의 중심선 (15.5, 5) → (8.5, 12) → (15.5, 19)를 중심 (12, 12) 주위로 회전해 방향별 비례를 맞춘다. 선 끝과 꺾이는 모서리는 둥글게 마감한다.
+Chevrons point left, right, up, and down. Rotate the left-facing centerline (15.5, 5) → (8.5, 12) → (15.5, 19) around (12, 12) to preserve proportions across directions. Ends and corners are rounded.
 
-chevron 네 방향은 macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기를 확인했다.
+All four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
 
 ## chevron circle
 
-네 방향 꺾쇠를 지름 20단위의 원 안에 배치한다. 내부 꺾쇠는 왼쪽 중심선 (14, 8) → (10, 12) → (14, 16)을 기준으로 회전하며, 선 끝과 꺾이는 모서리를 둥글게 마감한다. 꺾쇠의 면적 중심이 원 중심에 맞도록 가리키는 방향으로 시각 보정한다. Ultralight·Regular·Black의 이동량은 각각 0.124·0.215·0.290단위이며 line·fill에 동일하게 적용한다.
+Place each of the four directions inside a circle of diameter 20 units. Rotate the inner chevron from the left-facing centerline (14, 8) → (10, 12) → (14, 16), with rounded ends and corners. Apply an optical shift in the pointing direction to align the chevron's area centroid with the circle center. Shifts for Ultralight, Regular, and Black are 0.124, 0.215, and 0.290 units respectively, for both line and fill.
 
-- Line: 원 테두리와 꺾쇠에 같은 두께를 적용한다. 굵기가 바뀌어도 원의 바깥 지름은 유지한다.
-- Fill: 원을 채우고 꺾쇠는 실제 투명 영역으로 뚫는다. 원의 실루엣은 유지하고 꺾쇠의 두께는 굵기에 따라 바뀐다.
+- Line: use the same thickness for the circle border and chevron. Preserve the outer diameter across weights.
+- Fill: fill the circle with a genuinely transparent chevron cutout. Preserve the circle silhouette while varying chevron thickness by weight.
 
-원형 꺾쇠 네 방향의 line·fill은 macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기를 확인했다.
+Line and fill for all four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
 
 ## ellipsis
 
-가로로 나란한 원형 점 세 개를 y=12에 배치한다. 기본형의 점 중심은 x=5·12·19, 원형 내부는 x=7·12·17이다. Ultralight·Regular·Black에서 점의 반지름은 기본형 1.25·1.65·2단위, 원형 내부 1·1.3·1.6단위다.
+Three circular dots lie horizontally at y=12. Base dot centers are x=5, 12, and 19; inside circles, x=7, 12, and 17. For Ultralight, Regular, and Black, base radii are 1.25, 1.65, and 2 units; inner-circle radii are 1, 1.3, and 1.6 units.
 
-기본형은 line·fill 구분 없이 제공한다. 원형은 지름 20단위이며 line 테두리 두께는 0.9·1.65·2.35단위다. fill은 같은 외곽 원 안에 점 세 개를 실제 투명 영역으로 뚫는다.
+The base shape has no line/fill distinction. The circle has a diameter of 20 units and line border thicknesses of 0.9, 1.65, and 2.35 units. Fill uses three genuinely transparent dots within the same outer circle.
 
-macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
+Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
 
 ## gearshape
 
-여덟 개의 톱니와 중앙 원으로 구성한 단일 단색 레이어다. 톱니 끝은 평평한 느낌을 유지하고 모서리는 부드러운 곡선으로 연결한다.
+A single monochrome layer consists of eight teeth and a central circle. Tooth tips retain a flat appearance, with smooth curves joining their corners.
 
-- Line: 톱니 윤곽의 양쪽 경계를 중심 곡선에서 같은 거리만큼 이동해 일정한 선 두께를 만든다. 중앙 원에도 같은 두께를 적용한다.
-- Fill: 중앙에 투명한 원을 두며 모든 굵기에서 같은 실루엣을 사용한다.
+- Line: offset both boundaries equally from the center curve for uniform thickness. Apply the same thickness to the central circle.
+- Fill: use a transparent central circle and the same silhouette at every weight.
 
-macOS 데모 빌드와 AppKit의 56pt 렌더링에서 세 소스 굵기의 line·fill을 확인했다. 생성 좌표에서 톱니 양쪽 경계의 간격도 검증했다. 16·24·32pt의 작은 크기 비교는 아직 검증하지 않았다.
+Validated: macOS demo build and AppKit rendering at 56pt for line and fill across the three source weights. Spacing between tooth boundaries was also checked in the generated coordinates. Small-size comparisons at 16, 24, and 32pt have not yet been validated.
 
 ## house
 
-지붕·몸체·아치형 문으로 구성한 단일 단색 레이어다. 낮은 지붕과 넓힌 어깨·하단 곡선, 5.5단위 너비의 문을 사용한다. 문 안쪽은 투명하다.
+A single monochrome layer consists of a roof, body, and arched door. It uses a low roof, wider shoulder and bottom curves, and a 5.5-unit-wide door with a transparent interior.
 
-- Line: 굵기별 내부 공간을 조정한다.
-- Fill: 모든 굵기에서 같은 실루엣을 사용한다.
+- Line: adjust internal spaces for each weight.
+- Fill: use the same silhouette at every weight.
 
-macOS에서 16·24·32pt와 세 굵기의 크기·정렬을 확인했다.
+Size and alignment were checked on macOS at 16, 24, and 32pt across three weights.
 
 ## line.3.horizontal
 
-둥근 끝을 가진 가로선 세 개를 중앙 정렬한다. 기본형의 중심선 길이는 16단위이며 y=6·12·18에 배치한다. decrease는 위에서부터 16·10·4단위로 줄어든다. 원형 내부는 y=8.5·12·15.5에 배치하고 길이는 일반형 10단위, decrease 10·6·2단위다.
+Three horizontal lines with rounded ends are centered. Base centerline lengths are 16 units at y=6, 12, and 18. The decrease variant uses lengths of 16, 10, and 4 units from top to bottom. Inside circles, lines lie at y=8.5, 12, and 15.5, with lengths of 10 units for the regular variant and 10, 6, and 2 units for decrease.
 
-기본형은 line·fill 구분 없이 제공한다. 원형은 지름 20단위이며 line은 테두리, fill은 가로선 모양의 실제 투명 영역을 사용한다. 세 소스 굵기의 선 두께는 0.9·1.65·2.35단위다.
+Base shapes have no line/fill distinction. The circle has a diameter of 20 units; line uses a border, and fill uses genuinely transparent line cutouts. Thicknesses across the three source weights are 0.9, 1.65, and 2.35 units.
 
-macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
+Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
 
 ## minus
 
-plus의 가로선과 같은 길이·두께·중심을 사용하는 빼기다. 중심선은 (4, 12) → (20, 12)이며 양 끝을 반원으로 마감한다. line·fill 구분 없이 기본 형태만 제공한다.
+Minus shares the length, thickness, and center of the plus symbol's horizontal line. Its centerline is (4, 12) → (20, 12), with semicircular ends. Only the base shape is provided, without a line/fill distinction.
 
-macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기를 확인했다.
+Validated: macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
 
 ## plus
 
-가로·세로 길이가 같은 더하기다. 선 끝은 반원으로 마감하고 중심은 디자인 좌표 (12, 12)에 둔다. 중심선의 각 축 길이는 16단위다.
+The horizontal and vertical axes have equal lengths, semicircular ends, and a center at design coordinates (12, 12). Each centerline axis is 16 units long.
 
-macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기를 확인했다.
+Validated: macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
 
 ## square
 
-20 × 20단위 영역에 모서리 반지름 5단위의 사각형을 배치한다. Line은 내부가 실제 투명 영역이며 Fill은 같은 외곽을 채운다. 세 소스 굵기의 테두리 두께는 0.9·1.65·2.35단위다.
+A square with a corner radius of 5 units occupies a 20 × 20-unit area. Line has a genuinely transparent interior; fill fills the same outer shape. Border thicknesses across the three source weights are 0.9, 1.65, and 2.35 units.
 
-Dotted는 외곽을 따라 원형 점 24개, Dashed는 둥근 끝을 가진 파선 12개를 균등 배치한다. 굵기에 맞춰 중심선을 안쪽으로 이동해 바깥 크기를 유지한다. 두 형태는 별도 fill 없이 제공하며 데모에서는 Line으로 분류한다. 모든 도형은 닫힌 면 경로이며 세 굵기의 경로 명령 구조를 동일하게 유지한다.
+Dotted places 24 circular dots evenly around the perimeter; dashed places 12 rounded dashes. Move the centerline inward with increasing weight to preserve outer dimensions. Neither has a separate fill variant, and the demo classifies both as Line. All shapes use closed filled paths with matching path-command structures across the three weights.
 
-macOS 데모 빌드, SVG 구조와 AppKit의 40pt 설정에서 세 소스 굵기의 렌더링을 확인했다. SF Symbols 앱 가져오기와 16·24·32pt 작은 크기 비교는 아직 검증하지 않았다.
+Validated: macOS demo build, SVG structure, and AppKit rendering at a 40pt setting across the three source weights. SF Symbols app import and small-size comparisons at 16, 24, and 32pt have not yet been validated.
 
 ## square.grid.2x2
 
-20 × 20단위 영역에 둥근 사각형 네 개를 2.5단위 간격으로 배치한다. 바깥 모서리는 3단위 거리부터 곡선으로 연결하고, 안쪽 모서리도 두께에 맞춰 둥글게 처리한다. Line의 세 소스 굵기는 0.9·1.65·2.35단위이며 내부는 실제 투명 영역이다. Fill은 같은 외곽의 사각형을 채운다.
+Four rounded squares occupy a 20 × 20-unit area with 2.5-unit gaps. Outer corners begin curving 3 units from the vertex; inner corners are rounded according to thickness. Line thicknesses across the three source weights are 0.9, 1.65, and 2.35 units, with genuinely transparent interiors. Fill fills squares with the same outer shapes.
 
-macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
+Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
 
 ## square.grid.3x3
 
-20 × 20단위 영역에 둥근 사각형 아홉 개를 2단위 간격으로 배치한다. 바깥 모서리는 1.9단위 거리부터 곡선으로 연결하며 안쪽 모서리도 둥글게 처리한다. 작은 내부 공간을 유지하도록 Line 두께는 2×2 격자의 70%를 적용한다. Fill은 같은 외곽의 사각형을 채운다.
+Nine rounded squares occupy a 20 × 20-unit area with 2-unit gaps. Outer corners begin curving 1.9 units from the vertex, and inner corners are also rounded. Line uses 70% of the 2×2 grid's thickness to preserve the small interior spaces. Fill fills squares with the same outer shapes.
 
-macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
+Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
 
 ## square.stack.3d.up
 
-마름모 형태의 상단 면과 아래쪽 두 층을 둥근 모서리의 닫힌 면 경로로 구성한다. 상단 외곽은 꼭짓점에서 2.4단위, 안쪽은 1.5단위 거리부터 곡선으로 연결한다. 아래 두 층도 꺾임과 끝부분을 부드럽게 마감한다. Line은 상단 내부가 투명하고 Fill은 상단 면을 채운다. 아래 두 층의 선 두께는 세 소스 굵기에서 0.9·1.65·2.35단위다.
+The diamond-shaped top face and two lower layers use closed filled paths with rounded corners. The top outer boundary begins curving 2.4 units from each vertex, and the inner boundary at 1.5 units. The two lower layers also have smooth bends and ends. Line leaves the top interior transparent; fill fills the top face. Lower-layer thicknesses across the three source weights are 0.9, 1.65, and 2.35 units.
 
-macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
+Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
 
 ## xmark
 
-중심 (12, 12)에서 같은 길이의 두 축을 45도 회전한 X마크다. 각 축의 중심선 길이는 기본 16단위, 원형 내부 11단위다. 선 끝은 둥글게 마감하고 교차부는 하나의 면으로 연결한다.
+Two equal-length axes rotated by 45 degrees form an X centered at (12, 12). Each centerline axis is 16 units long in the base shape and 11 units inside circles. Ends are rounded, and the intersection is joined into one filled shape.
 
-원형은 지름 20단위이며 line은 바깥 지름을 유지한 테두리, fill은 X마크 모양의 실제 투명 영역을 사용한다.
+The circle has a diameter of 20 units. Line preserves the outer diameter with a border; fill uses a genuinely transparent X cutout.
 
-macOS 데모 빌드, AppKit의 16·24·32pt 렌더링과 세 소스 굵기 간 SVG 경로 구조 일치를 확인했다. SF Symbols 앱 가져오기 검증은 아직 수행하지 않았다.
+Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt, and matching SVG path structures across the three source weights. SF Symbols app import has not yet been validated.

@@ -1,67 +1,67 @@
-# 심볼 종류와 이름 규칙
+# Symbol types and naming conventions
 
-심볼을 다색과 단색으로 나눈다. 다색 심볼은 색이 채워진 형태만 제공하고, 단색 심볼은 단순화한 line과 fill을 제공한다. 이 문서가 분류와 형태의 기준이며, Apple 자체의 이름 규격과는 구분한다.
+Symbols are classified as multicolor or monochrome. Multicolor symbols provide filled shapes only; monochrome symbols provide simplified line and fill variants. This document defines the project's types and shapes, independently of Apple's naming conventions.
 
-## 종류별 제작 범위
+## Scope by symbol type
 
-| 종류 | 제공 형태 | 기본 표현 | 색상 변경 |
+| Type | Shapes | Default appearance | Color customization |
 |---|---|---|---|
-| 다색 | 채움형만 | 제작자가 정한 여러 색상 | 팔레트의 색상 역할별 변경, 단색·흑백·계층 표현 |
-| 단색 | line·fill | 하나의 색상 | 전체 색상 변경, 검정 또는 흰색 단색 |
+| Multicolor | Filled only | Multiple author-defined colors | Palette roles, monochrome, black and white, and hierarchical rendering |
+| Monochrome | Line and fill | One color | Overall color, including solid black or white |
 
-다색은 여러 색상 역할을 제공하도록 설계한 에셋 종류다. 다색 에셋을 Monochrome으로 표시해도 단색 종류로 바뀌지 않는다. 단색 에셋에는 색상별 장식이나 사용자 다색 팔레트를 추가하지 않는다. SF Symbols가 기술적으로 표현할 수 있는 범위와 프로젝트에서 제공하는 범위를 구분한다.
+Multicolor describes an asset designed with multiple color roles. Rendering it in Monochrome mode does not change its asset type. Monochrome assets do not include color-specific decoration or custom multicolor palettes. The project's supported scope is distinct from everything SF Symbols can technically render.
 
-같은 대상을 두 종류로 제작할 수 있지만 실제 사용 목적이 있을 때만 추가한다. 단색 버전은 다색 에셋의 색을 제거한 복제본이 아니라 작은 크기에서 읽히도록 단순화한 별도 디자인이다.
+Both types may depict the same subject, but add them only for an actual use case. A monochrome version is a separate design simplified for small sizes, rather than a multicolor asset with its colors removed.
 
-## 형태와 단순화 원칙
+## Shapes and simplification
 
-- 다색 심볼에는 line 변형을 만들지 않는다. 주요 영역을 채워 색상 역할을 표현한다.
-- 단색 심볼은 line과 fill을 한 쌍으로 설계한다. 두 형태의 구분이 성립하지 않는 화살표·더하기 등은 동일한 에셋을 복제하지 않고, 제작 전에 예외와 제공 형태를 명시한다.
-- 단색은 실루엣과 식별에 필요한 최소한의 내부 요소만 남긴다. 장식선, 작은 창문, 재질 표현, 불필요한 이중 테두리는 제거한다.
-- 예를 들어 단색 집은 둥근 지붕·몸체·문만으로 식별되면 충분하다. 다색 표현을 위해 만들었던 지붕 경계나 문 테두리를 그대로 유지하지 않는다.
-- 다색도 장식을 늘리기 위해 색상 영역을 나누지 않는다. 의미 있는 영역만 구분하며, 팔레트의 세 역할을 채우려고 불필요한 도형을 추가하지 않는다.
-- 두 종류 모두 부드러운 모서리와 단순한 곡선을 사용한다. 작은 크기에서 뭉치는 요소는 제거하거나 넓힌다.
-- line은 외곽선형(outline)의 시각적 이름이다. 배포 경로는 닫힌 면으로 제작한다.
-- 단색 line·fill은 같은 정사각형 영역과 시각적 중심을 공유한다. fill의 면적이 커질 때 크기와 무게를 함께 비교한다.
+- Do not create line variants of multicolor symbols. Fill the main regions to express color roles.
+- Design monochrome line and fill variants as a pair. For shapes such as arrows or plus signs where the distinction is not meaningful, specify the exception and available shape before authoring instead of duplicating an asset.
+- Keep only the silhouette and internal details needed for recognition in monochrome symbols. Remove decorative lines, small windows, textures, and unnecessary double borders.
+- For example, a monochrome house needs only a rounded roof, body, and door if these identify it. Do not retain roof boundaries or door borders created for multicolor rendering.
+- Do not divide multicolor regions merely to add decoration. Separate meaningful regions, and do not add unnecessary shapes to fill all three palette roles.
+- Use soft corners and simple curves for both types. Remove or widen details that merge at small sizes.
+- Line is the visual name for an outline shape. Author distribution paths as closed filled shapes.
+- Monochrome line and fill variants share the same square layout area and optical center. Compare size and visual weight as the filled area increases.
 
-fill은 형태를 뜻하며 선택 상태 자체를 뜻하지 않는다. 화면의 상태에 따른 형태 선택은 사용처가 정한다.
+Fill describes a shape, not a selected state. Each consuming interface decides which shape to use for its state.
 
-## 에셋 이름
+## Asset names
 
-종류가 이름에서 구분되도록 다색에 `color` 이름 영역을 사용한다. 단색은 기존 이름 형식을 유지한다.
+Use the `color` namespace for multicolor assets so the type is visible in the name. Monochrome assets retain the existing format.
 
-| 종류 | 형식 | 예시 |
+| Type | Format | Example |
 |---|---|---|
-| 단색 line | `brian.<대상>[.<방향>][.slash][.<컨테이너>]` | `brian.house` |
-| 단색 fill | 단색 line 이름 + `.fill` | `brian.house.fill` |
-| 다색 채움형 | `brian.color.<대상>[.<방향>][.slash][.<컨테이너>]` | `brian.color.house` |
+| Monochrome line | `brian.<subject>[.<direction>][.slash][.<container>]` | `brian.house` |
+| Monochrome fill | Monochrome line name + `.fill` | `brian.house.fill` |
+| Multicolor filled | `brian.color.<subject>[.<direction>][.slash][.<container>]` | `brian.color.house` |
 
-대괄호는 선택 항목이며 실제 이름에는 넣지 않는다. 다색은 항상 채움형이므로 `.fill`을 중복해서 붙이지 않는다. 다색의 `.line`·`.outline` 변형도 만들지 않는다. `color`는 에셋 종류이며 현재 렌더링 모드나 특정 색상을 의미하지 않는다.
+Brackets indicate optional components and are not part of the name. Multicolor shapes are always filled, so do not append `.fill` or create `.line` or `.outline` variants. `color` identifies the asset type, not the current rendering mode or a specific color.
 
-소문자 영문을 사용한다. 방향은 대상 바로 뒤에 둔다. `brian.arrow.right`는 대상 `arrow`와 방향 `right`로 구성된다. `magnifyingglass` 같은 합성 명사는 하나의 대상 이름으로 쓰며 단어마다 점으로 나누지 않는다.
+Use lowercase English names. Place the direction immediately after the subject: `brian.arrow.right` contains the subject `arrow` and direction `right`. Treat compound nouns such as `magnifyingglass` as one subject rather than separating each word with a period.
 
-같은 종류 안에서 `home`과 `house`처럼 같은 대상을 다른 이름으로 중복 등록하지 않는다. 두 종류에 같은 대상을 제공할 때는 `brian.house`와 `brian.color.house`처럼 대상 이름을 공유한다. 화면 위치, 특정 색상, 크기, 굵기, 버전 번호는 이름에 넣지 않는다. Swift 공개 API는 `BrianSymbol`의 lowerCamelCase case로 제공한다. 예를 들어 `brian.house.fill`은 `.houseFill`이며, 실제 등록 절차는 [패키지에 에셋 추가](symbol-authoring.md#패키지에-에셋-추가)를 따른다.
+Do not register synonyms such as `home` and `house` for the same subject within a type. When both types depict a subject, share its name, as in `brian.house` and `brian.color.house`. Exclude screen position, specific colors, sizes, weights, and version numbers. Expose Swift APIs as lowerCamelCase cases in `BrianSymbol`; for example, `brian.house.fill` becomes `.houseFill`. Follow [Adding assets to the package](symbol-authoring.md#adding-assets-to-the-package) to register them.
 
-`BrianSymbol`의 case 선언과 에셋 목록·개별 사양은 에셋 이름 기준 알파벳순으로 유지한다. 방향은 `down` → `left` → `right` → `up` 순서이며, 기본 이름 뒤에 해당 변형을 배치한다.
+Keep `BrianSymbol` case declarations, the asset list, and individual specifications alphabetized by asset name. Directions follow `down` → `left` → `right` → `up`, with variants placed after their base name.
 
-## 형태 수식어
+## Shape modifiers
 
-필요한 형태에만 `slash`, `circle`, `square`를 추가한다. 컨테이너는 `circle` 또는 `square` 중 하나를 사용한다. 복합 수식어는 대상 → 방향 → 사선 → 컨테이너 순서이며, 단색 fill은 마지막에 `.fill`을 붙인다.
+Add `slash`, `circle`, or `square` only when the shape requires them. Use either `circle` or `square` as the container. Combine modifiers in this order: subject → direction → slash → container. Append `.fill` last for monochrome fill variants.
 
-단색의 `brian.heart.circle.fill`은 원 컨테이너가 채워진 형태다. 내부 하트 자체의 채움까지 약속하지 않는다. 초기에는 내부 대상과 컨테이너의 채움을 독립적으로 조합하지 않는다. 다색의 `brian.color.heart.circle`도 채워진 컨테이너를 사용하며, 기본 컬러에서는 내부 대상을 색상 대비로 구분한다. Monochrome 적용 시에는 [다색 컨테이너의 단색 표현 기준](symbol-authoring.md#다색-컨테이너의-단색-표현)을 따른다.
+For monochrome `brian.heart.circle.fill`, fill refers to the circular container; it does not promise a filled inner heart. Initially, do not offer independent combinations of subject and container fills. Multicolor `brian.color.heart.circle` also uses a filled container, with color contrast distinguishing the subject in its default appearance. For Monochrome mode, follow [Monochrome rendering of multicolor containers](symbol-authoring.md#monochrome-rendering-of-multicolor-containers).
 
-`square`는 눈에 보이는 사각형 컨테이너다. 모든 심볼의 정사각형 레이아웃 영역을 뜻하지 않는다. 크기 확보만을 위해 컨테이너를 추가하지 않는다.
+`square` means a visible square container, not the square layout area shared by all symbols. Do not add a container solely to reserve space.
 
-## 사용 예시와 확인
+## Examples and checks
 
-| 요청 | 에셋 예시 | 렌더링 |
+| Request | Asset example | Rendering |
 |---|---|---|
-| 단순한 집 외곽선 | `brian.house` | Monochrome |
-| 단순한 집 채움형 | `brian.house.fill` | Monochrome |
-| 기본 색상의 집 | `brian.color.house` | Multicolor |
-| 사용자 팔레트의 집 | `brian.color.house` | Palette |
-| 다색 디자인을 단색으로 표시 | `brian.color.house` | Monochrome, 형태 유지 |
+| Simple house outline | `brian.house` | Monochrome |
+| Simple filled house | `brian.house.fill` | Monochrome |
+| House with default colors | `brian.color.house` | Multicolor |
+| House with a custom palette | `brian.color.house` | Palette |
+| Multicolor design in one color | `brian.color.house` | Monochrome, preserving the shape |
 
-위 이름 중 단색 집 line·fill은 제작되어 있다. 다색 이름은 아직 규칙을 설명하는 예시다. 이름만으로 자동 형태 생성이나 전환을 보장하지 않는다. 각 에셋을 제작하고 명시적으로 선택한다.
+The monochrome house line and fill assets exist. Multicolor names are examples of the naming rules only. Names do not guarantee automatic shape generation or switching; author each asset and select it explicitly.
 
-추가 전에 종류와 제공 형태, 이름의 수식어 순서, 작은 크기에서 필요한 세부 요소를 확인한다. [크기·정렬 기준](symbol-sizing.md)과 [종류별 제작 검증](symbol-authoring.md#완료-기준)을 적용한다.
+Before adding an asset, check its type, available shapes, modifier order, and details needed at small sizes. Apply the [sizing and alignment guidelines](symbol-sizing.md) and [authoring completion criteria](symbol-authoring.md#completion-criteria).
