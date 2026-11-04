@@ -1,4 +1,5 @@
 import Foundation
+import BrianSymbols
 
 enum SymbolGroup: String, CaseIterable, Identifiable {
   case all = "모든 심볼"
@@ -7,11 +8,11 @@ enum SymbolGroup: String, CaseIterable, Identifiable {
 
   var id: String { rawValue }
 
-  var icon: String {
+  var icon: BrianSymbol {
     switch self {
-    case .all: "square.grid.2x2"
-    case .line: "square"
-    case .fill: "square.fill"
+    case .all: .squareGrid2x2
+    case .line: .square
+    case .fill: .squareFill
     }
   }
 }

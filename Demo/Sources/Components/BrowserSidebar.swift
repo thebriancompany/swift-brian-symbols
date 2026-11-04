@@ -9,7 +9,12 @@ struct BrowserSidebar: View {
     List(selection: $group) {
       Section("보관함") {
         ForEach(SymbolGroup.allCases) { item in
-          Label(item.rawValue, systemImage: item.icon).tag(item)
+          Label {
+            Text(item.rawValue)
+          } icon: {
+            Image(brianSymbol: item.icon)
+          }
+          .tag(item)
         }
       }
     }
