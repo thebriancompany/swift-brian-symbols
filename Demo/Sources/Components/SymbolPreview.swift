@@ -9,6 +9,11 @@ struct SymbolPreview: View {
   @Binding var weight: SymbolWeight
   @Binding var tint: Color
 
+  @State private var renderingMode: PreviewRenderingMode = .multicolor
+  @State private var palettePrimary = Color(red: 50 / 255, green: 152 / 255, blue: 245 / 255)
+  @State private var paletteSecondary = Color(red: 130 / 255, green: 200 / 255, blue: 245 / 255)
+  @State private var paletteTertiary = Color(red: 244 / 255, green: 250 / 255, blue: 255 / 255)
+
   var body: some View {
     Group {
       if let selection {
@@ -32,7 +37,7 @@ struct SymbolPreview: View {
 
           Spacer()
 
-          Text((selection.isFill ? SymbolGroup.fill : .line).title)
+          Text((selection.isMulticolor ? SymbolGroup.color : selection.isFill ? .fill : .line).title)
             .font(.caption.weight(.medium))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
@@ -43,7 +48,16 @@ struct SymbolPreview: View {
           RoundedRectangle(cornerRadius: 18)
             .fill(darkPreview ? Color(white: 0.12) : .white)
 
-          symbolImage(selection, pointSize: size, weight: weight, tint: tint)
+          symbolImage(
+            selection,
+            pointSize: size,
+            weight: weight,
+            tint: tint,
+            renderingMode: renderingMode,
+            palettePrimary: palettePrimary,
+            paletteSecondary: paletteSecondary,
+            paletteTertiary: paletteTertiary
+          )
             .overlay {
               if showBounds {
                 Rectangle()
@@ -102,14 +116,31 @@ struct SymbolPreview: View {
           }
         }
 
-        ColorPicker(
-          "Color",
-          selection: $tint,
-          supportsOpacity: false
-        )
+        if selection.isMulticolor {
+          Picker("Rendering Mode", selection: $renderingMode) {
+            ForEach(PreviewRenderingMode.allCases) { mode in
+              Text(mode.title).tag(mode)
+            }
+          }
+          .pickerStyle(.menu)
+        }
+
+        if selection.isMulticolor && renderingMode == .palette {
+          ColorPicker("Primary Color", selection: $palettePrimary, supportsOpacity: false)
+          ColorPicker("Secondary Color", selection: $paletteSecondary, supportsOpacity: false)
+          ColorPicker("Tertiary Color", selection: $paletteTertiary, supportsOpacity: false)
+        } else {
+          ColorPicker("Color", selection: $tint, supportsOpacity: false)
+        }
+
+        if selection.isMulticolor && renderingMode == .multicolor {
+          Text("Tint changes supported layers; fixed colors stay unchanged.")
+            .font(.caption)
+            .foregroundStyle(.secondary)
+        }
 
         Button("Reset to Default Color") {
-          tint = .primary
+          resetColorButtonTapped()
         }
 
         Toggle("Dark Background", isOn: $darkPreview)
@@ -119,5 +150,12 @@ struct SymbolPreview: View {
       .padding(24)
     }
     .background(Color(nsColor: .windowBackgroundColor))
+  }
+
+  private func resetColorButtonTapped() {
+    tint = .primary
+    palettePrimary = Color(red: 50 / 255, green: 152 / 255, blue: 245 / 255)
+    paletteSecondary = Color(red: 130 / 255, green: 200 / 255, blue: 245 / 255)
+    paletteTertiary = Color(red: 244 / 255, green: 250 / 255, blue: 255 / 255)
   }
 }
