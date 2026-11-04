@@ -1,12 +1,12 @@
 # Custom symbol authoring guide
 
-First choose multicolor or monochrome according to the [type and shape rules](symbol-naming.md). Multicolor assets define multiple color roles in a filled shape; monochrome assets apply one color to simplified line and fill variants. The flower is a hypothetical example for vector authoring and annotation; it is not an available asset. The package usage example uses the color folder introduced in 0.2.0.
+First choose multicolor or monochrome according to the [type and shape rules](symbol-naming.md). Multicolor assets define multiple color roles in a filled shape; monochrome assets apply one color to simplified line and fill variants. The flower is a hypothetical example for vector authoring and annotation; it is not an available asset. The package usage example uses the color folder.
 
 ## Rendering modes for multicolor symbols
 
 | Style | Mode | Defined during authoring | Specified by the consumer |
 |---|---|---|---|
-| Default colors | Multicolor | Default colors per layer | Color for regions defined as tint |
+| Default colors | Multicolor | Fixed SVG colors per layer | None; uses authored SVG colors |
 | Custom single color | Monochrome | A shape recognizable in one color | Overall color |
 | Custom palette | Palette | Primary, Secondary, and Tertiary groups | Colors for up to three groups |
 | Black and white | Monochrome or Palette | Contrast and shape | Black and white combination |
@@ -14,7 +14,7 @@ First choose multicolor or monochrome according to the [type and shape rules](sy
 
 Hierarchical renders one color at different opacities by hierarchy, using the same hierarchy data as Palette. Black and white is a color preset, not a separate rendering mode. Assigning an individual color to every path is distinct from Palette's three groups. See [Apple's rendering mode guidance](https://developer.apple.com/design/human-interface-guidelines/sf-symbols).
 
-Use `Image(brianSymbol:)` to load package assets and `.symbolRenderingMode(...)` to select a rendering mode explicitly. See [Using the color folder](#using-the-color-folder) for Multicolor, Monochrome, Palette, and Hierarchical examples.
+Use `Image(brianSymbol:)` to load package assets. Color assets display their authored multicolor appearance by default; use `.symbolRenderingMode(...)` to select another mode explicitly. See [Using the color folder](#using-the-color-folder) for Multicolor, Monochrome, Palette, and Hierarchical examples.
 
 ## Rendering modes for monochrome symbols
 
@@ -56,7 +56,13 @@ Open the gallery view and Rendering Inspector in the SF Symbols app:
 3. Check shapes and overlaps in Monochrome.
 4. Review layer order and colors in each mode's preview.
 
-Default colors may be fixed colors, system colors, or asset catalog colors. Use colors with appropriate appearances to adapt to dark mode and increased contrast. To let only the petals follow the user's color, assign them `tintColor`. See [annotation guidance](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols).
+## Default colors and customization
+
+For every `brian.color.*` asset, define the curated multicolor colors in the distribution SVG using fixed `multicolor-<index>:custom` fills. Do not use `tintColor` for these default colors: it follows the surrounding foreground style instead of preserving the authored color. Keep Primary, Secondary, and Tertiary annotations for Palette and Hierarchical customization. See [annotation guidance](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols).
+
+`Image(brianSymbol:)` selects original rendering for color assets, so the bare initializer displays the SVG colors without a caller-supplied mode or RGB values. Explicit Monochrome, Hierarchical, and Palette modes remain available. In Multicolor, foreground styles do not recolor the fixed layers; choose another mode to customize colors. Palette supplies up to three group colors, not an independent override for every SVG path.
+
+Keep default colors in the SVG only. Do not add per-symbol default-color switches to the library or demo. The demo should show authored colors in Multicolor and expose color controls only in customizable modes. Check a bare initializer, an inherited foreground style, and all explicit modes when adding a color asset.
 
 ## Monochrome rendering of multicolor containers
 
@@ -82,7 +88,7 @@ Add asset files and public cases together. New cases appear automatically in the
 
 ### Using the color folder
 
-`.colorFolder` requires **0.2.0** or later. `Image(brianSymbol:)` loads the package resource bundle automatically.
+The example below follows [Default colors and customization](#default-colors-and-customization). `Image(brianSymbol:)` loads the package resource bundle automatically.
 
 ```swift
 import SwiftUI
@@ -92,8 +98,6 @@ struct FolderStyles: View {
     var body: some View {
         HStack(spacing: 20) {
             Image(brianSymbol: .colorFolder)
-                .symbolRenderingMode(.multicolor)
-                .foregroundStyle(.blue)
 
             Image(brianSymbol: .colorFolder)
                 .symbolRenderingMode(.monochrome)
@@ -113,7 +117,7 @@ struct FolderStyles: View {
 }
 ```
 
-In Multicolor, the tint affects the folder's front and back while the paper keeps its authored color. Palette assigns the three colors to the front, back, and paper, respectively. See the [color folder specification](symbol-assets.md#colorfolder) for mode-specific behavior and validation coverage.
+The default appearance and explicit Multicolor mode preserve the SVG's blue front, translucent blue back, and off-white paper. Palette assigns the three colors to the front, back, and paper, respectively. See the [color folder specification](symbol-assets.md#colorfolder) for mode-specific behavior and validation coverage.
 
 For an entirely black or white symbol, select Monochrome and use `.foregroundStyle(.black)` or `.foregroundStyle(.white)` on a contrasting background. For square layout slots, apply the [sizing guidelines](symbol-sizing.md#asset-and-view-responsibilities) to each image.
 
@@ -141,7 +145,7 @@ See the [README](../README.md#installation) for declared minimum OS versions and
 ## Completion criteria
 
 - Templates and annotations are valid in the SF Symbols app.
-- Multicolor assets provide only filled shapes, with default colors, monochrome, palette, black and white, and hierarchical appearances validated in an actual app.
+- Multicolor assets provide only filled shapes, with SVG-defined default colors visible through the bare `Image(brianSymbol:)` initializer. Validate inherited foreground styles and explicit multicolor, monochrome, palette, black and white, and hierarchical appearances in an actual app.
 - Multicolor containers keep their inner subjects recognizable in small-size Monochrome according to the [container guidelines](#monochrome-rendering-of-multicolor-containers).
 - Monochrome assets provide line and fill or a documented shape exception, with custom single-color, black, and white rendering validated.
 - Monochrome assets retain only details needed at small sizes rather than copying decoration and color boundaries from multicolor versions.

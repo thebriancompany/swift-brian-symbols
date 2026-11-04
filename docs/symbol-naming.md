@@ -9,7 +9,7 @@ Symbols are classified as multicolor or monochrome. Multicolor symbols provide f
 | Multicolor | Filled only | Multiple author-defined colors | Palette roles, monochrome, black and white, and hierarchical rendering |
 | Monochrome | Line and fill | One color | Overall color, including solid black or white |
 
-Multicolor describes an asset designed with multiple color roles. Rendering it in Monochrome mode does not change its asset type. Monochrome assets do not include color-specific decoration or custom multicolor palettes. The project's supported scope is distinct from everything SF Symbols can technically render.
+Multicolor describes an asset designed with multiple color roles. Follow the [default-color policy](symbol-authoring.md#default-colors-and-customization) so the bare initializer displays curated SVG colors and explicit rendering modes provide customization. Rendering it in Monochrome mode does not change its asset type. Monochrome assets do not include color-specific decoration or custom multicolor palettes. The project's supported scope is distinct from everything SF Symbols can technically render.
 
 Both types may depict the same subject, but add them only for an actual use case. A monochrome version is a separate design simplified for small sizes, rather than a multicolor asset with its colors removed.
 
@@ -62,6 +62,6 @@ For monochrome `brian.heart.circle.fill`, fill refers to the circular container;
 | House with a custom palette | `brian.color.house` | Palette |
 | Multicolor design in one color | `brian.color.house` | Monochrome, preserving the shape |
 
-The monochrome house line and fill assets exist. Multicolor names are examples of the naming rules only. Names do not guarantee automatic shape generation or switching; author each asset and select it explicitly.
+The monochrome house line and fill assets exist. The `brian.color.house` entries in the table above illustrate naming rules; that asset is not provided. See the [asset catalog](symbol-assets.md) for available multicolor symbols. Names do not guarantee automatic shape generation or switching; author each asset and select it explicitly.
 
 Before adding an asset, check its type, available shapes, modifier order, and details needed at small sizes. Apply the [sizing and alignment guidelines](symbol-sizing.md) and [authoring completion criteria](symbol-authoring.md#completion-criteria).

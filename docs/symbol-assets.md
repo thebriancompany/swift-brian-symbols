@@ -6,7 +6,7 @@ This document lists public symbol names, authoring details, and validation cover
 
 Public names are defined in [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift), and distribution sources are maintained in the [asset catalog](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets). Monochrome assets use Monochrome rendering; color assets support the modes described in their individual specifications.
 
-This catalog describes **0.2.0**, which adds `color.folder`, `folder`, `folder.fill`, `text.document`, and `text.document.fill`. See the [demo instructions](../README.md#demo) for preview controls.
+Color assets follow the [default-color policy](symbol-authoring.md#default-colors-and-customization). See the [demo instructions](../README.md#demo) for preview controls.
 
 The list and individual specifications are alphabetized by asset name.
 
@@ -23,6 +23,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
+| [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
 | [Circle ellipsis](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
 | [Folder](#folder) | `.folder` | `.folderFill` | `brian.folder`, `brian.folder.fill` |
@@ -35,6 +36,8 @@ The list and individual specifications are alphabetized by asset name.
 | [Magnifying glass](#magnifyingglass) | `.magnifyingglass` | — | `brian.magnifyingglass` |
 | [Circle magnifying glass](#magnifyingglass) | `.magnifyingglassCircle` | `.magnifyingglassCircleFill` | `brian.magnifyingglass.circle`, `brian.magnifyingglass.circle.fill` |
 | [Minus](#minus) | `.minus` | — | `brian.minus` |
+| [Pencil](#pencil) | `.pencil` | — | `brian.pencil` |
+| [Circle pencil](#pencil) | `.pencilCircle` | `.pencilCircleFill` | `brian.pencil.circle`, `brian.pencil.circle.fill` |
 | [Plus](#plus) | `.plus` | — | `brian.plus` |
 | [Square](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
 | [Dashed square](#square) | `.squareDashed` | — | `brian.square.dashed` |
@@ -47,6 +50,8 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
 The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
+
+The uncontained `pencil` intentionally uses a filled design as its only base shape, without a separate outline variant. The demo also classifies it as Line because its name has no `.fill` suffix. See the [pencil specification](#pencil) for its geometry and circle variants.
 
 ## Shared authoring settings
 
@@ -91,14 +96,37 @@ Select a mode with `.symbolRenderingMode(...)`. Color behavior depends on that m
 
 | Mode | Color behavior |
 |---|---|
-| Multicolor | The front follows the tint; the back uses the same tint at 50% opacity. The paper retains its authored off-white color. |
+| Multicolor | The front uses fixed blue (`#3298F5`); the back uses the same blue at 50% opacity. The paper keeps its fixed off-white color (`#F4FAFF`). Foreground styles do not change these colors. |
 | Monochrome | One color covers the folder. The paper region behind the front becomes transparent to preserve separation. |
 | Hierarchical | One base color is rendered at different opacities: Primary for the front, Secondary for the back, and Tertiary for the paper. |
 | Palette | Three supplied colors apply to the front, back, and paper, respectively. The paper color is customizable. |
 
 See the [package rendering example](symbol-authoring.md#using-the-color-folder) for tint and palette configuration.
 
-Validated: macOS demo build and AppKit rendering at 16, 24, 32, and 56pt across Ultralight, Regular, and Black in Multicolor, black and white Monochrome, three-color Palette, and Hierarchical. SwiftUI rendering additionally verified blue and purple foreground styles at 64pt across all three source weights, with the paper color preserved. SF Symbols app import has not yet been validated.
+Validated: macOS demo build and SwiftUI rendering at Regular 64pt with Small image scale, including default rendering under inherited foreground styles and all four explicit modes. The default and Multicolor appearances retain their authored colors. SF Symbols app import has not yet been validated.
+
+## color.pencil
+
+A diagonal filled pencil points toward the lower left, with a rounded eraser at the upper right. Five flat regions use yellow-orange lacquer (`#F5A623`), natural wood (`#E7BC88`), graphite (`#41434A`), a silver band (`#BFC5CC`), and a coral eraser (`#EA836B`). These colors follow the supplied reference without reproducing its texture or highlights. The silhouette is constant across source weights and matches the uncontained monochrome pencil.
+
+Multicolor preserves all five fixed SVG colors. Monochrome merges them into one recognizable silhouette. Palette and Hierarchical assign Primary to the lacquer, Secondary to wood, graphite, and eraser, and Tertiary to the band.
+
+The bare initializer displays the curated colors. Select Palette to supply group colors:
+
+```swift
+import SwiftUI
+import BrianSymbols
+
+Image(brianSymbol: .colorPencil)
+
+Image(brianSymbol: .colorPencil)
+    .symbolRenderingMode(.palette)
+    .foregroundStyle(.purple, .orange, .gray)
+```
+
+See the [default-color policy](symbol-authoring.md#default-colors-and-customization) for rendering behavior and future asset requirements.
+
+Validation coverage is recorded with the [pencil family](#pencil).
 
 ## ellipsis
 
@@ -155,6 +183,14 @@ Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt across the thr
 Minus shares the length, thickness, and center of the plus symbol's horizontal line. Its centerline is (4, 12) → (20, 12), with semicircular ends. Only the base shape is provided, without a line/fill distinction.
 
 Validated: macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
+
+## pencil
+
+The pencil is authored vertically around the origin, from y=−11 to 11 with a half-width of 2.8 units, then rotated 45 degrees and centered at (12, 12). The tip points lower left. The base pencil uses a solid body and rounded eraser, separated by a transparent gap of 0.7 times the shared source-weight thickness. It intentionally provides only `.pencil`, with no separate `.pencilFill` variant. Decorative lacquer facets and metal grooves are omitted.
+
+Circle variants scale the pencil uniformly to 67% inside the shared 20-unit circle. Both circle variants use the same solid pencil with a separated eraser. The line circle contains the pencil; the filled circle cuts out the body and eraser with reverse-wound paths, preserving real transparency and a visible bridge between them. The circle border follows the shared weight thicknesses.
+
+Validated: macOS demo build, AppKit rendering at Regular weight at 16, 24, 32, and 72pt, and matching path-command structures across Ultralight-S, Regular-S, and Black-S. The rendered comparison covered all four assets, including the default multicolor appearance and transparent circle cutout. The color pencil was rendered through SwiftUI at Regular 64pt with Small image scale: default and Multicolor rendering preserve the SVG colors under inherited foreground styles, while explicit Monochrome, Hierarchical, and Palette apply the supplied styles. Other rendered weights, dark backgrounds, SF Symbols app import, physical devices, and minimum supported OS versions have not been checked.
 
 ## plus
 
