@@ -30,6 +30,9 @@
 | [원형 길이가 줄어드는 가로선 3개](#line3horizontal) | `.line3HorizontalDecreaseCircle` | `.line3HorizontalDecreaseCircleFill` | `brian.line.3.horizontal.decrease.circle`, `brian.line.3.horizontal.decrease.circle.fill` |
 | [빼기](#minus) | `.minus` | — | `brian.minus` |
 | [더하기](#plus) | `.plus` | — | `brian.plus` |
+| [2×2 격자](#squaregrid2x2) | `.squareGrid2x2` | `.squareGrid2x2Fill` | `brian.square.grid.2x2`, `brian.square.grid.2x2.fill` |
+| [3×3 격자](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
+| [위로 쌓인 사각형](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
 | [X마크](#xmark) | `.xmark` | — | `brian.xmark` |
 | [원형 X마크](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
@@ -115,6 +118,24 @@ macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기�
 가로·세로 길이가 같은 더하기다. 선 끝은 반원으로 마감하고 중심은 디자인 좌표 (12, 12)에 둔다. 중심선의 각 축 길이는 16단위다.
 
 macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기를 확인했다.
+
+## square.grid.2x2
+
+20 × 20단위 영역에 둥근 사각형 네 개를 2.5단위 간격으로 배치한다. 바깥 모서리는 3단위 거리부터 곡선으로 연결하고, 안쪽 모서리도 두께에 맞춰 둥글게 처리한다. Line의 세 소스 굵기는 0.9·1.65·2.35단위이며 내부는 실제 투명 영역이다. Fill은 같은 외곽의 사각형을 채운다.
+
+macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
+
+## square.grid.3x3
+
+20 × 20단위 영역에 둥근 사각형 아홉 개를 2단위 간격으로 배치한다. 바깥 모서리는 1.9단위 거리부터 곡선으로 연결하며 안쪽 모서리도 둥글게 처리한다. 작은 내부 공간을 유지하도록 Line 두께는 2×2 격자의 70%를 적용한다. Fill은 같은 외곽의 사각형을 채운다.
+
+macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
+
+## square.stack.3d.up
+
+마름모 형태의 상단 면과 아래쪽 두 층을 둥근 모서리의 닫힌 면 경로로 구성한다. 상단 외곽은 꼭짓점에서 2.4단위, 안쪽은 1.5단위 거리부터 곡선으로 연결한다. 아래 두 층도 꺾임과 끝부분을 부드럽게 마감한다. Line은 상단 내부가 투명하고 Fill은 상단 면을 채운다. 아래 두 층의 선 두께는 세 소스 굵기에서 0.9·1.65·2.35단위다.
+
+macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
 
 ## xmark
 
