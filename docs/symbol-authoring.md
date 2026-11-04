@@ -1,87 +1,88 @@
-# 커스텀 심볼 제작 가이드
+# Custom symbol authoring guide
 
-먼저 [종류와 형태 규칙](symbol-naming.md)에 따라 다색 또는 단색을 선택한다. 다색은 채움형에 여러 색상 역할을 정의하고, 단색은 단순화한 line·fill에 하나의 색상을 적용한다. 꽃 심볼을 예시로 벡터 제작, 주석 설정, 앱 적용과 검증 절차를 설명한다. 예시 에셋은 아직 제작하지 않았다.
+First choose multicolor or monochrome according to the [type and shape rules](symbol-naming.md). Multicolor assets define multiple color roles in a filled shape; monochrome assets apply one color to simplified line and fill variants. This guide uses a flower to explain vector authoring, annotations, app integration, and validation. The example asset has not yet been created.
 
-## 다색 심볼의 렌더링 모드
+## Rendering modes for multicolor symbols
 
-| 제공 스타일 | 모드 | 제작 시 정의 | 사용 시 지정 |
+| Style | Mode | Defined during authoring | Specified by the consumer |
 |---|---|---|---|
-| 기본 컬러 | Multicolor | 레이어별 기본 색상 | tint로 정의한 영역의 색상 |
-| 사용자 단색 | Monochrome | 단색에서도 식별되는 형태 | 전체 색상 |
-| 사용자 팔레트 | Palette | Primary·Secondary·Tertiary 그룹 | 최대 세 그룹의 색상 |
-| 흑백 | Monochrome 또는 Palette | 명암 대비와 형태 | 검정·흰색 조합 |
-| 계층 색상 | Hierarchical | 계층 그룹 | 하나의 기준 색상 |
+| Default colors | Multicolor | Default colors per layer | Color for regions defined as tint |
+| Custom single color | Monochrome | A shape recognizable in one color | Overall color |
+| Custom palette | Palette | Primary, Secondary, and Tertiary groups | Colors for up to three groups |
+| Black and white | Monochrome or Palette | Contrast and shape | Black and white combination |
+| Hierarchical color | Hierarchical | Hierarchical groups | One base color |
 
-Hierarchical은 하나의 색상을 계층별 불투명도로 표현한다. Palette와 같은 계층 데이터를 사용한다. 흑백은 별도 렌더링 모드가 아니라 색상 프리셋으로 제공한다. 모든 경로에 개별 색상을 전달하는 기능은 세 그룹을 사용하는 Palette와 구분한다. [Apple 렌더링 모드 안내](https://developer.apple.com/design/human-interface-guidelines/sf-symbols)
+Hierarchical renders one color at different opacities by hierarchy, using the same hierarchy data as Palette. Black and white is a color preset, not a separate rendering mode. Assigning an individual color to every path is distinct from Palette's three groups. See [Apple's rendering mode guidance](https://developer.apple.com/design/human-interface-guidelines/sf-symbols).
 
-다색의 기본 표시 방식은 Multicolor로 설계한다. 사용처의 기본 동작에 의존하지 않고 모드를 명시한다. 실제 API는 구현 단계에서 정한다.
+Design multicolor assets to default to Multicolor. Set the mode explicitly rather than relying on consumer defaults. The actual API will be determined during implementation.
 
-## 단색 심볼의 렌더링 모드
+## Rendering modes for monochrome symbols
 
-단색 line·fill은 Monochrome으로 표시하고 전체에 하나의 사용자 색상을 적용한다. 검정과 흰색은 각각 단색 선택지다. 한 에셋 안에서 검정과 흰색을 서로 다른 영역에 적용하는 표현은 다색 종류의 팔레트에 해당한다. 단색에는 Multicolor·Palette·Hierarchical용 장식 레이어를 요구하지 않는다.
+Render monochrome line and fill assets in Monochrome mode with one custom color throughout. Black and white are separate single-color choices. Applying black and white to different regions within one asset belongs to the multicolor type's palette. Monochrome assets do not require decorative layers for Multicolor, Palette, or Hierarchical.
 
-## 벡터 제작
+## Vector authoring
 
-먼저 종류와 에셋 이름을 정하고, 식별에 필요한 도형만 남긴다. 다색은 채움형 하나, 단색은 line·fill을 제작한다. 단색의 형태 예외는 [종류별 제작 범위와 단순화 원칙](symbol-naming.md)을 따른다.
+Choose the type and asset name first, keeping only shapes needed for recognition. Author one filled shape for multicolor or line and fill variants for monochrome. Follow the [scope and simplification rules](symbol-naming.md) for monochrome shape exceptions.
 
-1. SF Symbols 앱에서 수정이 허용된 심볼의 템플릿을 내보낸다.
-2. 벡터 편집 도구에서 템플릿 구조와 가이드를 유지하며 도형을 만든다.
-3. [크기와 정렬 기준](symbol-sizing.md)에 따라 공통 영역과 내부 비례를 맞춘다.
-4. 선을 면으로 변환하고, 닫힌 경로와 평면 채우기로 정리한다.
-5. 숨김 경로와 그림자 등 추가 효과를 제거한다.
-6. 필요한 굵기·스케일 변형의 구조를 맞추고 SF Symbols 앱으로 가져와 검증한다.
+1. Export a template from the SF Symbols app for a symbol that permits modification.
+2. Create shapes in a vector editor while preserving the template structure and guides.
+3. Align the shared area and internal proportions using the [sizing and alignment guidelines](symbol-sizing.md).
+4. Convert strokes to filled shapes, using closed paths and flat fills.
+5. Remove hidden paths and additional effects such as shadows.
+6. Match the structure of required weight and scale variants, then import into the SF Symbols app for validation.
 
-한두 가지 굵기·스케일만 제작할 때는 Static 템플릿을, 전체 변형을 보간으로 지원할 때는 Variable 템플릿을 선택한다. Variable에서는 `Ultralight-S`, `Regular-S`, `Black-S`를 보간 소스로 준비한다. 세 소스는 면 기반 경로여야 하며 경로 수와 제어점 수가 같아야 한다. 대응하는 경로의 순서와 의미도 유지한다. 자동 생성된 중간 굵기와 스케일은 미리보기에서 확인한다. 명시적으로 제작한 변형이 있으면 해당 변형이 보간 결과보다 우선한다. 여기서 Variable 템플릿은 Variable Color와 다른 개념이다. [Apple의 템플릿과 보간 조건](https://developer.apple.com/documentation/technologyoverviews/custom-sf-symbols)
+Choose a Static template when authoring only one or two weight/scale variants, or a Variable template to support all variants through interpolation. For Variable templates, prepare `Ultralight-S`, `Regular-S`, and `Black-S` as interpolation sources. All three must use filled paths with identical path and control-point counts. Preserve the order and meaning of corresponding paths. Check generated intermediate weights and scales in the preview. Explicitly authored variants take precedence over interpolation. Variable templates are distinct from Variable Color. See [Apple's template and interpolation requirements](https://developer.apple.com/documentation/technologyoverviews/custom-sf-symbols).
 
-숨긴 경로도 심볼 윤곽으로 해석될 수 있다. 정사각형 경계를 만들 목적으로 숨긴 사각형을 추가하지 않는다. 주석 설정 후 경로를 삭제하거나 재정렬하면 다시 주석을 설정해야 할 수 있으므로, 형태를 먼저 확정한다. [경로 제작과 주석 유지 조건](https://developer.apple.com/documentation/uikit/creating-custom-symbol-images-for-your-app)
+Hidden paths may still be interpreted as symbol outlines. Do not add hidden rectangles to force square bounds. Finalize the shape before annotation: deleting or reordering paths afterward may require reannotation. See [path authoring and annotation preservation](https://developer.apple.com/documentation/uikit/creating-custom-symbol-images-for-your-app).
 
-Apple 제품과 기능을 나타내는 일부 심볼은 수정이 제한된다. 템플릿을 선택할 때 SF Symbols 앱의 제한 안내를 확인한다. [커스텀 심볼 디자인 안내](https://developer.apple.com/design/human-interface-guidelines/sf-symbols)
+Some symbols representing Apple products or features restrict modification. Check the restrictions shown in the SF Symbols app when selecting a template. See [custom symbol design guidance](https://developer.apple.com/design/human-interface-guidelines/sf-symbols).
 
-## 예시: 다색 꽃 심볼의 레이어 설정
+## Example: multicolor flower layers
 
-에셋 이름을 `brian.color.flower`로 정하고 꽃잎, 꽃 중심, 줄기와 잎을 채워진 면으로 제작한다. line 변형은 만들지 않는다.
+Name the asset `brian.color.flower` and create petals, a flower center, a stem, and leaves as filled shapes. Do not create a line variant.
 
-| 도형 | 기본 컬러 | 계층 그룹 | 팔레트 역할 |
+| Shape | Default color | Hierarchical group | Palette role |
 |---|---|---|---|
-| 꽃잎 | 분홍 | Primary | 첫 번째 색상 |
-| 꽃 중심 | 노랑 | Secondary | 두 번째 색상 |
-| 줄기와 잎 | 초록 | Tertiary | 세 번째 색상 |
+| Petals | Pink | Primary | First color |
+| Flower center | Yellow | Secondary | Second color |
+| Stem and leaves | Green | Tertiary | Third color |
 
-꽃잎이 여러 경로여도 하나의 그룹에 배정할 수 있다. 단색에서 꽃잎과 중심이 합쳐져 식별이 어렵다면 실제 빈 공간이나 윤곽으로 경계를 만든다. 흰색 도형으로 덮는 것은 투명한 빈 공간과 다르다.
+Multiple petal paths can belong to one group. If petals and the center merge in Monochrome and become hard to distinguish, use actual negative space or outlines to separate them. Covering an area with white is not the same as transparency.
 
-SF Symbols 앱에서 갤러리 보기와 Rendering Inspector를 열고 다음을 설정한다.
+Open the gallery view and Rendering Inspector in the SF Symbols app:
 
-1. Multicolor에서 레이어별 기본 색상을 지정한다.
-2. Hierarchical에서 Primary·Secondary·Tertiary를 배정한다. Palette도 이 데이터를 사용한다.
-3. Monochrome에서 형태와 겹침을 확인한다.
-4. 각 모드의 미리보기에서 레이어 순서와 색상을 검토한다.
+1. Assign default layer colors in Multicolor.
+2. Assign Primary, Secondary, and Tertiary in Hierarchical. Palette uses the same data.
+3. Check shapes and overlaps in Monochrome.
+4. Review layer order and colors in each mode's preview.
 
-기본 컬러에는 고정 색상, 시스템 색상 또는 에셋 카탈로그 색상을 사용할 수 있다. 어두운 모드와 높은 대비에 적응하려면 해당 외형이 정의된 색상을 사용한다. 꽃잎만 사용자 색상을 따르게 하려면 꽃잎을 `tintColor`로 지정한다. [주석 설정 방법](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols)
+Default colors may be fixed colors, system colors, or asset catalog colors. Use colors with appropriate appearances to adapt to dark mode and increased contrast. To let only the petals follow the user's color, assign them `tintColor`. See [annotation guidance](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols).
 
-## 다색 컨테이너의 단색 표현
+## Monochrome rendering of multicolor containers
 
-채워진 컨테이너 안에 대상이 있는 다색 심볼은 Monochrome에서도 내부 대상이 식별되어야 한다. 색상 대비만으로 구분하면 같은 색으로 합쳐질 수 있으므로, 모드별 레이어 구성이나 실제 투명 영역으로 내부 형태를 유지한다.
+A multicolor symbol with a subject inside a filled container must keep that subject recognizable in Monochrome. Color contrast alone may disappear when regions merge into one color. Preserve the inner shape through mode-specific layers or actual transparency.
 
-예를 들어 `brian.color.heart.circle`은 Multicolor에서 원과 하트를 서로 다른 색으로 표시하고, Monochrome에서는 채워진 원 안에 하트 모양의 투명 영역을 남길 수 있다. 흰색 도형으로 덮어 투명 영역을 대신하지 않는다. 이는 같은 다색 채움형 에셋의 렌더링 설정이며, 별도 line 변형을 추가하는 것이 아니다.
+For example, `brian.color.heart.circle` can use different colors for the circle and heart in Multicolor, then leave a transparent heart cutout in the filled circle in Monochrome. Do not substitute a white overlay for transparency. These are rendering settings for the same filled multicolor asset, not an additional line variant.
 
-작은 크기에서 검정 단색과 흰색 단색을 각각 대비되는 배경에 표시하고, 내부 대상이 사라지거나 경계가 뭉치지 않는지 확인한다.
+At small sizes, display solid black and solid white on contrasting backgrounds. Check that the subject remains visible and its boundaries do not merge.
 
-## 내보내기와 앱 적용 예시
+## Exporting and using assets
 
-SF Symbols 앱에서 배포용 SVG를 내보낸 뒤 아래 순서로 등록한다. 일반 이미지로 추가하는 것만으로 심볼 주석이 갖춰지는 것은 아니다.
+Export a distribution SVG from the SF Symbols app, then register it as follows. Adding an ordinary image alone does not supply symbol annotations.
 
-### 패키지에 에셋 추가
+### Adding assets to the package
 
-1. [에셋 카탈로그](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets)에 새 `.symbolset`을 추가한다. SVG와 이를 가리키는 `Contents.json`을 함께 넣는다. 이 폴더의 SVG가 편집·배포 기준 원본이다.
-2. [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift)에 에셋 이름과 일치하는 case를 추가한다. 예: `case star = "brian.star"`.
-3. 패키지를 다시 빌드하고 [macOS 데모](../README.md#macos-데모-앱)에서 표시를 확인한다. 크기·굵기·색상과 line·fill의 정렬을 점검한다.
-4. [에셋 목록과 개별 사양](symbol-assets.md)에 공개 이름, 제작 특성, 실제 검증 범위를 기록한다.
+1. Add a new `.symbolset` to the [asset catalog](../Sources/BrianSymbols/Resources/BrianSymbols.xcassets), containing the SVG and a `Contents.json` referencing it. The SVG in this folder is the source of truth for editing and distribution.
+2. Add a case matching the asset name to [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.swift), such as `case star = "brian.star"`.
+3. Rebuild the package and check the [macOS demo](../README.md#demo). Inspect size, weight, color, and alignment between line and fill.
+4. Record the public name, authoring details, and actual validation coverage in the [asset specifications](symbol-assets.md).
+5. Prepare the PR with [rendered previews and validation results](asset-pull-requests.md).
 
-에셋 파일과 공개 case는 함께 추가한다. 새 case는 데모 목록에 자동으로 표시되므로 별도 목록 등록이나 생성 스크립트 실행은 필요 없다. 원격 패키지 소비자는 변경이 포함된 버전으로 의존성을 업데이트하고 다시 빌드해야 한다.
+Add asset files and public cases together. New cases appear automatically in the demo, so no separate list registration or generation script is needed. Remote package consumers must update to a version containing the change and rebuild.
 
-### 다색 꽃 적용 예시
+### Multicolor flower example
 
-아래 꽃 예시는 일반적인 SwiftUI 렌더링 모드 설명이다. 패키지 등록 절차와는 별개로, `brian.color.flower`를 앱의 에셋 카탈로그에 직접 넣고 필요한 주석을 설정했다고 가정한다. 예시 에셋은 없으며 이 코드는 아직 실행 검증하지 않았다. 현재 패키지의 사용법과 최소 지원 버전은 [README의 다른 앱에서 사용](../README.md#다른-앱에서-사용)을 따른다.
+This example illustrates SwiftUI rendering modes. Independently of package registration, it assumes `brian.color.flower` has been added directly to the app's asset catalog with the required annotations. The example asset does not exist, and this code has not been run for validation. See the README for current package [usage](../README.md#usage) and [minimum platform versions](../README.md#installation).
 
 ```swift
 import SwiftUI
@@ -113,41 +114,41 @@ struct FlowerStyles: View {
 }
 ```
 
-이 예시는 색상 적용만 설명한다. 정사각형 프레임은 [크기와 정렬 기준의 표시 예시](symbol-sizing.md#에셋과-표시-뷰의-책임)를 적용한다. 흑백 조합은 배경에 따라 반전하거나 적응형 색상으로 바꾼다. 전체 흰색은 Monochrome에 흰색 하나를 지정한다.
+This example covers color only. For square frames, follow the [display example in the sizing guidelines](symbol-sizing.md#asset-and-view-responsibilities). Invert black and white combinations or use adaptive colors according to the background. For an entirely white symbol, use Monochrome with one white color.
 
-Swift Package의 리소스라면 해당 번들을 지정한다. 리소스 처리가 구성된 패키지 타깃 내부에서는 `Image("brian.color.flower", bundle: .module)`을 사용할 수 있다.
+For Swift package resources, specify the resource bundle. Inside a package target configured to process resources, use `Image("brian.color.flower", bundle: .module)`.
 
-지원하지 않는 모드를 요청하면 단색으로 표시될 수 있다. 색상 지정 코드와 에셋 주석을 함께 검증한다. [앱에서 심볼 설정하기](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui)
+Requesting an unsupported mode may result in monochrome rendering. Validate color-setting code together with asset annotations. See [configuring symbols in an app](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui).
 
-이 패키지의 단색은 `import BrianSymbols` 후 `Image(brianSymbol: .house)` 또는 `Image(brianSymbol: .houseFill)`에 `.symbolRenderingMode(.monochrome).foregroundStyle(.purple)`을 적용한다. 단색 집 에셋은 제공 중이며, macOS 데모 앱에서 확인할 수 있다.
+For this package's monochrome symbols, import `BrianSymbols` and apply `.symbolRenderingMode(.monochrome).foregroundStyle(.purple)` to `Image(brianSymbol: .house)` or `Image(brianSymbol: .houseFill)`. Monochrome house assets are available and can be checked in the macOS demo.
 
-## 색상 외 기능
+## Features beyond color
 
-색상 지원만으로 모든 심볼 기능이 완성되지는 않는다. 다음 기능은 필요한 주석과 대상 OS를 확인한 뒤 제작 범위에 포함한다.
+Color support alone does not complete every symbol feature. Check required annotations and target OS support before including these features in the authoring scope.
 
-| 기능 | 제작·검증 내용 |
+| Feature | Authoring and validation |
 |---|---|
-| 굵기·스케일 | 변형별 비례, 경로 호환성과 작은 크기 가독성 |
-| 텍스트 정렬 | 기준선과 여백 |
-| Variable Color | 참여 레이어와 강조 순서 |
-| 애니메이션 | 전체·레이어별 동작과 효과에 필요한 주석 |
-| Draw On/Off·Variable Draw | 그리기 경로와 순서에 대한 주석 |
-| 그라디언트 표현 | 지원 OS에서 렌더링 모드와 함께 적용한 결과 |
+| Weights and scales | Proportions across variants, path compatibility, and small-size legibility |
+| Text alignment | Baseline and margins |
+| Variable Color | Participating layers and emphasis order |
+| Animation | Whole-symbol and per-layer behavior, plus annotations required by effects |
+| Draw On/Off and Variable Draw | Drawing paths and sequence annotations |
+| Gradients | Results combined with rendering modes on supported OS versions |
 
-Variable Color는 값에 따라 레이어의 불투명도와 강조를 바꾸는 기능이다. 임의의 색상 간 보간과 구분한다. 애니메이션은 모든 효과에 별도 주석이 필요한 것은 아니다. [기능 개요](https://developer.apple.com/sf-symbols/), [가변 렌더링 및 애니메이션 주석](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols)
+Variable Color changes layer opacity and emphasis according to a value; it is distinct from interpolation between arbitrary colors. Not every animation effect requires separate annotations. See the [feature overview](https://developer.apple.com/sf-symbols/) and [variable rendering and animation annotations](https://developer.apple.com/documentation/technologyoverviews/annotating-sf-symbols).
 
-패키지에 선언된 최소 지원 OS와 실제 검증 범위는 [README의 지원 버전 설명](../README.md#다른-앱에서-사용)을 따른다. 사용할 SF Symbols 도구 버전은 아직 확정하지 않았다. 추가 기능을 제작할 때는 패키지의 최소 버전과 별도로 해당 기능의 OS·도구 지원 조건을 확인하고, 실제 검증한 환경과 대체 표현을 기록한다. 패키지의 최소 버전 선언만으로 모든 기능의 동작을 보장하지 않는다.
+See the [README](../README.md#installation) for declared minimum OS versions and the [asset specifications](symbol-assets.md#shared-authoring-settings) for actual validation coverage. The SF Symbols tool version has not yet been finalized. For additional features, check OS and tool requirements separately from the package minimum, and record tested environments and fallback appearances. Declaring a minimum package platform version does not guarantee every feature works there.
 
-## 완료 기준
+## Completion criteria
 
-- SF Symbols 앱에서 템플릿과 주석이 유효하다.
-- 다색은 채움형만 제공하며 기본 컬러·단색·팔레트·흑백·계층 표현을 실제 앱에서 검증한다.
-- 다색 컨테이너는 [단색 표현 기준](#다색-컨테이너의-단색-표현)에 따라 작은 크기의 Monochrome에서도 내부 대상이 식별된다.
-- 단색은 line·fill 또는 명시된 형태 예외를 제공하며, 사용자 단색·검정·흰색을 검증한다.
-- 단색은 다색 버전의 장식이나 색상 경계를 그대로 복제하지 않고, 작은 크기에서 필요한 요소만 남긴다.
-- 밝은 배경과 어두운 배경에서 형태와 내부 경계가 식별된다.
-- [크기 검증](symbol-sizing.md#크기-검증)을 통과한다.
-- 추가한 가변 렌더링과 애니메이션을 대상 OS에서 확인한다.
-- 제작 원본, 배포용 SVG, 에셋 이름과 지원 기능을 함께 관리한다.
+- Templates and annotations are valid in the SF Symbols app.
+- Multicolor assets provide only filled shapes, with default colors, monochrome, palette, black and white, and hierarchical appearances validated in an actual app.
+- Multicolor containers keep their inner subjects recognizable in small-size Monochrome according to the [container guidelines](#monochrome-rendering-of-multicolor-containers).
+- Monochrome assets provide line and fill or a documented shape exception, with custom single-color, black, and white rendering validated.
+- Monochrome assets retain only details needed at small sizes rather than copying decoration and color boundaries from multicolor versions.
+- Shapes and internal boundaries are distinguishable on light and dark backgrounds.
+- Assets pass [size validation](symbol-sizing.md#size-validation).
+- Added variable rendering and animation are checked on the target OS.
+- Authoring sources, distribution SVGs, asset names, and supported features are maintained together.
 
-첫 제작에서는 단색 line·fill과 다색 채움형을 각각 제작하고 종류에 맞는 검증을 수행한다. 검증 후 수치와 API를 확정하고 다른 심볼에 같은 기준을 적용한다.
+For the first authoring pass, create monochrome line and fill assets and a multicolor filled asset, then validate each according to its type. Finalize dimensions and APIs after validation, and apply the same guidelines to other symbols.

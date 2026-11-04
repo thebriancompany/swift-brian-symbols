@@ -15,9 +15,9 @@ struct SymbolPreview: View {
         inspector(for: selection)
       } else {
         ContentUnavailableView(
-          "선택된 심볼 없음",
+          "No Symbol Selected",
           systemImage: "square.dashed",
-          description: Text("검색 조건을 바꾸거나 목록에서 심볼을 선택하세요.")
+          description: Text("Change your search or select a symbol from the list.")
         )
       }
     }
@@ -27,12 +27,12 @@ struct SymbolPreview: View {
     ScrollView {
       VStack(alignment: .leading, spacing: 24) {
         HStack {
-          Text("미리보기")
+          Text("Preview")
             .font(.headline)
 
           Spacer()
 
-          Text(selection.isFill ? "Fill" : "Line")
+          Text((selection.isFill ? SymbolGroup.fill : .line).title)
             .font(.caption.weight(.medium))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
@@ -67,7 +67,7 @@ struct SymbolPreview: View {
 
         VStack(alignment: .leading, spacing: 12) {
           HStack {
-            Text("크기")
+            Text("Size")
 
             Spacer()
 
@@ -77,7 +77,7 @@ struct SymbolPreview: View {
           }
 
           Slider(value: $size, in: 16...128, step: 1)
-            .accessibilityLabel("미리보기 크기")
+            .accessibilityLabel("Preview size")
 
           HStack {
             ForEach([16.0, 24, 32, 64], id: \.self) { value in
@@ -91,11 +91,11 @@ struct SymbolPreview: View {
 
 
         if selection == .houseFill {
-          Text("Fill은 모든 굵기에서 같은 실루엣을 사용합니다.")
+          Text("The filled house uses the same silhouette at every weight.")
             .font(.caption)
             .foregroundStyle(.secondary)
         } else {
-          Picker("굵기", selection: $weight) {
+          Picker("Weight", selection: $weight) {
             ForEach(SymbolWeight.allCases) { weight in
               Text(weight.title)
             }
@@ -103,18 +103,18 @@ struct SymbolPreview: View {
         }
 
         ColorPicker(
-          "단색",
+          "Color",
           selection: $tint,
           supportsOpacity: false
         )
 
-        Button("기본 색상으로 재설정") {
+        Button("Reset to Default Color") {
           tint = .primary
         }
 
-        Toggle("어두운 배경", isOn: $darkPreview)
+        Toggle("Dark Background", isOn: $darkPreview)
 
-        Toggle("이미지 영역 보기", isOn: $showBounds)
+        Toggle("Show Image Bounds", isOn: $showBounds)
       }
       .padding(24)
     }

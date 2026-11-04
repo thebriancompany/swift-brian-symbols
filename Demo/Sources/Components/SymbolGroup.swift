@@ -1,12 +1,20 @@
-import Foundation
+import SwiftUI
 import BrianSymbols
 
 enum SymbolGroup: String, CaseIterable, Identifiable {
-  case all = "모든 심볼"
-  case line = "Line"
-  case fill = "Fill"
+  case all
+  case line
+  case fill
 
   var id: String { rawValue }
+
+  var title: LocalizedStringKey {
+    switch self {
+    case .all: "All Symbols"
+    case .line: "Line"
+    case .fill: "Fill"
+    }
+  }
 
   var icon: BrianSymbol {
     switch self {

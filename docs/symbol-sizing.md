@@ -1,47 +1,47 @@
-# 심볼 크기와 정렬 기준
+# Symbol sizing and alignment
 
-라이브러리가 제공하는 심볼 뷰는 같은 크기 설정에서 동일한 정사각형 레이아웃 영역을 차지하도록 설계한다. 내부 그림은 원래 비율을 유지하면서 시각적 크기와 중심을 맞춘다. 이 문서는 앞으로 구현할 프로젝트 기준이며, 현재 API의 동작을 보장하는 문서는 아니다.
+Symbol views provided by the library are intended to occupy the same square layout area for a given size setting. The artwork preserves its proportions while matching optical size and center. This document describes project guidelines for future implementation, not guarantees of the current API.
 
-## 동일하게 맞추는 대상
+## What to align
 
-| 대상 | 기준 |
+| Property | Guideline |
 |---|---|
-| 레이아웃 영역 | 같은 크기 설정에서는 가로와 세로가 같은 정사각형 |
-| 도형 비율 | 원래 비율 유지. 정사각형을 채우기 위한 가로·세로 개별 확대 금지 |
-| 시각적 크기 | 실제 화면에서 비슷한 무게와 존재감이 되도록 조정 |
-| 정렬 | 기본은 중앙 정렬. 비대칭 도형은 시각적 중심 보정 |
-| 배경 | 기본은 투명. 크기 확보만을 위한 배경 도형은 추가하지 않음 |
+| Layout area | A square with equal width and height for a given size setting |
+| Shape proportions | Preserve the original proportions; do not stretch axes independently to fill the square |
+| Optical size | Adjust for comparable visual weight and presence on screen |
+| Alignment | Center by default; optically compensate for asymmetric shapes |
+| Background | Transparent by default; do not add background shapes just to reserve space |
 
-심볼의 형태를 구성하는 `.square`·`.square.fill` 컨테이너는 허용한다. 컨테이너 이름과 채움의 의미는 [형태와 이름 규칙](symbol-naming.md#형태-수식어)을 따른다.
+Visible `.square` and `.square.fill` containers are allowed as part of a symbol's shape. Follow [shape modifiers](symbol-naming.md#shape-modifiers) for container names and fill semantics.
 
-같은 정사각형 영역을 사용해도 가늘고 긴 도형과 꽉 찬 도형의 크기는 다르게 느껴진다. 모든 도형의 경계 상자를 정사각형으로 만들지 않고, 배치 영역의 일관성과 내부 도형의 균형을 각각 관리한다.
+Narrow and solid shapes can appear different in size within the same square. Manage layout consistency and the balance of the artwork separately instead of making every bounding box square.
 
-## 제작용 좌표 기준
+## Authoring coordinates
 
-첫 에셋 제작에서는 다음 수치를 시작안으로 사용한다. Apple의 필수 규격이 아니며, 대표 심볼의 실제 렌더링을 검증한 뒤 확정한다.
+Use these values as a starting point for the first assets. They are not Apple requirements; finalize them after checking representative symbols in actual rendering.
 
-- 정규화한 디자인 영역: 24 × 24 단위
-- 기본 내부 영역: 중앙의 20 × 20 단위
-- 기본 여백: 각 방향 2 단위
-- 둥근 도형, 비대칭 도형, 배지에는 시각적 크기·중심 보정을 허용
+- Normalized design area: 24 × 24 units
+- Default inner area: centered 20 × 20 units
+- Default padding: 2 units on each side
+- Optical size and center adjustments are allowed for rounded shapes, asymmetric shapes, and badges
 
-20 × 20은 권장 내부 영역이며 보정을 위해 넘을 수 있다. 정지 상태의 최종 도형은 24 × 24에 대응하는 표시 영역 안에 들어와야 한다. 따라서 2단위 여백은 모든 도형에 강제하는 최소 여백이 아니다.
+The 20 × 20 inner area is a recommendation and may be exceeded for optical compensation. The final shape at rest must fit within the display area corresponding to 24 × 24. The 2-unit padding is therefore not a mandatory minimum for every shape.
 
-24 단위는 디자인을 비교하기 위한 좌표다. SF Symbols SVG 전체의 viewBox를 24 × 24로 바꾸거나 템플릿 구조를 제거한다는 뜻이 아니다. 템플릿의 각 굵기·스케일 변형 안에 같은 비례 기준을 적용한다.
+The 24-unit system is for comparing designs. Do not change the entire SF Symbols SVG viewBox to 24 × 24 or remove the template structure. Apply the same proportions within each weight and scale variant.
 
-첫 대표 에셋은 `Regular-S`를 제작 좌표의 기준 변형으로 삼는다. 템플릿의 기준선과 여백 가이드를 유지하며 정규화 영역을 배치하고, 앱의 24pt 정사각형 프레임에서 표시 결과를 비교한다. 템플릿 좌표의 영역, 기준선 위치, 폰트 크기와 symbol scale을 제작 원본에 기록한다. 다른 심볼은 이 기준을 공유하며 개별 도형만 시각적으로 보정한다. 다른 굵기·스케일은 각각 검증한다.
+Use `Regular-S` as the reference variant for the first representative asset. Position the normalized area while preserving the template baseline and margin guides, then compare rendering in a 24pt square frame in the app. Record the template-coordinate area, baseline position, font size, and symbol scale with the authoring source. Other symbols share this reference, with optical corrections to individual shapes. Validate other weights and scales separately.
 
-이전 다색 집 시제품의 측정값은 새 제작 기준으로 사용하지 않는다. 새 단색 집 line·fill의 설정과 검증 범위는 [집 에셋 사양](symbol-assets.md#house)에 기록했다. 다색 채움형과 다른 대표 형태까지 비교하기 전에는 24/20을 전체 라이브러리의 확정 규격으로 취급하지 않는다.
+Do not reuse measurements from the previous multicolor house prototype as the new standard. Settings and validation coverage for the new monochrome house line and fill are recorded in the [house specifications](symbol-assets.md#house). Do not treat 24/20 as a finalized library-wide specification until multicolor filled assets and other representative shapes have also been compared.
 
-가로로 긴 도형은 너비를, 세로로 긴 도형은 높이를 기준으로 맞추고 남는 공간을 유지한다. 원형과 사각형은 같은 외곽 크기라도 면적이 다르므로 나란히 놓고 조정한다. 보정이 필요하면 제작 원본에 이유와 수치를 기록한다.
+Fit horizontal shapes by width and vertical shapes by height, preserving the remaining space. Circles and squares have different areas even with identical outer dimensions; compare them side by side. Record the reason and values for corrections with the authoring source.
 
-## 에셋과 표시 뷰의 책임
+## Asset and view responsibilities
 
-에셋에서는 도형의 비례, 기준선, 좌우 여백과 시각적 중심을 맞춘다. SF Symbols는 템플릿의 가이드와 여백을 이용해 텍스트 및 주변 심볼과 정렬한다. SVG 캔버스가 정사각형이라는 사실만으로 앱의 표시 영역까지 정사각형이 되지는 않는다. [Apple의 템플릿 및 정렬 설명](https://developer.apple.com/documentation/technologyoverviews/custom-sf-symbols)
+Assets define proportions, baseline, side margins, and optical center. SF Symbols uses template guides and margins to align with text and nearby symbols. A square SVG canvas alone does not make the app's display area square. See [Apple's template and alignment guidance](https://developer.apple.com/documentation/technologyoverviews/custom-sf-symbols).
 
-표시 뷰에서는 동일한 크기 설정에 동일한 정사각형 프레임을 제공한다. 폰트 크기와 프레임 크기는 별도 값으로 취급한다. 폰트 크기가 20pt라고 심볼의 실제 너비와 높이가 모두 20pt가 되는 것은 아니다.
+Display views provide the same square frame for the same size setting. Treat font size and frame size as separate values: a 20pt font does not make the symbol's actual width and height both 20pt.
 
-다음은 표시 구조를 설명하는 예시이며, 최종 공개 API가 아니다. 앱 에셋에 심볼이 들어 있다고 가정한다.
+This example illustrates the display structure, not a final public API. It assumes the symbol is in the app's asset catalog.
 
 ```swift
 Image("brian.color.flower")
@@ -50,24 +50,24 @@ Image("brian.color.flower")
     .frame(width: 24, height: 24, alignment: .center)
 ```
 
-`frame`은 배치 영역을 정하고 내부 그림을 자동으로 축소하거나 잘라내지 않는다. 실제 그림이 영역을 넘으면 제작 크기나 표시 크기를 수정한다. 기본적으로 클리핑하지 않으며, 크기를 맞추기 위해 투명·숨김 경로를 에셋에 추가하지 않는다.
+The frame defines the layout area; it does not automatically shrink or clip the artwork. If artwork extends beyond it, adjust the authored size or display size. Do not clip by default or add transparent or hidden paths to force an asset's dimensions.
 
-같은 프레임은 목록의 아이콘 열과 텍스트 시작 위치를 일정하게 만드는 데 도움이 된다. 내부 그림의 크기 차이는 에셋 제작 단계에서 함께 해결해야 한다.
+Consistent frames help align icon columns and text starts in lists. Differences in the artwork's optical size still need to be addressed during authoring.
 
-## 적용 범위와 예외
+## Scope and exceptions
 
-- 정사각형 배치는 라이브러리의 기본 표시 방식으로 설계한다. 에셋을 직접 불러오는 사용처에는 프레임을 강제할 수 없다.
-- Dynamic Type을 지원할 때는 그림과 정사각형 영역을 같은 정책으로 확대한다. 고정된 작은 프레임에 확대된 그림만 넣지 않는다.
-- 문장 안의 심볼은 기준선 정렬이 중요하다. 텍스트 삽입 방식은 정사각형 아이콘 슬롯과 별도로 검증한다.
-- 버튼의 터치 영역은 심볼의 정사각형 영역과 별도로 설계한다.
-- 애니메이션 중 그림이 정사각형 밖으로 움직일 수 있다. 주변 간격과 잘림 여부를 확인한다.
+- Square layout is the intended default display behavior. Consumers loading assets directly cannot be forced to use a frame.
+- For Dynamic Type, scale the artwork and square area using the same policy. Do not place enlarged artwork in a fixed small frame.
+- Inline symbols require baseline alignment. Validate text insertion separately from square icon slots.
+- Design button hit areas separately from the symbol's square area.
+- Artwork may move outside the square during animation. Check surrounding spacing and clipping.
 
-## 크기 검증
+## Size validation
 
-꽃처럼 복합적인 심볼 외에 원형, 꽉 찬 사각형, 가로형, 세로형, 비대칭 심볼을 함께 비교한다. 초기 비교 크기는 16·24·32pt 정사각형 영역으로 하며, 이 값은 지원 크기 목록을 확정한 것이 아니다.
+Compare circles, solid squares, horizontal, vertical, and asymmetric symbols alongside complex symbols such as flowers. Start with 16, 24, and 32pt square areas; these values do not define a finalized list of supported sizes.
 
-1. 같은 크기 설정에서 프레임의 너비와 높이가 동일한지 확인한다.
-2. 목록과 그리드에서 텍스트 시작 위치와 심볼 중심이 일정한지 확인한다.
-3. 단색은 line·fill 간 크기와 중심을 비교한다. 다색은 지원하는 색상 모드 간 시각적 크기를 비교한다. 같은 대상의 두 종류도 나란히 확인한다.
-4. 작은 크기, 굵은 표현, 큰 글자 설정에서 경계와 내부 공간이 유지되는지 확인한다.
-5. 형태별 보정을 적용한 뒤 다른 크기와 굵기에서도 다시 비교한다.
+1. Check that frame width and height match for the same size setting.
+2. Check consistent text starts and symbol centers in lists and grids.
+3. Compare size and center between monochrome line and fill variants. For multicolor assets, compare optical size across supported rendering modes. Also compare both asset types for the same subject side by side.
+4. Check boundaries and internal spaces at small sizes, heavy weights, and large text settings.
+5. After applying shape-specific corrections, compare again at other sizes and weights.

@@ -9,7 +9,7 @@ enum SymbolWeight: CaseIterable, Hashable, Sendable {
 extension SymbolWeight: Identifiable {
   var id: SymbolWeight { self }
 
-  var title: String {
+  var title: LocalizedStringKey {
     switch self {
     case .ultraLight: "UltraLight"
     case .regular: "Regular"

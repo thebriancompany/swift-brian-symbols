@@ -9,10 +9,10 @@ struct BrowserContentHeader: View {
   var body: some View {
     HStack {
       VStack(alignment: .leading, spacing: 6) {
-        Text(group?.rawValue ?? "모든 심볼")
+        Text((group ?? .all).title)
           .font(.title2.bold())
 
-        Text("\(count)개의 심볼")
+        Text("\(count) symbols")
           .font(.subheadline)
           .foregroundStyle(.secondary)
       }
