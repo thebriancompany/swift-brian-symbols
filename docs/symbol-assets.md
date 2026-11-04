@@ -20,6 +20,8 @@
 | [오른쪽 원형 꺾쇠](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
 | [위쪽 꺾쇠](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [위쪽 원형 꺾쇠](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [말줄임표](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
+| [원형 말줄임표](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
 | [톱니바퀴](#gearshape) | `.gearshape` | `.gearshapeFill` | `brian.gearshape`, `brian.gearshape.fill` |
 | [집](#house) | `.house` | `.houseFill` | `brian.house`, `brian.house.fill` |
 | [가로선 3개](#line3horizontal) | `.line3Horizontal` | — | `brian.line.3.horizontal` |
@@ -31,7 +33,7 @@
 | [X마크](#xmark) | `.xmark` | — | `brian.xmark` |
 | [원형 X마크](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
-컨테이너 없는 `checkmark`, `chevron`, `line.3.horizontal`, `line.3.horizontal.decrease`, `minus`, `plus`, `xmark`는 line·fill의 구분이 성립하지 않아 기본 형태만 제공한다. 데모에서는 Line으로 분류한다.
+컨테이너 없는 `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `minus`, `plus`, `xmark`는 line·fill의 구분이 성립하지 않아 기본 형태만 제공한다. 데모에서는 Line으로 분류한다.
 
 ## 공통 제작 설정
 
@@ -67,6 +69,14 @@ chevron 네 방향은 macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에
 - Fill: 원을 채우고 꺾쇠는 실제 투명 영역으로 뚫는다. 원의 실루엣은 유지하고 꺾쇠의 두께는 굵기에 따라 바뀐다.
 
 원형 꺾쇠 네 방향의 line·fill은 macOS 데모 빌드와 AppKit의 16·24·32pt 렌더링에서 세 소스 굵기를 확인했다.
+
+## ellipsis
+
+가로로 나란한 원형 점 세 개를 y=12에 배치한다. 기본형의 점 중심은 x=5·12·19, 원형 내부는 x=7·12·17이다. Ultralight·Regular·Black에서 점의 반지름은 기본형 1.25·1.65·2단위, 원형 내부 1·1.3·1.6단위다.
+
+기본형은 line·fill 구분 없이 제공한다. 원형은 지름 20단위이며 line 테두리 두께는 0.9·1.65·2.35단위다. fill은 같은 외곽 원 안에 점 세 개를 실제 투명 영역으로 뚫는다.
+
+macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
 
 ## gearshape
 
