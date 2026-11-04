@@ -22,12 +22,16 @@
 | [위쪽 원형 꺾쇠](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
 | [톱니바퀴](#gearshape) | `.gearshape` | `.gearshapeFill` | `brian.gearshape`, `brian.gearshape.fill` |
 | [집](#house) | `.house` | `.houseFill` | `brian.house`, `brian.house.fill` |
+| [가로선 3개](#line3horizontal) | `.line3Horizontal` | — | `brian.line.3.horizontal` |
+| [원형 가로선 3개](#line3horizontal) | `.line3HorizontalCircle` | `.line3HorizontalCircleFill` | `brian.line.3.horizontal.circle`, `brian.line.3.horizontal.circle.fill` |
+| [길이가 줄어드는 가로선 3개](#line3horizontal) | `.line3HorizontalDecrease` | — | `brian.line.3.horizontal.decrease` |
+| [원형 길이가 줄어드는 가로선 3개](#line3horizontal) | `.line3HorizontalDecreaseCircle` | `.line3HorizontalDecreaseCircleFill` | `brian.line.3.horizontal.decrease.circle`, `brian.line.3.horizontal.decrease.circle.fill` |
 | [빼기](#minus) | `.minus` | — | `brian.minus` |
 | [더하기](#plus) | `.plus` | — | `brian.plus` |
 | [X마크](#xmark) | `.xmark` | — | `brian.xmark` |
 | [원형 X마크](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
-컨테이너 없는 `checkmark`, `chevron`, `minus`, `plus`, `xmark`는 line·fill의 구분이 성립하지 않아 기본 형태만 제공한다. 데모에서는 Line으로 분류한다.
+컨테이너 없는 `checkmark`, `chevron`, `line.3.horizontal`, `line.3.horizontal.decrease`, `minus`, `plus`, `xmark`는 line·fill의 구분이 성립하지 않아 기본 형태만 제공한다. 데모에서는 Line으로 분류한다.
 
 ## 공통 제작 설정
 
@@ -81,6 +85,14 @@ macOS 데모 빌드와 AppKit의 56pt 렌더링에서 세 소스 굵기의 line�
 - Fill: 모든 굵기에서 같은 실루엣을 사용한다.
 
 macOS에서 16·24·32pt와 세 굵기의 크기·정렬을 확인했다.
+
+## line.3.horizontal
+
+둥근 끝을 가진 가로선 세 개를 중앙 정렬한다. 기본형의 중심선 길이는 16단위이며 y=6·12·18에 배치한다. decrease는 위에서부터 16·10·4단위로 줄어든다. 원형 내부는 y=8.5·12·15.5에 배치하고 길이는 일반형 10단위, decrease 10·6·2단위다.
+
+기본형은 line·fill 구분 없이 제공한다. 원형은 지름 20단위이며 line은 테두리, fill은 가로선 모양의 실제 투명 영역을 사용한다. 세 소스 굵기의 선 두께는 0.9·1.65·2.35단위다.
+
+macOS 데모 빌드, SVG 구조와 세 소스 굵기의 경로 명령 구조 일치를 확인했다. SF Symbols 앱 가져오기와 실제 앱 렌더링은 아직 검증하지 않았다.
 
 ## minus
 
