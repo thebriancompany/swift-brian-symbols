@@ -12,6 +12,14 @@ The list and individual specifications are alphabetized by asset name.
 
 | Subject | Base / Line case | Fill case | Asset name |
 |---|---|---|---|
+| [Down arrow](#arrow) | `.arrowDown` | — | `brian.arrow.down` |
+| [Circle down arrow](#arrow-circle) | `.arrowDownCircle` | `.arrowDownCircleFill` | `brian.arrow.down.circle`, `brian.arrow.down.circle.fill` |
+| [Left arrow](#arrow) | `.arrowLeft` | — | `brian.arrow.left` |
+| [Circle left arrow](#arrow-circle) | `.arrowLeftCircle` | `.arrowLeftCircleFill` | `brian.arrow.left.circle`, `brian.arrow.left.circle.fill` |
+| [Right arrow](#arrow) | `.arrowRight` | — | `brian.arrow.right` |
+| [Circle right arrow](#arrow-circle) | `.arrowRightCircle` | `.arrowRightCircleFill` | `brian.arrow.right.circle`, `brian.arrow.right.circle.fill` |
+| [Up arrow](#arrow) | `.arrowUp` | — | `brian.arrow.up` |
+| [Circle up arrow](#arrow-circle) | `.arrowUpCircle` | `.arrowUpCircleFill` | `brian.arrow.up.circle`, `brian.arrow.up.circle.fill` |
 | [Book](#book) | `.book` | `.bookFill` | `brian.book`, `brian.book.fill` |
 | [Circle book](#book-circle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
 | [Checkmark](#checkmark) | `.checkmark` | — | `brian.checkmark` |
@@ -27,6 +35,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
+| [Color trash](#colortrash) | — | `.colorTrash` | `brian.color.trash` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
 | [Circle ellipsis](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
 | [Folder](#folder) | `.folder` | `.folderFill` | `brian.folder`, `brian.folder.fill` |
@@ -50,10 +59,12 @@ The list and individual specifications are alphabetized by asset name.
 | [Upward square stack](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
 | [Text document](#textdocument) | `.textDocument` | `.textDocumentFill` | `brian.text.document`, `brian.text.document.fill` |
 | [Text format](#textformat) | `.textformat` | — | `brian.textformat` |
+| [Trash](#trash) | `.trash` | `.trashFill` | `brian.trash`, `brian.trash.fill` |
+| [Circle trash](#trash-circle) | `.trashCircle` | `.trashCircleFill` | `brian.trash.circle`, `brian.trash.circle.fill` |
 | [X mark](#xmark) | `.xmark` | — | `brian.xmark` |
 | [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
-The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, `textformat`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
+The uncontained `arrow`, `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, `textformat`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
 
 The uncontained `pencil` intentionally uses a filled design as its only base shape, without a separate outline variant. The demo also classifies it as Line because its name has no `.fill` suffix. See the [pencil specification](#pencil) for its geometry and circle variants.
 
@@ -61,13 +72,27 @@ The uncontained `pencil` intentionally uses a filled design as its only base sha
 
 Current assets scale a 24 × 24-unit design by a factor of 4 within the SVG template. The Regular-S origin is (1400, 608), and the baseline is y=696. Interpolation sources are `Ultralight-S`, `Regular-S`, and `Black-S`. General authoring follows the [sizing and alignment guidelines](symbol-sizing.md).
 
-`checkmark` and its circle variants, `xmark` and its circle variants, `chevron`, `chevron circle`, line `gearshape`, `minus`, and `plus` use thicknesses of 0.9, 1.65, and 2.35 design units for Ultralight, Regular, and Black respectively. The transparent inner marks in filled circle symbols use the same thicknesses. These values do not apply to the house's internal spaces or filled gearshape.
+`arrow`, `checkmark` and its circle variants, `xmark` and its circle variants, `chevron`, `chevron circle`, line `gearshape`, `minus`, and `plus` use thicknesses of 0.9, 1.65, and 2.35 design units for Ultralight, Regular, and Black respectively. The transparent inner marks in filled circle symbols use the same thicknesses. These values do not apply to the house's internal spaces or filled gearshape.
 
 Chevron and plus strokes have uniform thickness and are converted to closed filled paths, preserving the same path-command structure across weights.
 
 The catalog SVGs are the editing source of truth. One-off generation and validation scripts and comparison images are not included in the repository. After changes, check size, weight, and color in the demo and update the asset's validation coverage.
 
 None of the current assets have been validated on physical iOS devices, the minimum supported OS versions, with Dynamic Type, or with animation. See the [README](../README.md#installation) for declared platform versions.
+
+## arrow
+
+Four uncontained directions with rounded shafts, heads, and endpoints. The right-facing shaft runs from (4, 12) to (20, 12), and the head follows (13, 5) → (20, 12) → (13, 19) in design units. Rotate around (12, 12) for down, left, and up. Closed filled paths reuse the chevron and minus thicknesses and template guides, with matching path topology across the three source weights. No separate fill variant is provided.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
+## arrow circle
+
+Four directions inside a circle of diameter 20 design units. The right-facing shaft runs from (7, 12) to (17, 12), with a head following (12, 7) → (17, 12) → (12, 17). Rotate around (12, 12) for the other directions. The arrow is a single closed contour with rounded ends and tip, avoiding overlapping cutout paths.
+
+Line uses the shared arrow thicknesses for both the circular border and inner arrow. Fill preserves the same outer circle and uses a transparent arrow cutout. Both variants keep the same inner geometry across Ultralight, Regular, and Black.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. Fill cutouts reveal the background without overlapping seams. SF Symbols app import has not yet been validated.
 
 ## book
 
@@ -149,6 +174,12 @@ Image(brianSymbol: .colorPencil)
 See the [default-color policy](symbol-authoring.md#default-colors-and-customization) for rendering behavior and future asset requirements.
 
 Validation coverage is recorded with the [pencil family](#pencil).
+
+## color.trash
+
+A filled tapered bin uses one continuous gray silhouette (`#969BA3`) for the body, lid, and handle, with two light-gray grooves (`#E1E3E6`). There is no gap or contrasting dividing line between the lid and body. Fixed SVG colors supply the default Multicolor appearance. Primary maps to the silhouette and Secondary to the grooves. Monochrome hides the groove layer, revealing transparent slots in the body. No separate color line variant is provided.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and SwiftUI rendering at Regular 48pt with Small image scale on light and dark backgrounds. Default rendering, inherited foreground styles, and explicit Multicolor preserve the authored colors. Monochrome, Hierarchical, and Palette were also checked. SF Symbols app import has not yet been validated.
 
 ## ellipsis
 
@@ -257,6 +288,18 @@ Validated: macOS demo build, matching SVG path-command structures across the thr
 An uppercase A and a double-storey lowercase a share a baseline at y=19. Outlines use the rounded system sans-serif design. Ultralight and Regular use their corresponding font weights; the Black symbol source uses Semibold outlines to preserve legibility and avoid an excessively heavy typographic shape. All sources share Regular’s per-letter bounds, baseline, and spacing within a 20-unit width and 14-unit cap height, keeping the Aa proportions stable when changing symbol weight. Both letters use closed filled paths with transparent counters and matching path-command structures across weights. Only the base shape is provided because a separate fill variant would not convey a distinct shape.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and black-on-white AppKit rendering at 16, 24, and 32pt across those weights. SF Symbols app import and dark-background rendering have not yet been validated.
+
+## trash
+
+A single rounded contour joins the raised handle, projecting lid, and tapered body without a gap or separate dividing stroke. The lid spans x=4.5–19.5 at y=6.25; the body tapers to x=7–17 at y=21. Line hollows out the body and handle; Fill keeps a solid body with two transparent vertical slots. Both use thicknesses of 0.9, 1.65, and 2.35 design units across Ultralight, Regular, and Black. The connected contour also prevents overlapping cutout seams in circle variants.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
+## trash circle
+
+A 20-unit-diameter circle contains the line trash shape at 60% scale around (12, 12), without inner bars. Inner strokes use 80% of the base trash thickness, while the circle border uses the full shared thickness. Circle Fill preserves the same inner geometry as a transparent outline cutout in a solid circle.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
 ## xmark
 
