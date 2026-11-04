@@ -16,8 +16,6 @@ The package manages assets and their public names. See the [asset catalog and sp
 .package(url: "https://github.com/thebriancompany/swift-brian-symbols.git", exact: "0.2.0")
 ```
 
-**0.2.0** adds folder line/fill, color folder, text document line/fill, and the demo’s Color group and rendering controls.
-
 ## Usage
 
 ```swift
@@ -43,14 +41,6 @@ For color symbol usage, see the [color folder example](docs/symbol-authoring.md#
 
 The demo app requires macOS 14+.
 Open [BrianSymbolsDemo.xcworkspace](Demo/BrianSymbolsDemo.xcworkspace) to explore the symbols.
-
-Demo controls:
-
-- Choose Line, Fill, or Color in Group. Color assets form a separate group.
-- For color assets, choose Multicolor, Monochrome, Hierarchical, or Palette in Preview. Multicolor is the default.
-- Palette provides three independent color controls. Other modes use one color control; fixed-color regions remain unchanged in Multicolor.
-- Reset to Default Color restores colors while keeping the selected mode. The default Multicolor tint is blue.
-- Adjust size, weight, background, and image bounds. The Preview rendering mode and palette do not change the list cards.
 
 ![Demo-Cover](docs/assets/demo-cover.png)
 
