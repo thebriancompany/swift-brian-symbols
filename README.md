@@ -49,5 +49,5 @@ The README is available in English and Korean. All other documentation is in Eng
 - [Asset catalog and specifications](docs/symbol-assets.md)
 - [Shapes and naming conventions](docs/symbol-naming.md)
 - [Symbol authoring and registration](docs/symbol-authoring.md)
-- [Asset PRs and preview attachments](docs/asset-pull-requests.md)
+- [Asset pull requests](docs/asset-pull-requests.md)
 - [Sizing and alignment](docs/symbol-sizing.md)

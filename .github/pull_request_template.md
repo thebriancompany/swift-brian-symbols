@@ -1,4 +1,4 @@
-<!-- Preview requirements and example: docs/asset-pull-requests.md.
+<!-- Guidance and example: docs/asset-pull-requests.md.
 Remove instructions and sections that do not apply. -->
 
 ## Changes
@@ -6,12 +6,7 @@ Remove instructions and sections that do not apply. -->
 <!-- Affected assets/public cases, visible changes, and reasons.
 Note compatibility changes when applicable. -->
 
-## Preview
-
-<!-- Attach app-rendered images for added or visually changed assets.
-For modifications, compare before/after with identical settings. -->
-
 ## Validation
 
-<!-- Actual checks/results, OS/tool versions, preview commit, and limitations.
+<!-- Actual checks/results, OS/tool versions, validated commit, and limitations.
 Link updated asset specifications. -->
