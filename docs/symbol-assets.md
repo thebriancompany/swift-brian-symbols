@@ -12,6 +12,8 @@ The list and individual specifications are alphabetized by asset name.
 
 | Subject | Base / Line case | Fill case | Asset name |
 |---|---|---|---|
+| [Book](#book) | `.book` | `.bookFill` | `brian.book`, `brian.book.fill` |
+| [Circle book](#book-circle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
 | [Checkmark](#checkmark) | `.checkmark` | — | `brian.checkmark` |
 | [Circle checkmark](#checkmark) | `.checkmarkCircle` | `.checkmarkCircleFill` | `brian.checkmark.circle`, `brian.checkmark.circle.fill` |
 | [Down chevron](#chevron) | `.chevronDown` | — | `brian.chevron.down` |
@@ -22,6 +24,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle right chevron](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
@@ -46,10 +49,11 @@ The list and individual specifications are alphabetized by asset name.
 | [3×3 grid](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
 | [Upward square stack](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
 | [Text document](#textdocument) | `.textDocument` | `.textDocumentFill` | `brian.text.document`, `brian.text.document.fill` |
+| [Text format](#textformat) | `.textformat` | — | `brian.textformat` |
 | [X mark](#xmark) | `.xmark` | — | `brian.xmark` |
 | [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
-The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
+The uncontained `checkmark`, `chevron`, `ellipsis`, `line.3.horizontal`, `line.3.horizontal.decrease`, `magnifyingglass`, `minus`, `plus`, `textformat`, and `xmark` provide only a base shape because line and fill are not distinct for these subjects. The demo classifies them as Line.
 
 The uncontained `pencil` intentionally uses a filled design as its only base shape, without a separate outline variant. The demo also classifies it as Line because its name has no `.fill` suffix. See the [pencil specification](#pencil) for its geometry and circle variants.
 
@@ -64,6 +68,18 @@ Chevron and plus strokes have uniform thickness and are converted to closed fill
 The catalog SVGs are the editing source of truth. One-off generation and validation scripts and comparison images are not included in the repository. After changes, check size, weight, and color in the demo and update the asset's validation coverage.
 
 None of the current assets have been validated on physical iOS devices, the minimum supported OS versions, with Dynamic Type, or with animation. See the [README](../README.md#installation) for declared platform versions.
+
+## book
+
+The line book uses one continuous outer contour and one central binding stroke. Both are expanded into closed filled paths with round joins and caps at uniform widths of 0.9, 1.65, and 2.35 units across Ultralight, Regular, and Black. The central stroke meets the contour endpoints without overlapping page borders or a doubled seam. Fill uses rounded solid pages separated by a transparent binding 1.2, 1.5, and 1.78 units wide across the three weights.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
+## book circle
+
+A 20-unit-diameter circle contains the book at 61% scale. Line combines an outlined circle and outlined pages. Fill uses transparent page silhouettes cut out of the filled circle, preserving the binding between them. Circle border thicknesses follow the base book weights.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
 ## checkmark
 
@@ -87,6 +103,12 @@ Place each of the four directions inside a circle of diameter 20 units. Rotate t
 - Fill: fill the circle with a genuinely transparent chevron cutout. Preserve the circle silhouette while varying chevron thickness by weight.
 
 Line and fill for all four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
+
+## color.book
+
+An open book uses a blue outline (`#3979D6`) and one continuous warm paper layer (`#FFF4DC`), giving both facing pages the same default color. The outline and central binding share the line book’s uniform stroke widths and rounded joins. Fixed SVG colors provide the multicolor appearance. Primary maps to the blue outline and Secondary to the paper for Palette and Hierarchical rendering. In Monochrome, the paper is hidden and the uniform outline remains. No separate color line variant is provided.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. Explicit Multicolor rendering preserves the blue cover and matching paper colors. SF Symbols app import, minimum-OS behavior, and SwiftUI rendering-mode overrides have not yet been validated.
 
 ## color.folder
 
@@ -155,10 +177,10 @@ Validated: macOS demo build and AppKit rendering at 56pt for line and fill acros
 
 A single monochrome layer consists of a roof, body, and arched door. It uses a low roof, wider shoulder and bottom curves, and a 5.5-unit-wide door with a transparent interior.
 
-- Line: adjust internal spaces for each weight.
+- Line: preserve the original outer silhouette exactly and inset the inner contour by a uniform 0.9, 1.65, or 2.35 units. Roof, walls, and the arched doorway use the same offset distance. The inner contour is sampled at 256 perimeter positions to match path-command structures across the three source weights. Intermediate-weight interpolation has not yet been validated.
 - Fill: use the same silhouette at every weight.
 
-Size and alignment were checked on macOS at 16, 24, and 32pt across three weights.
+Before the uniform-inset revision, size and alignment were checked on macOS at 16, 24, and 32pt across three weights. The revised line asset passed the macOS demo build and AppKit rendering checks on light and dark backgrounds at these combinations: 16pt Ultralight, 24pt Regular, and 32pt Black. Other size–weight combinations have not been rechecked for this revision. The fill asset is unchanged.
 
 ## line.3.horizontal
 
@@ -229,6 +251,12 @@ Validated: macOS demo build, SVG structure, and matching path-command structures
 A centered 16 × 20-unit rounded document contains three rounded text lines, with the final line shortened to 67%. The corner radius is 2.6 units. Line preserves a transparent interior; fill uses transparent text cutouts. Border and text thicknesses are 0.9, 1.65, and 2.35 units across Ultralight, Regular, and Black.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt. Monochrome variants were also checked with white and purple on a dark background. SF Symbols app import has not yet been validated.
+
+## textformat
+
+An uppercase A and a double-storey lowercase a share a baseline at y=19. Outlines use the rounded system sans-serif design. Ultralight and Regular use their corresponding font weights; the Black symbol source uses Semibold outlines to preserve legibility and avoid an excessively heavy typographic shape. All sources share Regular’s per-letter bounds, baseline, and spacing within a 20-unit width and 14-unit cap height, keeping the Aa proportions stable when changing symbol weight. Both letters use closed filled paths with transparent counters and matching path-command structures across weights. Only the base shape is provided because a separate fill variant would not convey a distinct shape.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and black-on-white AppKit rendering at 16, 24, and 32pt across those weights. SF Symbols app import and dark-background rendering have not yet been validated.
 
 ## xmark
 
