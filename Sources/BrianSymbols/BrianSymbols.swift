@@ -68,6 +68,7 @@ extension BrianSymbol {
 
 extension Image {
   public init(brianSymbol symbol: BrianSymbol) {
-    self.init(symbol.rawValue, bundle: .module)
+    let image = Image(symbol.rawValue, bundle: .module)
+    self = symbol.isMulticolor ? image.renderingMode(.original) : image
   }
 }

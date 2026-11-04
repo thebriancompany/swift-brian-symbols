@@ -49,12 +49,10 @@ func symbolImage(
   Group {
     if mode == .palette {
       image.foregroundStyle(palettePrimary, paletteSecondary, paletteTertiary)
+    } else if mode == .multicolor {
+      image
     } else {
-      image.foregroundStyle(
-        symbol.isMulticolor && mode == .multicolor && tint == .primary
-          ? Color(red: 50 / 255, green: 152 / 255, blue: 245 / 255)
-          : tint
-      )
+      image.foregroundStyle(tint)
     }
   }
   .frame(width: pointSize, height: pointSize)

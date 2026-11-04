@@ -129,18 +129,20 @@ struct SymbolPreview: View {
           ColorPicker("Primary Color", selection: $palettePrimary, supportsOpacity: false)
           ColorPicker("Secondary Color", selection: $paletteSecondary, supportsOpacity: false)
           ColorPicker("Tertiary Color", selection: $paletteTertiary, supportsOpacity: false)
-        } else {
+        } else if !selection.isMulticolor || renderingMode != .multicolor {
           ColorPicker("Color", selection: $tint, supportsOpacity: false)
         }
 
         if selection.isMulticolor && renderingMode == .multicolor {
-          Text("Tint changes supported layers; fixed colors stay unchanged.")
+          Text("Multicolor uses the original colors. Choose another rendering mode to customize colors.")
             .font(.caption)
             .foregroundStyle(.secondary)
         }
 
-        Button("Reset to Default Color") {
-          resetColorButtonTapped()
+        if !selection.isMulticolor || renderingMode != .multicolor {
+          Button("Reset to Default Color") {
+            resetColorButtonTapped()
+          }
         }
 
         Toggle("Dark Background", isOn: $darkPreview)

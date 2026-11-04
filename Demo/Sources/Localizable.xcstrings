@@ -493,22 +493,6 @@
         }
       }
     },
-    "Tint changes supported layers; fixed colors stay unchanged." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tint changes supported layers; fixed colors stay unchanged."
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "색상 변경을 지원하는 영역에 적용됩니다. 고정 색상은 유지됩니다."
-          }
-        }
-      }
-    },
     "UltraLight" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -539,6 +523,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "굵기"
+          }
+        }
+      }
+    },
+    "Multicolor uses the original colors. Choose another rendering mode to customize colors." : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다중 색상은 원래 색상을 사용합니다. 색상을 바꾸려면 다른 렌더링 모드를 선택하세요."
           }
         }
       }
