@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10000000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* Localizable.xcstrings */; };
 		3C4DC0224CB39FF8D2334916 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A4A8033C38B7DBA83C9A3 /* App.swift */; };
 		707D9B84712B50DF544651DB /* BrianSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = B34D1083F71E52D181568DD6 /* BrianSymbols */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A10000000000000000000002 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B889CCF5234CCBDAC2D33934 /* swift-brian-symbols */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "swift-brian-symbols"; path = ..; sourceTree = SOURCE_ROOT; };
 		CA6ECC9985D9C04CD96E7496 /* BrianSymbolsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BrianSymbolsDemo.app; path = "Brian Symbols.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0A4A8033C38B7DBA83C9A3 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				55544D2B3099873B003BEB45 /* Components */,
 				CC0A4A8033C38B7DBA83C9A3 /* App.swift */,
+				A10000000000000000000002 /* Localizable.xcstrings */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -75,6 +78,7 @@
 			buildConfigurationList = 7C9A1C554DF190B1D8B0924A /* Build configuration list for PBXNativeTarget "BrianSymbolsDemo" */;
 			buildPhases = (
 				48635742D91458F3D4AE4A55 /* Sources */,
+				A10000000000000000000003 /* Resources */,
 				DA134AEBBCA11402EC723F32 /* Frameworks */,
 			);
 			buildRules = (
@@ -113,6 +117,7 @@
 			knownRegions = (
 				Base,
 				en,
+				ko,
 			);
 			mainGroup = 332FF6DC8826F22A2CBAD7DF;
 			minimizedProjectReferenceProxies = 1;
@@ -126,6 +131,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+        A10000000000000000000003 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                A10000000000000000000001 /* Localizable.xcstrings in Resources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		48635742D91458F3D4AE4A55 /* Sources */ = {

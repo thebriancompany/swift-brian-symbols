@@ -7,10 +7,10 @@ struct BrowserSidebar: View {
 
   var body: some View {
     List(selection: $group) {
-      Section("보관함") {
+      Section("Library") {
         ForEach(SymbolGroup.allCases) { item in
           Label {
-            Text(item.rawValue)
+            Text(item.title)
           } icon: {
             Image(brianSymbol: item.icon)
           }

@@ -69,8 +69,8 @@ struct BrowserView: View {
         )
         .frame(width: 300)
       }
-      .navigationTitle("심볼 둘러보기")
-      .searchable(text: $query, prompt: "심볼 검색")
+      .navigationTitle("Browse Symbols")
+      .searchable(text: $query, prompt: "Search symbols")
     }
     .frame(minWidth: 880, minHeight: 620)
     .onChange(of: filtered) { _, symbols in
