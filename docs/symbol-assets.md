@@ -177,10 +177,10 @@ Validated: macOS demo build and AppKit rendering at 56pt for line and fill acros
 
 A single monochrome layer consists of a roof, body, and arched door. It uses a low roof, wider shoulder and bottom curves, and a 5.5-unit-wide door with a transparent interior.
 
-- Line: adjust internal spaces for each weight.
+- Line: preserve the original outer silhouette exactly and inset the inner contour by a uniform 0.9, 1.65, or 2.35 units. Roof, walls, and the arched doorway use the same offset distance. The inner contour is sampled at 256 perimeter positions to match path-command structures across the three source weights. Intermediate-weight interpolation has not yet been validated.
 - Fill: use the same silhouette at every weight.
 
-Size and alignment were checked on macOS at 16, 24, and 32pt across three weights.
+Before the uniform-inset revision, size and alignment were checked on macOS at 16, 24, and 32pt across three weights. The revised line asset passed the macOS demo build and AppKit rendering checks on light and dark backgrounds at these combinations: 16pt Ultralight, 24pt Regular, and 32pt Black. Other size–weight combinations have not been rechecked for this revision. The fill asset is unchanged.
 
 ## line.3.horizontal
 
