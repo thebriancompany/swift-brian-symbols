@@ -12,6 +12,11 @@ The list and individual specifications are alphabetized by asset name.
 
 | Subject | Base / Line case | Fill case | Asset name |
 |---|---|---|---|
+| [Repeat](#repeat) | `.repeat` | — | `brian.repeat` |
+| [Circle repeat](#repeat) | `.repeatCircle` | `.repeatCircleFill` | `brian.repeat.circle`, `brian.repeat.circle.fill` |
+| [Bell](#bell) | `.bell` | `.bellFill` | `brian.bell`, `brian.bell.fill` |
+| [Circle bell](#bell) | `.bellCircle` | `.bellCircleFill` | `brian.bell.circle`, `brian.bell.circle.fill` |
+| [Color bell](#bell) | — | `.colorBell` | `brian.color.bell` |
 | [Down arrow](#arrow) | `.arrowDown` | — | `brian.arrow.down` |
 | [Circle down arrow](#arrow-circle) | `.arrowDownCircle` | `.arrowDownCircleFill` | `brian.arrow.down.circle`, `brian.arrow.down.circle.fill` |
 | [Left arrow](#arrow) | `.arrowLeft` | — | `brian.arrow.left` |
@@ -336,3 +341,19 @@ Two equal-length axes rotated by 45 degrees form an X centered at (12, 12). Each
 The circle has a diameter of 20 units. Line preserves the outer diameter with a border; fill uses a genuinely transparent X cutout.
 
 Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt, and matching SVG path structures across the three source weights. SF Symbols app import has not yet been validated.
+
+## repeat
+
+Two opposing bent arrows form the repeat mark. Arrowhead tips and shoulders use a 0.6-unit corner radius, scaled proportionally inside circle variants. The base symbol has no separate fill variant; circle variants scale the subject to 72% inside the shared 20-unit circle. Circle fill uses transparent arrow cutouts. All three assets provide matching closed-path topology across Ultralight-S, Regular-S, and Black-S.
+
+Validation: SVG structure and catalog references checked. SF Symbols import, app rendering, and device validation remain pending.
+
+## bell
+
+Rounded bell with a crown and a separate clapper, authored in the shared 24-unit area. Line uses an inset transparent body with thicknesses of 0.9, 1.65, and 2.35 units. Fill keeps the solid silhouette. Circle variants scale the bell to 65% inside a 20-unit circle; circle fill cuts the solid bell out of the container. Closed-path command topology matches across all three source weights.
+
+Color bell uses a yellow body (`#F7C928`, Primary) and golden crown and clapper (`#C88B12`, Secondary). Fixed SVG colors provide the default Multicolor appearance; Palette and Hierarchical use these two roles. Monochrome retains the silhouette and the clapper gap.
+
+Validation: XML, catalog references, closed paths, and weight topology checked. SF Symbols import and app rendering, including color modes and minimum OS versions, remain pending.
+
+Repeat and monochrome bell outlines use direct paths under each weight group and opposite contour winding for transparent holes, matching existing catalog assets without relying on nested transforms or even-odd fills.
