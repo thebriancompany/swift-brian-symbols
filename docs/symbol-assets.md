@@ -52,6 +52,8 @@ The list and individual specifications are alphabetized by asset name.
 | [Minus](#minus) | `.minus` | — | `brian.minus` |
 | [Pencil](#pencil) | `.pencil` | — | `brian.pencil` |
 | [Circle pencil](#pencil) | `.pencilCircle` | `.pencilCircleFill` | `brian.pencil.circle`, `brian.pencil.circle.fill` |
+| [Person](#person) | `.person` | `.personFill` | `brian.person`, `brian.person.fill` |
+| [Circle person](#person-circle) | `.personCircle` | `.personCircleFill` | `brian.person.circle`, `brian.person.circle.fill` |
 | [Plus](#plus) | `.plus` | — | `brian.plus` |
 | [Square](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
 | [Dashed square](#square) | `.squareDashed` | — | `brian.square.dashed` |
@@ -258,6 +260,18 @@ The pencil is authored vertically around the origin, from y=−11 to 11 with a h
 Circle variants scale the pencil uniformly to 67% inside the shared 20-unit circle. Both circle variants use the same solid pencil with a separated eraser. The line circle contains the pencil; the filled circle cuts out the body and eraser with reverse-wound paths, preserving real transparency and a visible bridge between them. The circle border follows the shared weight thicknesses.
 
 Validated: macOS demo build, AppKit rendering at Regular weight at 16, 24, 32, and 72pt, and matching path-command structures across Ultralight-S, Regular-S, and Black-S. The rendered comparison covered all four assets, including the default multicolor appearance and transparent circle cutout. The color pencil was rendered through SwiftUI at Regular 64pt with Small image scale: default and Multicolor rendering preserve the SVG colors under inherited foreground styles, while explicit Monochrome, Hierarchical, and Palette apply the supplied styles. Other rendered weights, dark backgrounds, SF Symbols app import, physical devices, and minimum supported OS versions have not been checked.
+
+## person
+
+A circular head above rounded shoulders, with a clear gap between the two contours. The head is centered at (12, 7.25) with radius 4.25 design units; the body spans x=5–19 and y=12.5–22. The shoulders form a semicircle of radius 7, and the lower corners have radius 2.5. Inner contours use concentric arcs with each radius reduced by the line thickness, keeping the outline uniform through the shoulders, corners, and bottom edge. Line uses closed outer and inner contours with thicknesses of 0.9, 1.65, and 2.35 units for Ultralight, Regular, and Black. Fill uses solid head and body contours, expanding each by 0.18 times the difference from the Regular thickness.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
+## person circle
+
+A person scaled to 65% around (12, 12) inside a circle of diameter 20 design units. Line retains the outlined head and shoulders, with the shared circle border thicknesses. Fill uses a solid circle with a transparent person silhouette cutout. Opposite contour winding preserves transparency without white overlays. Both variants retain matching path topology across the three source weights.
+
+Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
 ## plus
 
