@@ -22,6 +22,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle up arrow](#arrow-circle) | `.arrowUpCircle` | `.arrowUpCircleFill` | `brian.arrow.up.circle`, `brian.arrow.up.circle.fill` |
 | [Book](#book) | `.book` | `.bookFill` | `brian.book`, `brian.book.fill` |
 | [Circle book](#book-circle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
+| [Calendar](#calendar) | `.calendar` | `.calendarFill` | `brian.calendar`, `brian.calendar.fill` |
 | [Checkmark](#checkmark) | `.checkmark` | — | `brian.checkmark` |
 | [Circle checkmark](#checkmark) | `.checkmarkCircle` | `.checkmarkCircleFill` | `brian.checkmark.circle`, `brian.checkmark.circle.fill` |
 | [Down chevron](#chevron) | `.chevronDown` | — | `brian.chevron.down` |
@@ -33,6 +34,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
+| [Color calendar](#colorcalendar) | — | `.colorCalendar` | `brian.color.calendar` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
 | [Color trash](#colortrash) | — | `.colorTrash` | `brian.color.trash` |
@@ -106,6 +108,12 @@ A 20-unit-diameter circle contains the book at 61% scale. Line combines an outli
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
+## calendar
+
+A rounded 20 × 19-unit page with two binding tabs and six date marks. Line uses the shared 0.9, 1.65, and 2.35-unit border thicknesses. Date marks have rounded corners with a radius of 36% of their width. Fill uses transparent date cutouts and an inset rounded separator between the header and the date area. Both preserve the same path topology across the three source weights.
+
+Validated: macOS demo build, matching path-command structures across source weights, and AppKit rendering at 64pt Regular. SF Symbols app import and small-size rendering have not yet been validated.
+
 ## checkmark
 
 The base checkmark centerline is (4, 12) → (9.5, 17.5) → (20, 6.5). Inside circles, it is (7, 12) → (10.5, 15.5) → (17, 8.5). Ends and outer joins are rounded.
@@ -134,6 +142,12 @@ Line and fill for all four directions were checked in the macOS demo build and A
 An open book uses a blue outline (`#3979D6`) and one continuous warm paper layer (`#FFF4DC`), giving both facing pages the same default color. The outline and central binding share the line book’s uniform stroke widths and rounded joins. Fixed SVG colors provide the multicolor appearance. Primary maps to the blue outline and Secondary to the paper for Palette and Hierarchical rendering. In Monochrome, the paper is hidden and the uniform outline remains. No separate color line variant is provided.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. Explicit Multicolor rendering preserves the blue cover and matching paper colors. SF Symbols app import, minimum-OS behavior, and SwiftUI rendering-mode overrides have not yet been validated.
+
+## color.calendar
+
+A filled calendar with an off-white page (`#F0F2F5`), red header and binding tabs (`#EF4444`), and slate date marks (`#475569`) with the same rounded corners as the monochrome variants. Palette roles are Primary for the header, Secondary for dates, and Tertiary for the page. Monochrome hides the date overlay and exposes actual transparent date cutouts in the page.
+
+Validated: macOS demo build, matching path-command structures across source weights, and AppKit Monochrome and Multicolor rendering at 64pt Regular. SF Symbols app import, small sizes, Palette, Hierarchical, and the bare SwiftUI initializer have not yet been validated.
 
 ## color.folder
 
