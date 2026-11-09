@@ -41,6 +41,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
 | [Color calendar](#colorcalendar) | — | `.colorCalendar` | `brian.color.calendar` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
+| [Color microphone](#microphone) | — | `.colorMicrophone` | `brian.color.microphone` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
 | [Color trash](#colortrash) | — | `.colorTrash` | `brian.color.trash` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
@@ -54,6 +55,8 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle with decreasing horizontal lines](#line3horizontal) | `.line3HorizontalDecreaseCircle` | `.line3HorizontalDecreaseCircleFill` | `brian.line.3.horizontal.decrease.circle`, `brian.line.3.horizontal.decrease.circle.fill` |
 | [Magnifying glass](#magnifyingglass) | `.magnifyingglass` | — | `brian.magnifyingglass` |
 | [Circle magnifying glass](#magnifyingglass) | `.magnifyingglassCircle` | `.magnifyingglassCircleFill` | `brian.magnifyingglass.circle`, `brian.magnifyingglass.circle.fill` |
+| [Microphone](#microphone) | `.microphone` | `.microphoneFill` | `brian.microphone`, `brian.microphone.fill` |
+| [Circle microphone](#microphone) | `.microphoneCircle` | `.microphoneCircleFill` | `brian.microphone.circle`, `brian.microphone.circle.fill` |
 | [Minus](#minus) | `.minus` | — | `brian.minus` |
 | [Pencil](#pencil) | `.pencil` | — | `brian.pencil` |
 | [Circle pencil](#pencil) | `.pencilCircle` | `.pencilCircleFill` | `brian.pencil.circle`, `brian.pencil.circle.fill` |
@@ -251,6 +254,14 @@ For both circle variants, scale the inner mark to 90% and align its filled-area 
 The circular container has a fixed diameter of 20 units. Line uses a border; fill uses a genuinely transparent magnifying-glass cutout. All variants use closed filled paths with matching command structures across weights.
 
 Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt across the three source weights on a light background, and matching SVG path structures across weights. SF Symbols app import, dark backgrounds, and custom tint have not yet been validated.
+
+## microphone
+
+An upright rounded capsule and U-shaped support with an integrated stem and foot occupy the shared 24-unit area. Line uses an inset capsule; fill uses a solid capsule. Support thicknesses are 0.9, 1.65, and 2.35 units for Ultralight-S, Regular-S, and Black-S. Circle variants scale the subject to 65% inside a 20-unit circle. Circle fill uses a solid capsule and support as transparent cutouts. Closed paths use opposite contour winding for holes, with matching command topology across the three source weights.
+
+Color microphone uses a charcoal capsule (`#36383B`, Primary) and gray support (`#707378`, Secondary). Fixed SVG colors define Multicolor; Palette and Hierarchical use the two roles. Monochrome preserves the gap between the capsule and support.
+
+Validated: macOS demo build; XML, catalog references, closed paths, and matching weight topology; AppKit rendering of all five compiled assets at Ultralight, Regular, and Black, including explicit Multicolor. SF Symbols app import, minimum OS versions, SwiftUI default colors, and remaining rendering modes remain pending.
 
 ## minus
 
