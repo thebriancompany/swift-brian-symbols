@@ -27,6 +27,8 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle up arrow](#arrow-circle) | `.arrowUpCircle` | `.arrowUpCircleFill` | `brian.arrow.up.circle`, `brian.arrow.up.circle.fill` |
 | [Book](#book) | `.book` | `.bookFill` | `brian.book`, `brian.book.fill` |
 | [Circle book](#book-circle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
+| [Bubble](#bubble) | `.bubble` | `.bubbleFill` | `brian.bubble`, `brian.bubble.fill` |
+| [Circle bubble](#bubble) | `.bubbleCircle` | `.bubbleCircleFill` | `brian.bubble.circle`, `brian.bubble.circle.fill` |
 | [Calendar](#calendar) | `.calendar` | `.calendarFill` | `brian.calendar`, `brian.calendar.fill` |
 | [Checkmark](#checkmark) | `.checkmark` | — | `brian.checkmark` |
 | [Circle checkmark](#checkmark) | `.checkmarkCircle` | `.checkmarkCircleFill` | `brian.checkmark.circle`, `brian.checkmark.circle.fill` |
@@ -39,6 +41,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
+| [Color bubble](#colorbubble) | — | `.colorBubble` | `brian.color.bubble` |
 | [Color calendar](#colorcalendar) | — | `.colorCalendar` | `brian.color.calendar` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
 | [Color microphone](#microphone) | — | `.colorMicrophone` | `brian.color.microphone` |
@@ -117,6 +120,16 @@ Validated: macOS demo build, matching SVG path-command structures across the thr
 A 20-unit-diameter circle contains the book at 61% scale. Line combines an outlined circle and outlined pages. Fill uses transparent page silhouettes cut out of the filled circle, preserving the binding between them. Circle border thicknesses follow the base book weights.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
+## bubble
+
+Oval chat bubble with a lower-left tail in the shared 24-unit area. Line and fill share the outer silhouette. Line thicknesses are 0.9, 1.65, and 2.35 units across Ultralight-S, Regular-S, and Black-S. Circle variants scale the subject to 65% inside a 20-unit circle; circle fill uses a transparent bubble cutout with opposite contour winding. Outlines are expanded from a uniform-width centerline with round joins, including the tail, then sampled into 256-point closed contours for matching topology across source weights. Filled variants reuse the corresponding outer contour.
+
+## colorBubble
+
+White body (`#FFFFFF`, Primary) with a light cool-gray boundary (`#C7CCD2`, Secondary), using fixed SVG multicolor fills. The boundary is 55% of the corresponding monochrome line thickness. Monochrome merges the two regions into a solid bubble silhouette; Palette and Hierarchical expose the two roles.
+
+Validation for bubble assets: XML, catalog references, closed paths, and source-weight topology checked. The macOS demo builds successfully; compiled assets were rendered with AppKit at 32pt Regular on light and dark backgrounds, including the authored white/gray color appearance. SF Symbols app import, additional sizes and weights, explicit rendering modes, and minimum OS validation remain pending.
 
 ## calendar
 
