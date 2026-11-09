@@ -12,11 +12,6 @@ The list and individual specifications are alphabetized by asset name.
 
 | Subject | Base / Line case | Fill case | Asset name |
 |---|---|---|---|
-| [Repeat](#repeat) | `.repeat` | — | `brian.repeat` |
-| [Circle repeat](#repeat) | `.repeatCircle` | `.repeatCircleFill` | `brian.repeat.circle`, `brian.repeat.circle.fill` |
-| [Bell](#bell) | `.bell` | `.bellFill` | `brian.bell`, `brian.bell.fill` |
-| [Circle bell](#bell) | `.bellCircle` | `.bellCircleFill` | `brian.bell.circle`, `brian.bell.circle.fill` |
-| [Color bell](#bell) | — | `.colorBell` | `brian.color.bell` |
 | [Down arrow](#arrow) | `.arrowDown` | — | `brian.arrow.down` |
 | [Circle down arrow](#arrow-circle) | `.arrowDownCircle` | `.arrowDownCircleFill` | `brian.arrow.down.circle`, `brian.arrow.down.circle.fill` |
 | [Left arrow](#arrow) | `.arrowLeft` | — | `brian.arrow.left` |
@@ -25,6 +20,8 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle right arrow](#arrow-circle) | `.arrowRightCircle` | `.arrowRightCircleFill` | `brian.arrow.right.circle`, `brian.arrow.right.circle.fill` |
 | [Up arrow](#arrow) | `.arrowUp` | — | `brian.arrow.up` |
 | [Circle up arrow](#arrow-circle) | `.arrowUpCircle` | `.arrowUpCircleFill` | `brian.arrow.up.circle`, `brian.arrow.up.circle.fill` |
+| [Bell](#bell) | `.bell` | `.bellFill` | `brian.bell`, `brian.bell.fill` |
+| [Circle bell](#bell) | `.bellCircle` | `.bellCircleFill` | `brian.bell.circle`, `brian.bell.circle.fill` |
 | [Book](#book) | `.book` | `.bookFill` | `brian.book`, `brian.book.fill` |
 | [Circle book](#book-circle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
 | [Bubble](#bubble) | `.bubble` | `.bubbleFill` | `brian.bubble`, `brian.bubble.fill` |
@@ -41,18 +38,23 @@ The list and individual specifications are alphabetized by asset name.
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
 | [Dotted circle](#circledotted) | `.circleDotted` | — | `brian.circle.dotted` |
+| [Color bell](#bell) | — | `.colorBell` | `brian.color.bell` |
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
 | [Color bubble](#colorbubble) | — | `.colorBubble` | `brian.color.bubble` |
 | [Color calendar](#colorcalendar) | — | `.colorCalendar` | `brian.color.calendar` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
+| [Color heart](#colorheart) | — | `.colorHeart` | `brian.color.heart` |
 | [Color microphone](#microphone) | — | `.colorMicrophone` | `brian.color.microphone` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
+| [Color star](#colorstar) | — | `.colorStar` | `brian.color.star` |
 | [Color trash](#colortrash) | — | `.colorTrash` | `brian.color.trash` |
 | [Dot viewfinder](#dotviewfinder) | `.dotViewfinder` | — | `brian.dot.viewfinder` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
 | [Circle ellipsis](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
 | [Folder](#folder) | `.folder` | `.folderFill` | `brian.folder`, `brian.folder.fill` |
 | [Gear](#gearshape) | `.gearshape` | `.gearshapeFill` | `brian.gearshape`, `brian.gearshape.fill` |
+| [Heart](#heart) | `.heart` | `.heartFill` | `brian.heart`, `brian.heart.fill` |
+| [Circle heart](#heart) | `.heartCircle` | `.heartCircleFill` | `brian.heart.circle`, `brian.heart.circle.fill` |
 | [House](#house) | `.house` | `.houseFill` | `brian.house`, `brian.house.fill` |
 | [Three horizontal lines](#line3horizontal) | `.line3Horizontal` | — | `brian.line.3.horizontal` |
 | [Circle with three horizontal lines](#line3horizontal) | `.line3HorizontalCircle` | `.line3HorizontalCircleFill` | `brian.line.3.horizontal.circle`, `brian.line.3.horizontal.circle.fill` |
@@ -72,12 +74,16 @@ The list and individual specifications are alphabetized by asset name.
 | [Phone down](#phone-down) | `.phoneDown` | `.phoneDownFill` | `brian.phone.down`, `brian.phone.down.fill` |
 | [Circle phone down](#phone-down) | `.phoneDownCircle` | `.phoneDownCircleFill` | `brian.phone.down.circle`, `brian.phone.down.circle.fill` |
 | [Plus](#plus) | `.plus` | — | `brian.plus` |
+| [Repeat](#repeat) | `.repeat` | — | `brian.repeat` |
+| [Circle repeat](#repeat) | `.repeatCircle` | `.repeatCircleFill` | `brian.repeat.circle`, `brian.repeat.circle.fill` |
 | [Square](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
 | [Dashed square](#square) | `.squareDashed` | — | `brian.square.dashed` |
 | [Dotted square](#square) | `.squareDotted` | — | `brian.square.dotted` |
 | [2×2 grid](#squaregrid2x2) | `.squareGrid2x2` | `.squareGrid2x2Fill` | `brian.square.grid.2x2`, `brian.square.grid.2x2.fill` |
 | [3×3 grid](#squaregrid3x3) | `.squareGrid3x3` | `.squareGrid3x3Fill` | `brian.square.grid.3x3`, `brian.square.grid.3x3.fill` |
 | [Upward square stack](#squarestack3dup) | `.squareStack3dUp` | `.squareStack3dUpFill` | `brian.square.stack.3d.up`, `brian.square.stack.3d.up.fill` |
+| [Star](#star) | `.star` | `.starFill` | `brian.star`, `brian.star.fill` |
+| [Circle star](#star) | `.starCircle` | `.starCircleFill` | `brian.star.circle`, `brian.star.circle.fill` |
 | [Text document](#textdocument) | `.textDocument` | `.textDocumentFill` | `brian.text.document`, `brian.text.document.fill` |
 | [Text format](#textformat) | `.textformat` | — | `brian.textformat` |
 | [Trash](#trash) | `.trash` | `.trashFill` | `brian.trash`, `brian.trash.fill` |
@@ -201,6 +207,12 @@ See the [package rendering example](symbol-authoring.md#using-the-color-folder) 
 
 Validated: macOS demo build and SwiftUI rendering at Regular 64pt with Small image scale, including default rendering under inherited foreground styles and all four explicit modes. The default and Multicolor appearances retain their authored colors. SF Symbols app import has not yet been validated.
 
+## colorHeart
+
+A simple filled rose heart (`#EF4565`) with no decorative highlight. The silhouette matches heart fill. Its single Primary layer keeps the fixed authored color in Multicolor and supports recoloring in Monochrome, Palette, and Hierarchical. This color-namespace asset intentionally uses one color role.
+
+Uses the shared template guides and identical closed-path topology across Ultralight-S, Regular-S, and Black-S. Validation: macOS demo build and compiled-asset AppKit Multicolor preview passed. SF Symbols app import, interpolated weights/scales, and other runtime rendering-mode checks remain unverified.
+
 ## color.pencil
 
 A diagonal filled pencil points toward the lower left, with a rounded eraser at the upper right. Five flat regions use yellow-orange lacquer (`#F5A623`), natural wood (`#E7BC88`), graphite (`#41434A`), a silver band (`#BFC5CC`), and a coral eraser (`#EA836B`). These colors follow the supplied reference without reproducing its texture or highlights. The silhouette is constant across source weights and matches the uncontained monochrome pencil.
@@ -223,6 +235,12 @@ Image(brianSymbol: .colorPencil)
 See the [default-color policy](symbol-authoring.md#default-colors-and-customization) for rendering behavior and future asset requirements.
 
 Validation coverage is recorded with the [pencil family](#pencil).
+
+## colorStar
+
+A simple filled golden star (`#F7C928`) with no decorative highlight. Uses the same rounded geometry as the monochrome star fill. Its single Primary layer keeps the fixed authored color in Multicolor and supports recoloring in Monochrome, Palette, and Hierarchical. This color-namespace asset intentionally uses one color role.
+
+Validation coverage is recorded with [star](#star); other rendering modes remain unverified.
 
 ## color.trash
 
@@ -258,6 +276,12 @@ A single monochrome layer consists of eight teeth and a central circle. Tooth ti
 - Fill: use a transparent central circle and the same silhouette at every weight.
 
 Validated: macOS demo build and AppKit rendering at 56pt for line and fill across the three source weights. Spacing between tooth boundaries was also checked in the generated coordinates. Small-size comparisons at 16, 24, and 32pt have not yet been validated.
+
+## heart
+
+Full rounded lobes and a broad, softened bottom tip in the shared 96-unit area. The heart curve is widened by 12% around its horizontal center before generating constant-width outlines; circular containers keep their original proportions. Line variants use constant-width strokes converted to closed filled contours, rather than scaled inner silhouettes. Stroke widths are 3.6, 6.6, and 9.4 template units for Ultralight-S, Regular-S, and Black-S; the contained heart uses 80% of those widths. Each stroke contour is sampled at 384 evenly spaced points to preserve matching path topology across weights. Fill and color variants use the same underlying heart curve. Circle variants retain the existing 80-unit outer diameter and a 57% heart. Circle fill leaves a transparent heart cutout.
+
+Validation: macOS demo build and compiled-asset AppKit Regular-weight preview passed for all four variants, including the transparent circle-fill cutout. SF Symbols app import, interpolated weights/scales, and small-size runtime appearance remain unverified.
 
 ## house
 
@@ -367,6 +391,12 @@ Validated: macOS demo build, SVG structure, and matching path-command structures
 The diamond-shaped top face and two lower layers use closed filled paths with rounded corners. The top outer boundary begins curving 2.4 units from each vertex, and the inner boundary at 1.5 units. The two lower layers also have smooth bends and ends. Line leaves the top interior transparent; fill fills the top face. Lower-layer thicknesses across the three source weights are 0.9, 1.65, and 2.35 units.
 
 Validated: macOS demo build, SVG structure, and matching path-command structures across the three source weights. SF Symbols app import and actual app rendering have not yet been validated.
+
+## star
+
+A five-point star with rounded tips and inner corners, centered at (48, 50) in the shared 96-unit area. Outer and inner radii are 39 and 24 template units for fuller arms. Tip curves begin 8 units from each outer vertex; inner curves begin 4 units from each inner vertex. Line variants use constant-width strokes converted to filled contours: 3.6, 6.6, and 9.4 units across Ultralight-S, Regular-S, and Black-S. The contained star uses a 57% shape and 80% stroke widths inside the shared 80-unit circle. Circle fill preserves a transparent star cutout. Each outline contour uses 384 evenly spaced points for matching topology across weights.
+
+Validation: macOS demo build, asset registration, matching path topology across source weights, and compiled-asset AppKit Regular-weight previews of all five variants passed, including the transparent circle-fill cutout and Multicolor appearance. SF Symbols app import, interpolated weights/scales, small-size appearance, and additional rendering modes remain unverified.
 
 ## text.document
 
