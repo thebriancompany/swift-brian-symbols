@@ -13,7 +13,7 @@ The package manages assets and their public names. See the [asset catalog and sp
 - Swift 6.4+ to build the package
 
 ```swift
-.package(url: "https://github.com/thebriancompany/swift-brian-symbols.git", exact: "0.8.0")
+.package(url: "https://github.com/thebriancompany/swift-brian-symbols.git", exact: "0.9.0")
 ```
 
 ## Usage
