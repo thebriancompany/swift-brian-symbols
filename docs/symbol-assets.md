@@ -37,6 +37,10 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle right chevron](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [Circle](#circle) | `.circle` | `.circleFill` | `brian.circle`, `brian.circle.fill` |
+| [Circle bottom half](#circle) | — | `.circleBottomhalfFilled` | `brian.circle.bottomhalf.filled` |
+| [Circle left half](#circle) | — | `.circleLefthalfFilled` | `brian.circle.lefthalf.filled` |
+| [Circle right half](#circle) | — | `.circleRighthalfFilled` | `brian.circle.righthalf.filled` |
 | [Dotted circle](#circledotted) | `.circleDotted` | — | `brian.circle.dotted` |
 | [Color bell](#bell) | — | `.colorBell` | `brian.color.bell` |
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
@@ -171,6 +175,15 @@ Place each of the four directions inside a circle of diameter 20 units. Rotate t
 - Fill: fill the circle with a genuinely transparent chevron cutout. Preserve the circle silhouette while varying chevron thickness by weight.
 
 Line and fill for all four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
+
+## circle
+
+- Public cases: `.circle`, `.circleFill`, `.circleRighthalfFilled`, `.circleLefthalfFilled`, `.circleBottomhalfFilled`.
+- Monochrome outline and solid fill share existing circle containers' center (48, 48) and radius 40 in template-local coordinates.
+- Outline thickness: 3.6 / 6.6 / 9.4 for Ultralight-S / Regular-S / Black-S.
+- Half-filled variants contain a separate filled semicircle with a 6-unit (1.5 normalized units) gap inside the ring. Semicircle radii are 30.4 / 27.4 / 24.6; the straight edge passes through the center.
+- Template guides and matching filled-path topology are preserved across interpolation sources. `.filled` variants appear in the demo's Fill group.
+- Validation: SVG structure and asset registration checked. SF Symbols import and macOS demo visual inspection have not been performed.
 
 ## circleDotted
 

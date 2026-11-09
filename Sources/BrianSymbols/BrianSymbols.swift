@@ -42,7 +42,12 @@ public enum BrianSymbol: String, CaseIterable, Identifiable, Sendable {
   case chevronUp = "brian.chevron.up"
   case chevronUpCircle = "brian.chevron.up.circle"
   case chevronUpCircleFill = "brian.chevron.up.circle.fill"
+  case circle = "brian.circle"
+  case circleBottomhalfFilled = "brian.circle.bottomhalf.filled"
   case circleDotted = "brian.circle.dotted"
+  case circleFill = "brian.circle.fill"
+  case circleLefthalfFilled = "brian.circle.lefthalf.filled"
+  case circleRighthalfFilled = "brian.circle.righthalf.filled"
   case colorBell = "brian.color.bell"
   case colorBook = "brian.color.book"
   case colorBubble = "brian.color.bubble"
@@ -129,7 +134,7 @@ public enum BrianSymbol: String, CaseIterable, Identifiable, Sendable {
 extension BrianSymbol {
   public var id: String { rawValue }
   public var isMulticolor: Bool { rawValue.hasPrefix("brian.color.") }
-  public var isFill: Bool { isMulticolor || rawValue.hasSuffix(".fill") }
+  public var isFill: Bool { isMulticolor || rawValue.hasSuffix(".fill") || rawValue.hasSuffix(".filled") }
 
   public static var resourceBundle: Bundle { .module }
 }
