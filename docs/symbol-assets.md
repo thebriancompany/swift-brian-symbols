@@ -65,6 +65,10 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle pencil](#pencil) | `.pencilCircle` | `.pencilCircleFill` | `brian.pencil.circle`, `brian.pencil.circle.fill` |
 | [Person](#person) | `.person` | `.personFill` | `brian.person`, `brian.person.fill` |
 | [Circle person](#person-circle) | `.personCircle` | `.personCircleFill` | `brian.person.circle`, `brian.person.circle.fill` |
+| [Phone](#phone) | `.phone` | `.phoneFill` | `brian.phone`, `brian.phone.fill` |
+| [Circle phone](#phone) | `.phoneCircle` | `.phoneCircleFill` | `brian.phone.circle`, `brian.phone.circle.fill` |
+| [Phone down](#phone-down) | `.phoneDown` | `.phoneDownFill` | `brian.phone.down`, `brian.phone.down.fill` |
+| [Circle phone down](#phone-down) | `.phoneDownCircle` | `.phoneDownCircleFill` | `brian.phone.down.circle`, `brian.phone.down.circle.fill` |
 | [Plus](#plus) | `.plus` | — | `brian.plus` |
 | [Square](#square) | `.square` | `.squareFill` | `brian.square`, `brian.square.fill` |
 | [Dashed square](#square) | `.squareDashed` | — | `brian.square.dashed` |
@@ -301,6 +305,22 @@ Validated: macOS demo build, matching SVG path-command structures across the thr
 A person scaled to 65% around (12, 12) inside a circle of diameter 20 design units. Line retains the outlined head and shoulders, with the shared circle border thicknesses. Fill uses a solid circle with a transparent person silhouette cutout. Opposite contour winding preserves transparency without white overlays. Both variants retain matching path topology across the three source weights.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
+
+## phone
+
+A diagonal telephone handset with rounded earpiece and mouthpiece ends, spanning 20 × 20 design units. Line uses a closed outline converted from rounded strokes at the shared source-weight thicknesses, then uniformly fitted to the same outer bounds. Each outline contour is sampled at 240 evenly spaced points to preserve matching interpolation topology across weights. Fill reuses the exact outer contour of Line at each source weight, removing only the inner contour. This keeps the silhouette, bounds, and rounded ends identical between the pair.
+
+Circle variants use the shared 20-unit circle and a solid handset scaled to 12.25 units. Line varies the circle border across the three source weights; fill uses an oppositely wound handset contour as a transparent cutout. No white overlays or decorative details are included.
+
+Validated: macOS demo build, matching path-command structures across all three source weights, and AppKit rendering of all four assets at Ultralight, Regular, and Black on a light background (48pt, Small scale, drawn in 72pt frames). Small-size legibility, dark backgrounds, SF Symbols app import, physical devices, and minimum supported OS versions have not been checked.
+
+## phone down
+
+The phone handset rotated 135 degrees clockwise into a horizontal hang-up position, with both ends facing down. The rotated artwork is uniformly scaled to 20 design units wide and centered at (12, 12), preserving its proportions. Line and fill reuse the phone contours and source-weight topology. Fill shares the exact outer contour of Line at each weight, so the pair has identical silhouettes and bounds.
+
+Circle variants fit the handset to 12.25 design units wide inside the shared 20-unit circle. Line uses the shared circle border thicknesses and a solid handset; fill preserves a transparent handset cutout with opposite winding.
+
+Validated: macOS demo build, matching path-command structures across all three source weights, and AppKit rendering of all four assets at Ultralight, Regular, and Black on a light background (48pt, Small scale, proportionally fitted in 72pt frames). Small-size legibility, dark backgrounds, SF Symbols app import, physical devices, and minimum supported OS versions have not been checked.
 
 ## plus
 
