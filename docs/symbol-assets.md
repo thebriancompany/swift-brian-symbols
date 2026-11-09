@@ -40,6 +40,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Circle right chevron](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
 | [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [Dotted circle](#circledotted) | `.circleDotted` | — | `brian.circle.dotted` |
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
 | [Color bubble](#colorbubble) | — | `.colorBubble` | `brian.color.bubble` |
 | [Color calendar](#colorcalendar) | — | `.colorCalendar` | `brian.color.calendar` |
@@ -47,6 +48,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Color microphone](#microphone) | — | `.colorMicrophone` | `brian.color.microphone` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
 | [Color trash](#colortrash) | — | `.colorTrash` | `brian.color.trash` |
+| [Dot viewfinder](#dotviewfinder) | `.dotViewfinder` | — | `brian.dot.viewfinder` |
 | [Ellipsis](#ellipsis) | `.ellipsis` | — | `brian.ellipsis` |
 | [Circle ellipsis](#ellipsis) | `.ellipsisCircle` | `.ellipsisCircleFill` | `brian.ellipsis.circle`, `brian.ellipsis.circle.fill` |
 | [Folder](#folder) | `.folder` | `.folderFill` | `brian.folder`, `brian.folder.fill` |
@@ -164,6 +166,12 @@ Place each of the four directions inside a circle of diameter 20 units. Rotate t
 
 Line and fill for all four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
 
+## circleDotted
+
+Twenty circular dots are evenly spaced around a circle centered at (12, 12), with a fixed outer diameter of 20 design units. Dot diameters are 0.9, 1.65, and 2.35 units for Ultralight, Regular, and Black, matching `square.dotted`. The centerline moves inward with increasing weight to preserve outer dimensions. Twenty dots retain visible gaps at Black weight. Each dot is a closed path with four cubic curves, with matching topology across weights. Only the line variant is provided, without a separate fill asset.
+
+Validated: macOS demo build (including asset catalog compilation), SVG structure, matching path-command topology across the three source weights, and positive gaps between adjacent dots. SF Symbols app import and runtime rendering have not yet been validated.
+
 ## color.book
 
 An open book uses a blue outline (`#3979D6`) and one continuous warm paper layer (`#FFF4DC`), giving both facing pages the same default color. The outline and central binding share the line book’s uniform stroke widths and rounded joins. Fixed SVG colors provide the multicolor appearance. Primary maps to the blue outline and Secondary to the paper for Palette and Hierarchical rendering. In Monochrome, the paper is hidden and the uniform outline remains. No separate color line variant is provided.
@@ -221,6 +229,12 @@ Validation coverage is recorded with the [pencil family](#pencil).
 A filled tapered bin uses one continuous gray silhouette (`#969BA3`) for the body, lid, and handle, with two light-gray grooves (`#E1E3E6`). There is no gap or contrasting dividing line between the lid and body. Fixed SVG colors supply the default Multicolor appearance. Primary maps to the silhouette and Secondary to the grooves. Monochrome hides the groove layer, revealing transparent slots in the body. No separate color line variant is provided.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and SwiftUI rendering at Regular 48pt with Small image scale on light and dark backgrounds. Default rendering, inherited foreground styles, and explicit Multicolor preserve the authored colors. Monochrome, Hierarchical, and Palette were also checked. SF Symbols app import has not yet been validated.
+
+## dotViewfinder
+
+Four rounded corner brackets surround a centered dot in the 24 × 24 design area. The outer bounds run from 2 to 22 units, with 3-unit outer corner radii. Bracket thicknesses are 0.9, 1.65, and 2.35 units for Ultralight, Regular, and Black. Round endpoints and the center dot use closed filled paths with matching topology across weights. This symbol intentionally provides only the line variant; no `.fill` asset is supplied.
+
+Validated: macOS demo build (including asset catalog compilation), SVG structure, and matching path-command topology across the three source weights. SF Symbols app import and runtime rendering have not yet been validated.
 
 ## ellipsis
 
