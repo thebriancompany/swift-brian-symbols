@@ -13,7 +13,7 @@
 - 패키지 빌드에 Swift 6.4 이상 필요
 
 ```swift
-.package(url: "https://github.com/thebriancompany/swift-brian-symbols.git", exact: "0.10.0")
+.package(url: "https://github.com/thebriancompany/swift-brian-symbols.git", exact: "0.11.0")
 ```
 
 ## 사용 방법
