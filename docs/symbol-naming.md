@@ -42,6 +42,10 @@ Use lowercase English names. Place the direction immediately after the subject: 
 
 Do not register synonyms such as `home` and `house` for the same subject within a type. When both types depict a subject, share its name, as in `brian.house` and `brian.color.house`. Exclude screen position, specific colors, sizes, weights, and version numbers. Expose Swift APIs as lowerCamelCase cases in `BrianSymbol`; for example, `brian.house.fill` becomes `.houseFill`. Follow [Adding assets to the package](symbol-authoring.md#adding-assets-to-the-package) to register them.
 
+Use the asset name without the `brian.` prefix for specification headings, preserving dots and lowercase spelling: `color.paintpalette`, `color.pencil`, and `phone.down`. Use lowerCamelCase only when referring to Swift cases, such as `.colorPaintpalette` and `.colorPencil`.
+
+Group monochrome line, fill, and container variants under their base or container heading. When a section covers multiple directions, omit the direction from its heading: `arrow`, `arrow.circle`, `chevron`, or `chevron.circle`. These headings identify symbol families, not individual assets. Give each color asset its own section. Shared geometry and validation coverage may be linked to the base family section.
+
 Keep `BrianSymbol` case declarations, the asset list, and individual specifications alphabetized by asset name. Directions follow `down` → `left` → `right` → `up`, with variants placed after their base name.
 
 ## Shape modifiers

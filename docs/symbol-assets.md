@@ -8,47 +8,48 @@ Public names are defined in [BrianSymbol](../Sources/BrianSymbols/BrianSymbols.s
 
 Color assets follow the [default-color policy](symbol-authoring.md#default-colors-and-customization). See the [demo instructions](../README.md#demo) for preview controls.
 
-The list and individual specifications are alphabetized by asset name.
+The list and individual specifications follow the [asset naming and ordering conventions](symbol-naming.md#asset-names).
 
 | Subject | Base / Line case | Fill case | Asset name |
 |---|---|---|---|
 | [Down arrow](#arrow) | `.arrowDown` | — | `brian.arrow.down` |
-| [Circle down arrow](#arrow-circle) | `.arrowDownCircle` | `.arrowDownCircleFill` | `brian.arrow.down.circle`, `brian.arrow.down.circle.fill` |
+| [Circle down arrow](#arrowcircle) | `.arrowDownCircle` | `.arrowDownCircleFill` | `brian.arrow.down.circle`, `brian.arrow.down.circle.fill` |
 | [Left arrow](#arrow) | `.arrowLeft` | — | `brian.arrow.left` |
-| [Circle left arrow](#arrow-circle) | `.arrowLeftCircle` | `.arrowLeftCircleFill` | `brian.arrow.left.circle`, `brian.arrow.left.circle.fill` |
+| [Circle left arrow](#arrowcircle) | `.arrowLeftCircle` | `.arrowLeftCircleFill` | `brian.arrow.left.circle`, `brian.arrow.left.circle.fill` |
 | [Right arrow](#arrow) | `.arrowRight` | — | `brian.arrow.right` |
-| [Circle right arrow](#arrow-circle) | `.arrowRightCircle` | `.arrowRightCircleFill` | `brian.arrow.right.circle`, `brian.arrow.right.circle.fill` |
+| [Circle right arrow](#arrowcircle) | `.arrowRightCircle` | `.arrowRightCircleFill` | `brian.arrow.right.circle`, `brian.arrow.right.circle.fill` |
 | [Up arrow](#arrow) | `.arrowUp` | — | `brian.arrow.up` |
-| [Circle up arrow](#arrow-circle) | `.arrowUpCircle` | `.arrowUpCircleFill` | `brian.arrow.up.circle`, `brian.arrow.up.circle.fill` |
+| [Circle up arrow](#arrowcircle) | `.arrowUpCircle` | `.arrowUpCircleFill` | `brian.arrow.up.circle`, `brian.arrow.up.circle.fill` |
 | [Bell](#bell) | `.bell` | `.bellFill` | `brian.bell`, `brian.bell.fill` |
 | [Circle bell](#bell) | `.bellCircle` | `.bellCircleFill` | `brian.bell.circle`, `brian.bell.circle.fill` |
 | [Book](#book) | `.book` | `.bookFill` | `brian.book`, `brian.book.fill` |
-| [Circle book](#book-circle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
+| [Circle book](#bookcircle) | `.bookCircle` | `.bookCircleFill` | `brian.book.circle`, `brian.book.circle.fill` |
 | [Bubble](#bubble) | `.bubble` | `.bubbleFill` | `brian.bubble`, `brian.bubble.fill` |
 | [Circle bubble](#bubble) | `.bubbleCircle` | `.bubbleCircleFill` | `brian.bubble.circle`, `brian.bubble.circle.fill` |
 | [Calendar](#calendar) | `.calendar` | `.calendarFill` | `brian.calendar`, `brian.calendar.fill` |
 | [Checkmark](#checkmark) | `.checkmark` | — | `brian.checkmark` |
 | [Circle checkmark](#checkmark) | `.checkmarkCircle` | `.checkmarkCircleFill` | `brian.checkmark.circle`, `brian.checkmark.circle.fill` |
 | [Down chevron](#chevron) | `.chevronDown` | — | `brian.chevron.down` |
-| [Circle down chevron](#chevron-circle) | `.chevronDownCircle` | `.chevronDownCircleFill` | `brian.chevron.down.circle`, `brian.chevron.down.circle.fill` |
+| [Circle down chevron](#chevroncircle) | `.chevronDownCircle` | `.chevronDownCircleFill` | `brian.chevron.down.circle`, `brian.chevron.down.circle.fill` |
 | [Left chevron](#chevron) | `.chevronLeft` | — | `brian.chevron.left` |
-| [Circle left chevron](#chevron-circle) | `.chevronLeftCircle` | `.chevronLeftCircleFill` | `brian.chevron.left.circle`, `brian.chevron.left.circle.fill` |
+| [Circle left chevron](#chevroncircle) | `.chevronLeftCircle` | `.chevronLeftCircleFill` | `brian.chevron.left.circle`, `brian.chevron.left.circle.fill` |
 | [Right chevron](#chevron) | `.chevronRight` | — | `brian.chevron.right` |
-| [Circle right chevron](#chevron-circle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
+| [Circle right chevron](#chevroncircle) | `.chevronRightCircle` | `.chevronRightCircleFill` | `brian.chevron.right.circle`, `brian.chevron.right.circle.fill` |
 | [Up chevron](#chevron) | `.chevronUp` | — | `brian.chevron.up` |
-| [Circle up chevron](#chevron-circle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
+| [Circle up chevron](#chevroncircle) | `.chevronUpCircle` | `.chevronUpCircleFill` | `brian.chevron.up.circle`, `brian.chevron.up.circle.fill` |
 | [Circle](#circle) | `.circle` | `.circleFill` | `brian.circle`, `brian.circle.fill` |
 | [Circle bottom half](#circle) | — | `.circleBottomhalfFilled` | `brian.circle.bottomhalf.filled` |
+| [Dotted circle](#circledotted) | `.circleDotted` | — | `brian.circle.dotted` |
 | [Circle left half](#circle) | — | `.circleLefthalfFilled` | `brian.circle.lefthalf.filled` |
 | [Circle right half](#circle) | — | `.circleRighthalfFilled` | `brian.circle.righthalf.filled` |
-| [Dotted circle](#circledotted) | `.circleDotted` | — | `brian.circle.dotted` |
-| [Color bell](#bell) | — | `.colorBell` | `brian.color.bell` |
+| [Color bell](#colorbell) | — | `.colorBell` | `brian.color.bell` |
 | [Color book](#colorbook) | — | `.colorBook` | `brian.color.book` |
 | [Color bubble](#colorbubble) | — | `.colorBubble` | `brian.color.bubble` |
 | [Color calendar](#colorcalendar) | — | `.colorCalendar` | `brian.color.calendar` |
 | [Color folder](#colorfolder) | — | `.colorFolder` | `brian.color.folder` |
 | [Color heart](#colorheart) | — | `.colorHeart` | `brian.color.heart` |
-| [Color microphone](#microphone) | — | `.colorMicrophone` | `brian.color.microphone` |
+| [Color microphone](#colormicrophone) | — | `.colorMicrophone` | `brian.color.microphone` |
+| [Color paint palette](#colorpaintpalette) | — | `.colorPaintpalette` | `brian.color.paintpalette` |
 | [Color pencil](#colorpencil) | — | `.colorPencil` | `brian.color.pencil` |
 | [Color star](#colorstar) | — | `.colorStar` | `brian.color.star` |
 | [Color trash](#colortrash) | — | `.colorTrash` | `brian.color.trash` |
@@ -69,14 +70,15 @@ The list and individual specifications are alphabetized by asset name.
 | [Microphone](#microphone) | `.microphone` | `.microphoneFill` | `brian.microphone`, `brian.microphone.fill` |
 | [Circle microphone](#microphone) | `.microphoneCircle` | `.microphoneCircleFill` | `brian.microphone.circle`, `brian.microphone.circle.fill` |
 | [Minus](#minus) | `.minus` | — | `brian.minus` |
+| [Paint palette](#paintpalette) | `.paintpalette` | `.paintpaletteFill` | `brian.paintpalette`, `brian.paintpalette.fill` |
 | [Pencil](#pencil) | `.pencil` | — | `brian.pencil` |
 | [Circle pencil](#pencil) | `.pencilCircle` | `.pencilCircleFill` | `brian.pencil.circle`, `brian.pencil.circle.fill` |
 | [Person](#person) | `.person` | `.personFill` | `brian.person`, `brian.person.fill` |
-| [Circle person](#person-circle) | `.personCircle` | `.personCircleFill` | `brian.person.circle`, `brian.person.circle.fill` |
+| [Circle person](#personcircle) | `.personCircle` | `.personCircleFill` | `brian.person.circle`, `brian.person.circle.fill` |
 | [Phone](#phone) | `.phone` | `.phoneFill` | `brian.phone`, `brian.phone.fill` |
 | [Circle phone](#phone) | `.phoneCircle` | `.phoneCircleFill` | `brian.phone.circle`, `brian.phone.circle.fill` |
-| [Phone down](#phone-down) | `.phoneDown` | `.phoneDownFill` | `brian.phone.down`, `brian.phone.down.fill` |
-| [Circle phone down](#phone-down) | `.phoneDownCircle` | `.phoneDownCircleFill` | `brian.phone.down.circle`, `brian.phone.down.circle.fill` |
+| [Phone down](#phonedown) | `.phoneDown` | `.phoneDownFill` | `brian.phone.down`, `brian.phone.down.fill` |
+| [Circle phone down](#phonedown) | `.phoneDownCircle` | `.phoneDownCircleFill` | `brian.phone.down.circle`, `brian.phone.down.circle.fill` |
 | [Plus](#plus) | `.plus` | — | `brian.plus` |
 | [Repeat](#repeat) | `.repeat` | — | `brian.repeat` |
 | [Circle repeat](#repeat) | `.repeatCircle` | `.repeatCircleFill` | `brian.repeat.circle`, `brian.repeat.circle.fill` |
@@ -91,7 +93,7 @@ The list and individual specifications are alphabetized by asset name.
 | [Text document](#textdocument) | `.textDocument` | `.textDocumentFill` | `brian.text.document`, `brian.text.document.fill` |
 | [Text format](#textformat) | `.textformat` | — | `brian.textformat` |
 | [Trash](#trash) | `.trash` | `.trashFill` | `brian.trash`, `brian.trash.fill` |
-| [Circle trash](#trash-circle) | `.trashCircle` | `.trashCircleFill` | `brian.trash.circle`, `brian.trash.circle.fill` |
+| [Circle trash](#trashcircle) | `.trashCircle` | `.trashCircleFill` | `brian.trash.circle`, `brian.trash.circle.fill` |
 | [X mark](#xmark) | `.xmark` | — | `brian.xmark` |
 | [Circle X mark](#xmark) | `.xmarkCircle` | `.xmarkCircleFill` | `brian.xmark.circle`, `brian.xmark.circle.fill` |
 
@@ -117,7 +119,7 @@ Four uncontained directions with rounded shafts, heads, and endpoints. The right
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
-## arrow circle
+## arrow.circle
 
 Four directions inside a circle of diameter 20 design units. The right-facing shaft runs from (7, 12) to (17, 12), with a head following (12, 7) → (17, 12) → (12, 17). Rotate around (12, 12) for the other directions. The arrow is a single closed contour with rounded ends and tip, avoiding overlapping cutout paths.
 
@@ -125,13 +127,21 @@ Line uses the shared arrow thicknesses for both the circular border and inner ar
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. Fill cutouts reveal the background without overlapping seams. SF Symbols app import has not yet been validated.
 
+## bell
+
+Rounded bell with a crown and a separate clapper, authored in the shared 24-unit area. Line uses an inset transparent body with thicknesses of 0.9, 1.65, and 2.35 units. Fill keeps the solid silhouette. Circle variants scale the bell to 65% inside a 20-unit circle; circle fill cuts the solid bell out of the container. Closed-path command topology matches across all three source weights.
+
+Validation: XML, catalog references, closed paths, and weight topology checked. SF Symbols import and app rendering, including color modes and minimum OS versions, remain pending.
+
+Monochrome bell outlines use direct paths under each weight group and opposite contour winding for transparent holes, without nested transforms or even-odd fills.
+
 ## book
 
 The line book uses one continuous outer contour and one central binding stroke. Both are expanded into closed filled paths with round joins and caps at uniform widths of 0.9, 1.65, and 2.35 units across Ultralight, Regular, and Black. The central stroke meets the contour endpoints without overlapping page borders or a doubled seam. Fill uses rounded solid pages separated by a transparent binding 1.2, 1.5, and 1.78 units wide across the three weights.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
-## book circle
+## book.circle
 
 A 20-unit-diameter circle contains the book at 61% scale. Line combines an outlined circle and outlined pages. Fill uses transparent page silhouettes cut out of the filled circle, preserving the binding between them. Circle border thicknesses follow the base book weights.
 
@@ -140,10 +150,6 @@ Validated: macOS demo build, matching SVG path-command structures across the thr
 ## bubble
 
 Oval chat bubble with a lower-left tail in the shared 24-unit area. Line and fill share the outer silhouette. Line thicknesses are 0.9, 1.65, and 2.35 units across Ultralight-S, Regular-S, and Black-S. Circle variants scale the subject to 65% inside a 20-unit circle; circle fill uses a transparent bubble cutout with opposite contour winding. Outlines are expanded from a uniform-width centerline with round joins, including the tail, then sampled into 256-point closed contours for matching topology across source weights. Filled variants reuse the corresponding outer contour.
-
-## colorBubble
-
-White body (`#FFFFFF`, Primary) with a light cool-gray boundary (`#C7CCD2`, Secondary), using fixed SVG multicolor fills. The boundary is 55% of the corresponding monochrome line thickness. Monochrome merges the two regions into a solid bubble silhouette; Palette and Hierarchical expose the two roles.
 
 Validation for bubble assets: XML, catalog references, closed paths, and source-weight topology checked. The macOS demo builds successfully; compiled assets were rendered with AppKit at 32pt Regular on light and dark backgrounds, including the authored white/gray color appearance. SF Symbols app import, additional sizes and weights, explicit rendering modes, and minimum OS validation remain pending.
 
@@ -167,7 +173,7 @@ Chevrons point left, right, up, and down. Rotate the left-facing centerline (15.
 
 All four directions were checked in the macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
 
-## chevron circle
+## chevron.circle
 
 Place each of the four directions inside a circle of diameter 20 units. Rotate the inner chevron from the left-facing centerline (14, 8) → (10, 12) → (14, 16), with rounded ends and corners. Apply an optical shift in the pointing direction to align the chevron's area centroid with the circle center. Shifts for Ultralight, Regular, and Black are 0.124, 0.215, and 0.290 units respectively, for both line and fill.
 
@@ -185,17 +191,29 @@ Line and fill for all four directions were checked in the macOS demo build and A
 - Template guides and matching filled-path topology are preserved across interpolation sources. `.filled` variants appear in the demo's Fill group.
 - Validation: SVG structure and asset registration checked. SF Symbols import and macOS demo visual inspection have not been performed.
 
-## circleDotted
+## circle.dotted
 
 Twenty circular dots are evenly spaced around a circle centered at (12, 12), with a fixed outer diameter of 20 design units. Dot diameters are 0.9, 1.65, and 2.35 units for Ultralight, Regular, and Black, matching `square.dotted`. The centerline moves inward with increasing weight to preserve outer dimensions. Twenty dots retain visible gaps at Black weight. Each dot is a closed path with four cubic curves, with matching topology across weights. Only the line variant is provided, without a separate fill asset.
 
 Validated: macOS demo build (including asset catalog compilation), SVG structure, matching path-command topology across the three source weights, and positive gaps between adjacent dots. SF Symbols app import and runtime rendering have not yet been validated.
+
+## color.bell
+
+Color bell uses a yellow body (`#F7C928`, Primary) and golden crown and clapper (`#C88B12`, Secondary). Fixed SVG colors provide the default Multicolor appearance; Palette and Hierarchical use these two roles. Monochrome retains the silhouette and the clapper gap.
+
+Validation coverage is recorded with the [bell family](#bell).
 
 ## color.book
 
 An open book uses a blue outline (`#3979D6`) and one continuous warm paper layer (`#FFF4DC`), giving both facing pages the same default color. The outline and central binding share the line book’s uniform stroke widths and rounded joins. Fixed SVG colors provide the multicolor appearance. Primary maps to the blue outline and Secondary to the paper for Palette and Hierarchical rendering. In Monochrome, the paper is hidden and the uniform outline remains. No separate color line variant is provided.
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. Explicit Multicolor rendering preserves the blue cover and matching paper colors. SF Symbols app import, minimum-OS behavior, and SwiftUI rendering-mode overrides have not yet been validated.
+
+## color.bubble
+
+White body (`#FFFFFF`, Primary) with a light cool-gray boundary (`#C7CCD2`, Secondary), using fixed SVG multicolor fills. The boundary is 55% of the corresponding monochrome line thickness. Monochrome merges the two regions into a solid bubble silhouette; Palette and Hierarchical expose the two roles.
+
+Validation coverage is recorded with the [bubble family](#bubble).
 
 ## color.calendar
 
@@ -220,11 +238,25 @@ See the [package rendering example](symbol-authoring.md#using-the-color-folder) 
 
 Validated: macOS demo build and SwiftUI rendering at Regular 64pt with Small image scale, including default rendering under inherited foreground styles and all four explicit modes. The default and Multicolor appearances retain their authored colors. SF Symbols app import has not yet been validated.
 
-## colorHeart
+## color.heart
 
 A simple filled rose heart (`#EF4565`) with no decorative highlight. The silhouette matches heart fill. Its single Primary layer keeps the fixed authored color in Multicolor and supports recoloring in Monochrome, Palette, and Hierarchical. This color-namespace asset intentionally uses one color role.
 
 Uses the shared template guides and identical closed-path topology across Ultralight-S, Regular-S, and Black-S. Validation: macOS demo build and compiled-asset AppKit Multicolor preview passed. SF Symbols app import, interpolated weights/scales, and other runtime rendering-mode checks remain unverified.
+
+## color.microphone
+
+Color microphone uses a charcoal capsule (`#36383B`, Primary) and gray support (`#707378`, Secondary). Fixed SVG colors define Multicolor; Palette and Hierarchical use the two roles. Monochrome preserves the gap between the capsule and support.
+
+Validation coverage is recorded with the [microphone family](#microphone).
+
+## color.paintpalette
+
+- Asset: `brian.color.paintpalette`; public case: `.colorPaintpalette`.
+- Filled warm wood palette with four differently sized, gently tilted elliptical red, yellow, green, and blue paint daubs. Primary is the body; Secondary groups red and green; Tertiary groups yellow and blue.
+- Transparent gaps around the wells preserve their boundaries in Monochrome. Fixed SVG colors provide the default Multicolor appearance.
+- Uses matching Ultralight-S, Regular-S, and Black-S path topology and the shared 96-unit guides.
+- Validation: XML, registration, macOS demo build, and compiled AppKit Multicolor preview checked. SF Symbols app validation and interactive rendering-mode checks remain pending.
 
 ## color.pencil
 
@@ -249,7 +281,7 @@ See the [default-color policy](symbol-authoring.md#default-colors-and-customizat
 
 Validation coverage is recorded with the [pencil family](#pencil).
 
-## colorStar
+## color.star
 
 A simple filled golden star (`#F7C928`) with no decorative highlight. Uses the same rounded geometry as the monochrome star fill. Its single Primary layer keeps the fixed authored color in Multicolor and supports recoloring in Monochrome, Palette, and Hierarchical. This color-namespace asset intentionally uses one color role.
 
@@ -261,7 +293,7 @@ A filled tapered bin uses one continuous gray silhouette (`#969BA3`) for the bod
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and SwiftUI rendering at Regular 48pt with Small image scale on light and dark backgrounds. Default rendering, inherited foreground styles, and explicit Multicolor preserve the authored colors. Monochrome, Hierarchical, and Palette were also checked. SF Symbols app import has not yet been validated.
 
-## dotViewfinder
+## dot.viewfinder
 
 Four rounded corner brackets surround a centered dot in the 24 × 24 design area. The outer bounds run from 2 to 22 units, with 3-unit outer corner radii. Bracket thicknesses are 0.9, 1.65, and 2.35 units for Ultralight, Regular, and Black. Round endpoints and the center dot use closed filled paths with matching topology across weights. This symbol intentionally provides only the line variant; no `.fill` asset is supplied.
 
@@ -327,8 +359,6 @@ Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt across the thr
 
 An upright rounded capsule and U-shaped support with an integrated stem and foot occupy the shared 24-unit area. Line uses an inset capsule; fill uses a solid capsule. Support thicknesses are 0.9, 1.65, and 2.35 units for Ultralight-S, Regular-S, and Black-S. Circle variants scale the subject to 65% inside a 20-unit circle. Circle fill uses a solid capsule and support as transparent cutouts. Closed paths use opposite contour winding for holes, with matching command topology across the three source weights.
 
-Color microphone uses a charcoal capsule (`#36383B`, Primary) and gray support (`#707378`, Secondary). Fixed SVG colors define Multicolor; Palette and Hierarchical use the two roles. Monochrome preserves the gap between the capsule and support.
-
 Validated: macOS demo build; XML, catalog references, closed paths, and matching weight topology; AppKit rendering of all five compiled assets at Ultralight, Regular, and Black, including explicit Multicolor. SF Symbols app import, minimum OS versions, SwiftUI default colors, and remaining rendering modes remain pending.
 
 ## minus
@@ -336,6 +366,13 @@ Validated: macOS demo build; XML, catalog references, closed paths, and matching
 Minus shares the length, thickness, and center of the plus symbol's horizontal line. Its centerline is (4, 12) → (20, 12), with semicircular ends. Only the base shape is provided, without a line/fill distinction.
 
 Validated: macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
+
+## paintpalette
+
+- Assets: `brian.paintpalette` and `brian.paintpalette.fill`; public cases: `.paintpalette` and `.paintpaletteFill`.
+- Shared rounded kidney silhouette with a thumb recess and four paint wells, within `(8, 8)`–`(88, 88)` in the 96-unit authoring area.
+- Line uses a constant-width inward-offset outline with solid, differently sized elliptical paint daubs; fill uses matching transparent daubs. Outline thickness increases across Ultralight-S, Regular-S, and Black-S with matching path topology.
+- Validation: XML, registration, macOS demo build, and compiled AppKit Regular previews checked. SF Symbols app validation and interactive size/weight checks remain pending.
 
 ## pencil
 
@@ -351,7 +388,7 @@ A circular head above rounded shoulders, with a clear gap between the two contou
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
-## person circle
+## person.circle
 
 A person scaled to 65% around (12, 12) inside a circle of diameter 20 design units. Line retains the outlined head and shoulders, with the shared circle border thicknesses. Fill uses a solid circle with a transparent person silhouette cutout. Opposite contour winding preserves transparency without white overlays. Both variants retain matching path topology across the three source weights.
 
@@ -365,7 +402,7 @@ Circle variants use the shared 20-unit circle and a solid handset scaled to 12.2
 
 Validated: macOS demo build, matching path-command structures across all three source weights, and AppKit rendering of all four assets at Ultralight, Regular, and Black on a light background (48pt, Small scale, drawn in 72pt frames). Small-size legibility, dark backgrounds, SF Symbols app import, physical devices, and minimum supported OS versions have not been checked.
 
-## phone down
+## phone.down
 
 The phone handset rotated 135 degrees clockwise into a horizontal hang-up position, with both ends facing down. The rotated artwork is uniformly scaled to 20 design units wide and centered at (12, 12), preserving its proportions. Line and fill reuse the phone contours and source-weight topology. Fill shares the exact outer contour of Line at each weight, so the pair has identical silhouettes and bounds.
 
@@ -378,6 +415,14 @@ Validated: macOS demo build, matching path-command structures across all three s
 The horizontal and vertical axes have equal lengths, semicircular ends, and a center at design coordinates (12, 12). Each centerline axis is 16 units long.
 
 Validated: macOS demo build and AppKit rendering at 16, 24, and 32pt across the three source weights.
+
+## repeat
+
+Two opposing bent arrows form the repeat mark. Arrowhead tips and shoulders use a 0.6-unit corner radius, scaled proportionally inside circle variants. The base symbol has no separate fill variant; circle variants scale the subject to 72% inside the shared 20-unit circle. Circle fill uses transparent arrow cutouts. All three assets provide matching closed-path topology across Ultralight-S, Regular-S, and Black-S.
+
+Validation: SVG structure and catalog references checked. SF Symbols import, app rendering, and device validation remain pending.
+
+Repeat outlines use direct paths under each weight group and opposite contour winding for transparent holes, without nested transforms or even-odd fills.
 
 ## square
 
@@ -429,7 +474,7 @@ A single rounded contour joins the raised handle, projecting lid, and tapered bo
 
 Validated: macOS demo build, matching SVG path-command structures across the three source weights, and AppKit rendering at 16, 24, and 32pt (Ultralight, Regular, and Black respectively) on light and dark backgrounds. SF Symbols app import has not yet been validated.
 
-## trash circle
+## trash.circle
 
 A 20-unit-diameter circle contains the line trash shape at 60% scale around (12, 12), without inner bars. Inner strokes use 80% of the base trash thickness, while the circle border uses the full shared thickness. Circle Fill preserves the same inner geometry as a transparent outline cutout in a solid circle.
 
@@ -442,19 +487,3 @@ Two equal-length axes rotated by 45 degrees form an X centered at (12, 12). Each
 The circle has a diameter of 20 units. Line preserves the outer diameter with a border; fill uses a genuinely transparent X cutout.
 
 Validated: macOS demo build, AppKit rendering at 16, 24, and 32pt, and matching SVG path structures across the three source weights. SF Symbols app import has not yet been validated.
-
-## repeat
-
-Two opposing bent arrows form the repeat mark. Arrowhead tips and shoulders use a 0.6-unit corner radius, scaled proportionally inside circle variants. The base symbol has no separate fill variant; circle variants scale the subject to 72% inside the shared 20-unit circle. Circle fill uses transparent arrow cutouts. All three assets provide matching closed-path topology across Ultralight-S, Regular-S, and Black-S.
-
-Validation: SVG structure and catalog references checked. SF Symbols import, app rendering, and device validation remain pending.
-
-## bell
-
-Rounded bell with a crown and a separate clapper, authored in the shared 24-unit area. Line uses an inset transparent body with thicknesses of 0.9, 1.65, and 2.35 units. Fill keeps the solid silhouette. Circle variants scale the bell to 65% inside a 20-unit circle; circle fill cuts the solid bell out of the container. Closed-path command topology matches across all three source weights.
-
-Color bell uses a yellow body (`#F7C928`, Primary) and golden crown and clapper (`#C88B12`, Secondary). Fixed SVG colors provide the default Multicolor appearance; Palette and Hierarchical use these two roles. Monochrome retains the silhouette and the clapper gap.
-
-Validation: XML, catalog references, closed paths, and weight topology checked. SF Symbols import and app rendering, including color modes and minimum OS versions, remain pending.
-
-Repeat and monochrome bell outlines use direct paths under each weight group and opposite contour winding for transparent holes, matching existing catalog assets without relying on nested transforms or even-odd fills.
